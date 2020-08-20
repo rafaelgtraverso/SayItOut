@@ -18,3 +18,7 @@
 
 #### Run app from xCode
 `$ open ios/SayItOut.xcworkspace`
+
+### Android
+
+`TO BE CONTINUED ...`
