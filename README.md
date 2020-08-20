@@ -2,19 +2,19 @@
 
 ## Dev instructions
 
-Install packages
+#### Install packages
 `$ yarn`
 
-Install ios dependencies
+#### Install ios dependencies
 `$ cd ios; pod install`
 
-Start server
+#### Start server
 `$ yarn start`
 
 ### iOS
 
-Run from terminal
+#### Run from terminal
 `$ yarn ios`
 
-Run app from xCode
+#### Run app from xCode
 `$ open ios/SayItOut.xcworkspace`
