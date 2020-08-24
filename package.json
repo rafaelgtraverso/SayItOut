@@ -15,11 +15,8 @@
     "@react-navigation/bottom-tabs": "^5.8.0",
     "@react-navigation/native": "^5.7.3",
     "@react-navigation/stack": "^5.9.0",
-<<<<<<< HEAD
     "axios": "^0.19.2",
-=======
     "native-base": "^2.13.14",
->>>>>>> 026ea83f2d8b5dc36ee1d0eeccfc4a0bdcc79fe5
     "react": "16.13.1",
     "react-native": "0.63.2",
     "react-native-elements": "^2.2.1",
