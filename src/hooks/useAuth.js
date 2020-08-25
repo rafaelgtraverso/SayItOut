@@ -1,6 +1,7 @@
-import React, { useReducer, useMemo, useEffect } from 'react';
+import { useReducer, useMemo, useEffect, useContext } from 'react';
 import AsyncStorage from '@react-native-community/async-storage';
 import api from '../api/sayItOut';
+// import { AuthContext } from '../context/AuthContext';
 
 const  useAuth= () =>{
     const [loginState,dispatch] = useReducer(
@@ -44,8 +45,9 @@ const  useAuth= () =>{
     );
     const auth = useMemo(
         () => ({
-            login: async ({email, password}) =>{
+            signin: async (email, password) =>{
                 try {
+                    console.log(email +'  '+ password);
                     const response =  await api.post('/signin', { email, password });
                     await AsyncStorage.setItem('token', response.data.token);
                     dispatch({ type: 'signin', payload: response.data.token});
@@ -55,7 +57,7 @@ const  useAuth= () =>{
                     
                 }
             },
-            logout: async () => {
+            signout: async () => {
                 await AsyncStorage.removeItem('token');
                 dispatch({ type: 'signout'});
             }

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet } from 'react-native';
 import { Text, Input, Button } from 'react-native-elements';
 import Spacer from './Spacer';
+// import { AuthContext } from '../context/AuthContext';
 
 
 const AuthForm = ({headerText, errorMessage, onSubmit, submitButtonText}) => {
@@ -9,7 +10,7 @@ const AuthForm = ({headerText, errorMessage, onSubmit, submitButtonText}) => {
     const [password, setPassword] = useState('');
     // console.log('inside AuthForm');
     // console.log(onSubmit);
-
+    // console.log();
     return (
         <>
         <Text h2> {headerText} </Text>
@@ -37,7 +38,7 @@ const AuthForm = ({headerText, errorMessage, onSubmit, submitButtonText}) => {
             <Spacer />
             <Button 
                 title={submitButtonText}
-                onPress={() => onSubmit( email, password )}
+                onPress={()=>onSubmit('test', password)}
             />
             <Spacer />
         </>

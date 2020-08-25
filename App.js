@@ -11,7 +11,7 @@ import SignInScreen from './src/screens/SignInScreen';
 import SignUpScreen from './src/screens/SignUpScreen';
 import IsLoadingScreen from './src/screens/IsLoadingScreen';
 
-import {Context as AuthContext, Provider as AuthProvider } from './src/context/AuthContext';
+import {AuthContext} from './src/context/AuthContext';
 
 import useAuth from './src/hooks/useAuth';
 
@@ -43,7 +43,7 @@ const App = () => {
   // }
   
   return (
-    <AuthProvider value={auth}>
+    <AuthContext.Provider value={auth}>
       <NavigationContainer>
         {loginState.token 
           ? (
@@ -59,7 +59,7 @@ const App = () => {
             </AuthStack.Navigator>
            )} 
       </NavigationContainer>
-    </AuthProvider>
+    </AuthContext.Provider>
   );
 };
 

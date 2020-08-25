@@ -4,13 +4,14 @@ import { NavigationEvents } from 'react-navigation';
 
 import NavLink from '../components/NavLink';
 import AuthForm from '../components/AuthForm';
-import { Context as AuthContext } from '../context/AuthContext';
+// import { Context as AuthContext } from '../context/AuthContext';
+import {AuthContext} from '../context/AuthContext';
 
 import s from '../css/styles';
 
 const SignInScreen = ({ navigation }) => {
     const { signin } = useContext(AuthContext);
-
+    console.log(signin);
     return <>
          <View style={s.container}>
             {/* <NavigationEvents 
@@ -20,7 +21,7 @@ const SignInScreen = ({ navigation }) => {
                 headerText='Sign In'
                 errorMessage={''}
                 submitButtonText='Sign in'
-                onSubmit = {()=>{signin()}}
+                onSubmit = {()=>signin()}
             />
             <NavLink 
                 navigation={navigation}
