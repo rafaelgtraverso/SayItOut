@@ -7,7 +7,7 @@ const HomeScreen = ({navigation}) => {
     return (
         <View>
             <Text style={s.text}> HomeScreen </Text>
-            <Button title='Create Card' onPress={() => navigation.navigate('Create Card')} />
+            <Button title='Create Card' onPress={() => navigation.navigate('CreateCard')} />
         </View>
     );
 };

@@ -4,28 +4,26 @@ import { NavigationEvents } from 'react-navigation';
 
 import NavLink from '../components/NavLink';
 import AuthForm from '../components/AuthForm';
-// import { Context as AuthContext } from '../context/AuthContext';
-import {AuthContext} from '../context/AuthContext';
+import { Context as AuthContext } from '../context/AuthContext';
 
 import s from '../css/styles';
 
 const SignInScreen = ({ navigation }) => {
-    const { signin } = useContext(AuthContext);
-    console.log(signin);
+    const { state, signin, clearErrorMessage } = useContext(AuthContext);
     return <>
          <View style={s.container}>
-            {/* <NavigationEvents 
+            <NavigationEvents 
                 onWillFocus={clearErrorMessage}
-            />   */}
+            />  
             <AuthForm 
                 headerText='Sign In'
-                errorMessage={''}
+                errorMessage={state.errorMessage}
                 submitButtonText='Sign in'
-                onSubmit = {()=>signin()}
+                onSubmit = {signin}
             />
             <NavLink 
                 navigation={navigation}
-                routeName='Sign Up'
+                routeName='Signup'
                 text="Don't have an account? Sign up instead"
             />
             

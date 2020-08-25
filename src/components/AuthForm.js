@@ -10,7 +10,7 @@ const AuthForm = ({headerText, errorMessage, onSubmit, submitButtonText}) => {
     const [password, setPassword] = useState('');
     // console.log('inside AuthForm');
     // console.log(onSubmit);
-    // console.log();
+
     return (
         <>
         <Text h2> {headerText} </Text>
@@ -38,7 +38,7 @@ const AuthForm = ({headerText, errorMessage, onSubmit, submitButtonText}) => {
             <Spacer />
             <Button 
                 title={submitButtonText}
-                onPress={()=>onSubmit('test', password)}
+                onPress={()=>onSubmit({email, password})}
             />
             <Spacer />
         </>

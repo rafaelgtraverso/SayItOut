@@ -5,7 +5,7 @@ import Spacer from './Spacer';
 
 const NavLink = ({ navigation, text, routeName }) => {
     return (
-        <TouchableOpacity onPress={()=> navigation.navigate({name: routeName})}>
+        <TouchableOpacity onPress={()=> navigation.navigate({routeName})}>
             <Spacer />
             <Text style={s.link}>{text}</Text>
             <Spacer />
