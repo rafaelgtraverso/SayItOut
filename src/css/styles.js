@@ -16,6 +16,21 @@ const s = StyleSheet.create({
         flex:1,
         justifyContent:'center',
         alignItems:'center'
+    },
+    phraseInputView:{
+        flexDirection:'row',
+        flex:1,
+        height:50
+
+    },
+    phraseInput:{
+        height:200,
+        // flex:2
+    },
+    cardsGridview:{
+        borderWidth:1,
+        padding:10,
+        marginHorizontal:10
     }
 });
 
