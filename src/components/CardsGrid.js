@@ -1,17 +1,28 @@
 import React from 'react';
-import { SafeAreaView } from 'react-native';
+import { View, Image } from 'react-native';
 import s from '../css/styles';
-import { Text, Image } from 'react-native-elements';
-import Acorn from '../assets/cards/acorn.svg'
-// import * as RNFS from 'react-native-fs';
+import { Text } from 'react-native-elements';
+
+import * as RNFS from 'react-native-fs';
 
 const CardsGrid = () => {
+    // const cardsDir='/src/assets/cardsPng/'
+    // RNFS.readdir(cardsDir,(err,files) => {
+    //     files.forEach(file =>{
+    //         console.log(file);
+    //     });
+    // });
   
     return (
-        <SafeAreaView style={s.cardsGridview} >
-            <Acorn width={200} height={200} />
+        <View style={s.cardsGridview} >
+        
+            <Image  
+                source={{uri:'src/assets/cardsPng/teddy bear.png'}}
+                style={{ width: 200, height: 200 }}
+            />
+
             <Text> Cards</Text>
-        </SafeAreaView>
+        </View>
     )
 };
 
