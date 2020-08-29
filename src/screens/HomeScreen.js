@@ -12,10 +12,6 @@ const HomeScreen = ({navigation}) => {
             <CardsGrid />
             
             <Text style={s.text}> HomeScreen </Text>
-            <Image
-                style = {{width: '100%', height: 200,resizeMode : 'contain' }}
-                source = {{uri :'asset:/images/emoji.png'}}
-            />
             <Button title='Create Card' onPress={() => navigation.navigate('CreateCard')} />
         </View>
     );

@@ -30,7 +30,15 @@ const s = StyleSheet.create({
     cardsGridview:{
         borderWidth:1,
         padding:10,
-        marginHorizontal:10
+        marginHorizontal:10,
+        width:200
+    },
+    image:{
+        width:200,
+        height:200,
+        borderWidth:2,
+        borderColor:'black',
+        backgroundColor:'white'
     }
 });
 
