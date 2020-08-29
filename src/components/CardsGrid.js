@@ -1,8 +1,8 @@
 import React from 'react';
-import { View, FlatList } from 'react-native';
+import { View, FlatList, Image } from 'react-native';
 import s from '../css/styles';
-import { Text, Card, Image} from 'react-native-elements';
-import { Data }from '../assets/cardsPng/index';
+import { Text, Card} from 'react-native-elements';
+import { Data } from '../assets/cardsPng/index';
 import zip from '../assets/cardsPng/zip.png';
 
 
@@ -17,25 +17,25 @@ const CardsGrid = () => {
             
     //     );
     // };
-    console.log(Data);
+    console.log(Data)
     return (
         // <View style={s.cardsGridView} >
             // <Card style={{width:100}}>
             //     <Image 
-            //         source={require('../assets/cardsPng/zip.png')}
+            //         source={{uri:'../assets/cardsPng/zip.png'}}
             //         style={s.image}
             //     />
             // </Card>
              <FlatList
                 data={Data}
                 renderItem={({item}) => (
-                    <Image
-                        style={s.image}
-                        source={item.id}
-                    />
-                    // <Text>{item.id}</Text>
+                    // <Image
+                    //     style={s.image}
+                    //     source={item.url}
+                    // />
+                    <Text>{item}</Text>
                 )}
-                keyExtractor={item =>item.id}
+                keyExtractor={item =>Math.random()}
             /> 
         // </View>
     )
