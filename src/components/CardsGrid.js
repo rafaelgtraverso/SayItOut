@@ -29,13 +29,15 @@ const CardsGrid = () => {
              <FlatList
                 data={Data}
                 renderItem={({item}) => (
-                    // <Image
-                    //     style={s.image}
-                    //     source={item.url}
-                    // />
-                    <Text>{item}</Text>
+                    <View>
+                        <Image
+                            style={s.image}
+                            source={item.url}
+                            />
+                        <Text>{item.name}</Text>
+                    </View>
                 )}
-                keyExtractor={item =>Math.random()}
+                keyExtractor={item => item.name}
             /> 
         // </View>
     )
