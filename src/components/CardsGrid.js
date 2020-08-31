@@ -1,45 +1,37 @@
-import React from 'react';
-import { View, FlatList, Image } from 'react-native';
+import React, { useState, useContext } from 'react';
+import { Context as PhraseContext } from '../context/PhraseContext';
+import { View, FlatList, Dimensions } from 'react-native';
 import s from '../css/styles';
-import { Text, Card} from 'react-native-elements';
+import Card from '../components/Card';
 import { Data } from '../assets/cardsPng/index';
-import zip from '../assets/cardsPng/zip.png';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+
 
 
 const CardsGrid = () => {
-    // const renderImage = ({ item }) => {
-    //     const sourcePath = `../assets${item.id}`;
-    //     // console.log(sourcePath);
-    //     return (
-    //         <Card>
-    //             <Image style={s.image} source={require('../assets/cardsPng/zip.png')} />
-    //         </Card>
-            
-    //     );
-    // };
-    console.log(Data)
+    const screenWidth= Dimensions.get("window").width;
+    const [column, setColumn] = useState(parseInt(screenWidth/(s.image.width+10),10))
+    const { showPhrase } = useContext(PhraseContext);
+
+    const onLayout = (event) =>{
+        setColumn(parseInt(event.nativeEvent.layout.width/(s.image.width+10),10))
+    };
+
     return (
-        // <View style={s.cardsGridView} >
-            // <Card style={{width:100}}>
-            //     <Image 
-            //         source={{uri:'../assets/cardsPng/zip.png'}}
-            //         style={s.image}
-            //     />
-            // </Card>
+        <View  style={{alignItems:'center'}} onLayout={onLayout} >
              <FlatList
                 data={Data}
                 renderItem={({item}) => (
-                    <View>
-                        <Image
-                            style={s.image}
-                            source={item.url}
-                            />
-                        <Text>{item.name}</Text>
-                    </View>
+                    <TouchableOpacity onPress={() => showPhrase(item.name)}>
+                        <Card item={item} />
+                    </TouchableOpacity>  
                 )}
                 keyExtractor={item => item.name}
+                numColumns={column}
+                key={column}
+                
             /> 
-        // </View>
+        </View>
     )
 };
 

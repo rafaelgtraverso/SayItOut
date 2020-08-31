@@ -19,26 +19,40 @@ const s = StyleSheet.create({
     },
     phraseInputView:{
         flexDirection:'row',
-        flex:1,
-        height:50
+        flex:2,
+        height:120
 
     },
     phraseInput:{
-        height:200,
-        // flex:2
+        height:120,
+        // flex:1
     },
     cardsGridview:{
         borderWidth:1,
-        padding:10,
-        marginHorizontal:10,
-        width:200
+        padding:5,
+        marginHorizontal:5,
+        alignItems:'center',
+        flex:1
     },
     image:{
-        width:200,
-        height:200,
+        width:100,
+        height:100,
         borderWidth:2,
         borderColor:'black',
-        backgroundColor:'white'
+        backgroundColor:'white',
+        margin:5
+    },
+    textFlatList:{
+        textAlign:'center',
+        width:100,
+    },
+    flatList:{
+        alignItems:'center',
+        //flex:1,
+        // flexDirection:'row'
+    },
+    cardContainer:{
+        alignItems:'center'
     }
 });
 

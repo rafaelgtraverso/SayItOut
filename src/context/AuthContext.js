@@ -43,8 +43,8 @@ const tryLocalSignIn = dispatch => async () => {
 };
 
 const clearErrorMessage = dispatch => () => {
-        dispatch({ type: 'clear_error_message'});
-    };
+    dispatch({ type: 'clear_error_message'});
+};
 
 
 const signup = dispatch => async ({ email, password }) => {

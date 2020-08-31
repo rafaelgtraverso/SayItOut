@@ -11,7 +11,9 @@ import SignInScreen from './src/screens/SignInScreen';
 import SignUpScreen from './src/screens/SignUpScreen';
 import ResolveAuthScreen from './src/screens/ResolveAuthScreen';
 
-import {Provider as AuthProvider} from './src/context/AuthContext';
+import { Provider as AuthProvider } from './src/context/AuthContext';
+import { Provider as PhraseProvider } from './src/context/PhraseContext';
+
 import { setNavigator } from './src/navigationRef';
 
  
@@ -37,11 +39,13 @@ const App = createAppContainer(switchNavigator);
 export default () =>{
   return (
     <AuthProvider>
-      <App 
-        ref={(navigator) => { 
-          setNavigator(navigator) 
-        }}
-      />
+      <PhraseProvider>
+        <App 
+          ref={(navigator) => { 
+            setNavigator(navigator) 
+          }}
+        />
+      </PhraseProvider>
     </AuthProvider>   
   )
 };
