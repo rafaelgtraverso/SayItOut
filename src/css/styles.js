@@ -20,13 +20,14 @@ const s = StyleSheet.create({
     phraseInputView:{
         flexDirection:'row',
         // flex:0.2,
-        height:120,
+        height:150,
         borderBottomColor: 'black',
         marginBottom:10
     },
     phraseInput:{
         flex:0.9, 
-        borderBottomWidth:2
+        borderBottomWidth:2,
+        flexDirection:'row'
     },
     cardsGridview:{
         borderWidth:1,
@@ -53,7 +54,7 @@ const s = StyleSheet.create({
         // flexDirection:'row'
     },
     cardContainer:{
-        alignItems:'center'
+        alignItems:'center',
     },
     deleteEntry:{
         flex:0.2,

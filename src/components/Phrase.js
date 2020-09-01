@@ -10,15 +10,14 @@ import { Data } from '../assets/cardsPng/index';
 
 const Phrase = () => {
     const {state, deleteLastEntry } = useContext(PhraseContext)
-   
     return (
         <View style={s.phraseInputView} >
             <View style={s.phraseInput}>
                 { state.phrase.length!= 0 
                 ? (
-                    state.phrase.forEach(element => {
+                    state.phrase.map(element => {
                         let cardData= Data.find(d => d.name === element);
-                        <Card item={cardData} />
+                        return <Card item={cardData} />
                     })
                 ) : null }
             </View>
