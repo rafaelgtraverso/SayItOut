@@ -11,7 +11,7 @@ const Card = ({item}) => {
             <Image
                 style={s.image}
                 source={item.url}
-                />
+            />
             <Text style={s.textFlatList}>{item.name}</Text>
         </View>
     )

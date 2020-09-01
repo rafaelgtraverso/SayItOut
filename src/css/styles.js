@@ -19,20 +19,21 @@ const s = StyleSheet.create({
     },
     phraseInputView:{
         flexDirection:'row',
-        flex:2,
-        height:120
-
+        // flex:0.2,
+        height:120,
+        borderBottomColor: 'black',
+        marginBottom:10
     },
     phraseInput:{
-        height:120,
-        // flex:1
+        flex:0.9, 
+        borderBottomWidth:2
     },
     cardsGridview:{
         borderWidth:1,
         padding:5,
         marginHorizontal:5,
         alignItems:'center',
-        flex:1
+        flex:0.8
     },
     image:{
         width:100,
@@ -53,6 +54,13 @@ const s = StyleSheet.create({
     },
     cardContainer:{
         alignItems:'center'
+    },
+    deleteEntry:{
+        flex:0.2,
+        paddingVertical:35,
+        borderBottomWidth:2, 
+        alignItems:'flex-end', 
+        paddingRight:10
     }
 });
 

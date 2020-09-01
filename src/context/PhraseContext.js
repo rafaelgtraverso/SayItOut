@@ -7,9 +7,13 @@ const phraseReducer = (state, action) => {
     switch (action.type) {
         case 'show_phrase':
             return { 
-                ...state,
-                phrase:action.payload,
+                phrase: [...state.phrase, action.payload],
             };
+        case 'delete_last':
+            let del = state.phrase.pop();
+            return {
+                phrase: state.phrase,
+            }
         default:
             return state;
     }
@@ -17,14 +21,16 @@ const phraseReducer = (state, action) => {
 
 
 const showPhrase = dispatch => (cardName) => {
-
     dispatch({ type:'show_phrase', payload: cardName });
-    // console.log(this.state);
     console.log(cardName);
+    };
+
+    const deleteLastEntry = dispatch => () => {
+        dispatch({ type: 'delete_last' });
     };
 
 export const { Context, Provider } = createDataContext(
     phraseReducer,
-    { showPhrase },
-    {  phrase:[] }
+    { showPhrase, deleteLastEntry },
+    {  phrase: [] }
 );
