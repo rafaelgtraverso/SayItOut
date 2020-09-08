@@ -1,6 +1,6 @@
 import React,{ useContext } from 'react';
 import { Input, Button, Icon } from 'react-native-elements';
-import { View, TouchableOpacity, TouchableWithoutFeedback, Keyboard } from 'react-native';
+import { View, TouchableOpacity } from 'react-native';
 import s from '../css/styles';
 import { Context as PhraseContext } from '../context/PhraseContext';
 import Card from '../components/Card';
@@ -17,7 +17,7 @@ const Phrase = () => {
                 ? (
                     state.phrase.map(element => {
                         let cardData= Data.find(d => d.name === element);
-                        return <Card item={cardData} />
+                        return <Card key={Math.random(9999).toString()} item={cardData} />
                     })
                 ) : null }
             </View>
@@ -32,30 +32,6 @@ const Phrase = () => {
                 </TouchableOpacity>
             </View>
         </View>
-
-
-        // <View style={s.phraseInput}>
-            // <Input 
-            //     inputContainerStyle={s.phraseInput}
-            //     rightIcon={
-            //         <TouchableOpacity onPress={deleteLastEntry}>
-            //             <Icon
-            //                 name='arrow-left'
-            //                 size={40}
-            //                 color='gray'
-            //             />
-            //         </TouchableOpacity>
-            //     }
-            //     editable={null}
-            //     // value={state.phrase.join(' ')}
-            // >
-            //     {state.phrase.forEach((element) => {
-            //         let item=Data.find(card => card.name===element);
-            //          <Card item={item} />
-                    
-            //     })}
-            // </Input>
-        // </View>
     )
 };
 

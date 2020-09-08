@@ -6,13 +6,14 @@ import { Text } from 'react-native-elements';
 
 
 const Card = ({item}) => {
+    let cardName = item.name.replace(/_/g, ' ');
     return (
         <View style={s.cardContainer}>
             <Image
                 style={s.image}
                 source={item.url}
             />
-            <Text style={s.textFlatList}>{item.name}</Text>
+            <Text style={s.textFlatList}>{cardName}</Text>
         </View>
     )
 };
