@@ -2,11 +2,9 @@ import React,{ useContext } from 'react';
 import { Input, Button, Icon } from 'react-native-elements';
 import { View, TouchableOpacity } from 'react-native';
 import s from '../css/styles';
-import { Context as PhraseContext } from '../context/PhraseContext';
+import {Context as PhraseContext} from '../context/PhraseContext';
 import Card from '../components/Card';
-import { Data } from '../assets/cardsPng/index';
-
-
+import {Data} from '../assets/cardsPng/index';
 
 const Phrase = () => {
     const {state, deleteLastEntry } = useContext(PhraseContext)
