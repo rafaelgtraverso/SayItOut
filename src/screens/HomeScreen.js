@@ -1,12 +1,14 @@
-import React, {useContext} from 'react';
-import {View, Image} from 'react-native';
+import React, { useEffect} from 'react';
+import {View} from 'react-native';
 import s from '../css/styles';
-import {Text, Button} from 'react-native-elements';
 import Phrase from '../components/Phrase';
 import CardsGrid from '../components/CardsGrid';
-import {Context as PhraseContext} from '../context/PhraseContext';
+import createDatabase from '../api/local/sqlite';
 
 const HomeScreen = ({navigation}) => {
+  useEffect(() => {
+    createDatabase();
+  },[]);
   return (
     <View style={{flex: 1}}>
       <Phrase style={s.phraseInput} />

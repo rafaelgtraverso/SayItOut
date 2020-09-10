@@ -19,7 +19,6 @@ const s = StyleSheet.create({
   },
   phraseInputView: {
     flexDirection: 'row',
-    // flex:0.2,
     height: 150,
     borderBottomColor: 'black',
     marginBottom: 10,
@@ -35,6 +34,7 @@ const s = StyleSheet.create({
     marginHorizontal: 5,
     alignItems: 'center',
     flex: 0.8,
+
   },
   image: {
     width: 100,
@@ -50,15 +50,13 @@ const s = StyleSheet.create({
   },
   flatList: {
     alignItems: 'center',
-    //flex:1,
-    // flexDirection:'row'
   },
   cardContainer: {
     alignItems: 'center',
   },
-  deleteEntry: {
+  phraseButtons: {
     flex: 0.2,
-    paddingVertical: 35,
+    alignContent:'center',
     borderBottomWidth: 2,
     alignItems: 'flex-end',
     paddingRight: 10,
