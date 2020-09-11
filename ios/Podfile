@@ -14,6 +14,8 @@ target 'SayItOut' do
 
   pod 'TextToSpeech', :path => '../node_modules/react-native-tts'
 
+  pod 'RNSqlite2', :path => '../node_modules/react-native-sqlite-2'
+
   target 'SayItOutTests' do
     inherit! :complete
     # Pods for testing
