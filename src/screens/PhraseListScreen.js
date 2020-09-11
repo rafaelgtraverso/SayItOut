@@ -1,13 +1,13 @@
 import React from 'react';
-import {View} from 'react-native';
+import {SafeAreaView} from 'react-navigation';
 import s from '../css/styles';
 import {Text} from 'react-native-elements';
 
 const PhraseListScreen = () => {
   return (
-    <View>
+    <SafeAreaView forceInset={{top: 'always'}}>
       <Text style={s.text}> PhraseListScreen </Text>
-    </View>
+    </SafeAreaView>
   );
 };
 

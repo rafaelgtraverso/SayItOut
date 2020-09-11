@@ -4,7 +4,7 @@ import { insertPhrase } from '../api/local/sqlite';
 
 const phraseReducer = (state, action) => {
     switch (action.type) {
-        case 'show_phrase':
+        case 'assembling_phrase':
             return { 
                 phrase: [...state.phrase, action.payload],
             };
@@ -27,7 +27,7 @@ const handleVoice = ttsText => {
 };
 
 const showPhrase = dispatch => (cardName) => {
-    dispatch({ type:'show_phrase', payload: cardName });
+    dispatch({ type:'assembling_phrase', payload: cardName });
     handleVoice(cardName);
 };
 
@@ -35,9 +35,9 @@ const deleteLastEntry = dispatch => () => {
         dispatch({ type: 'delete_last' });
 };
 
-// const savePhrase = (phrase) => {
+// const savePhrase = () => {
 //     let phraseString = phrase.join('-');
-//     // insertPhrase(phraseString.join('-'));
+//     insertPhrase(phraseString.join('-'));
 //     console.log(phraseString);
 // };
 

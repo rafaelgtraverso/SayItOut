@@ -11,7 +11,6 @@ export const createDatabase = () => {
     } );
     console.log('db created');
 };
-
 export const insertPhrase = (phrase) => {
   db.transaction( txn => {
     txn.executeSql(
@@ -21,7 +20,7 @@ export const insertPhrase = (phrase) => {
         if(result.rowsAffected > 0) {
           Alert.alert(
             'Success',
-            'You save the phrase succesfuly',
+            'You save the phrase succesfuly:',
             [
               {
                 text: 'OK',
@@ -37,4 +36,8 @@ export const insertPhrase = (phrase) => {
   });
 };
 
-// export default { createDatabase, insertPhrase };
+// export const getAllPhrases = () => {
+//   db.transaction
+// }
+
+

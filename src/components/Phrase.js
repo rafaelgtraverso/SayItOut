@@ -8,7 +8,7 @@ import {Data} from '../assets/cardsPng/index';
 import { insertPhrase } from '../api/local/sqlite';
 
 const Phrase = () => {
-    const {state, deleteLastEntry, savePhrase } = useContext(PhraseContext)
+    const {state, deleteLastEntry} = useContext(PhraseContext)
     return (
         <View style={s.phraseInputView} >
             <View style={s.phraseInput}>
@@ -31,7 +31,7 @@ const Phrase = () => {
                         color='black'
                     />
                 </TouchableOpacity>
-                <TouchableOpacity >
+                <TouchableOpacity onPress={()=>insertPhrase(state.phrase.join('-'))}>
                     <Icon
                         name='save'
                         type='feather'
