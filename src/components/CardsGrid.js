@@ -1,10 +1,10 @@
-import React, {useState, useContext} from 'react';
+import React, {useState, useContext, useEffect} from 'react';
 import {Context as PhraseContext} from '../context/PhraseContext';
-import {View, FlatList, Dimensions} from 'react-native';
+import {View, FlatList, Dimensions, TouchableOpacity} from 'react-native';
 import s from '../css/styles';
 import Card from '../components/Card';
-import {Data} from '../assets/cardsPng/index';
-import {TouchableOpacity} from 'react-native-gesture-handler';
+// import {Data} from '../assets/cardsPng/index';
+import { getCards } from '../api/local/sqlite';
 
 const CardsGrid = () => {
   const screenWidth = Dimensions.get('window').width;
@@ -19,10 +19,15 @@ const CardsGrid = () => {
     );
   };
 
+  const [dataSql,setDataSql]=useState([]);
+  useEffect(()=>{
+    const cb = cards => setDataSql(cards);
+    getCards({cb});
+  },[]);
   return (
     <View style={{alignItems: 'center'}} onLayout={onLayout}>
       <FlatList
-        data={Data}
+        data={dataSql}
         renderItem={({item}) => (
           <TouchableOpacity onPress={() => showPhrase(item.name)}>
             <Card item={item} />

@@ -27,9 +27,9 @@ const switchNavigator = createSwitchNavigator({
       Home: HomeScreen,
       CreateCard: CreateCardScreen,
     }),
-    "My Phrases": PhraseListScreen,
-    Account: AccountScreen,
-  }),
+    Phrases: createStackNavigator({Phrases:PhraseListScreen}),
+    Account: createStackNavigator({Account:AccountScreen}),
+  })
 });
 
 const App = createAppContainer(switchNavigator);

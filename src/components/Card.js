@@ -5,6 +5,9 @@ import {Text} from 'react-native-elements';
 
 const Card = ({item}) => {
     let cardName = item.name.replace(/_/g, ' ');
+    // console.log(cardName);
+    // let url=require(item.url);
+    // console.log(url); 
     return (
         <View style={s.cardContainer}>
             <Image

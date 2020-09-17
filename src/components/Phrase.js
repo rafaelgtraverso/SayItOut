@@ -1,27 +1,32 @@
 import React,{ useContext } from 'react';
-import { Input, Button, Icon, Text } from 'react-native-elements';
-import { View, TouchableOpacity } from 'react-native';
+import { Icon } from 'react-native-elements';
+import { View, ScrollView, TouchableOpacity } from 'react-native';
 import s from '../css/styles';
 import {Context as PhraseContext} from '../context/PhraseContext';
 import Card from '../components/Card';
 import {Data} from '../assets/cardsPng/index';
 import { insertPhrase } from '../api/local/sqlite';
 
+
 const Phrase = () => {
     const {state, deleteLastEntry} = useContext(PhraseContext)
     return (
         <View style={s.phraseInputView} >
-            <View style={s.phraseInput}>
-                <Text>
+            <ScrollView 
+                style={s.phraseInput} 
+                horizontal={true} 
+                showsHorizontalScrollIndicator={false}
+                ref={ref => this.scrollView = ref}
+                onContentSizeChange={() => this.scrollView.scrollToEnd()}
+            >
                 { state.phrase.length!= 0 
-                ? (
-                    state.phrase.map(element => {
-                        let cardData= Data.find(d => d.name === element);
-                        return <Card key={Math.random(9999).toString()} item={cardData} />
-                    })
-                ) : null }
-                </Text>
-            </View>
+                    ? (
+                        state.phrase.map(element => {
+                            let cardData= Data.find(d => d.name === element);
+                            return <Card key={Math.random(9999).toString()} item={cardData} />
+                        })
+                    ) : null }
+            </ScrollView>
             <View style={s.phraseButtons}>
                 <TouchableOpacity onPress={deleteLastEntry}>
                     <Icon
@@ -31,7 +36,7 @@ const Phrase = () => {
                         color='black'
                     />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={()=>insertPhrase(state.phrase.join('-'))}>
+                <TouchableOpacity onPress={()=>insertPhrase(state.phrase.join(' '))}>
                     <Icon
                         name='save'
                         type='feather'

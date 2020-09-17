@@ -1,5 +1,4 @@
 from collections import defaultdict
-# from os import path
 import os
 import glob
 import json
@@ -12,7 +11,6 @@ for file in glob.iglob(os.path.join(base_path, '*.png'), recursive=True):
     source='../assets'+file[1:]
     fileName=os.path.basename(file).split('.')[0]
     dict="{ name: '"+fileName+"', url: require('"+source+"') },"
-    # print(dict)
     d.append(dict)
 
 

@@ -24,7 +24,7 @@ const s = StyleSheet.create({
     marginBottom: 10,
   },
   phraseInput: {
-    flex: 0.9,
+    flex: 0.95,
     borderBottomWidth: 2,
     flexDirection: 'row',
   },
@@ -55,7 +55,7 @@ const s = StyleSheet.create({
     alignItems: 'center',
   },
   phraseButtons: {
-    flex: 0.2,
+    flex: 0.05,
     alignContent:'center',
     borderBottomWidth: 2,
     alignItems: 'flex-end',

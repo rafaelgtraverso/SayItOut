@@ -13,6 +13,11 @@ const phraseReducer = (state, action) => {
             return {
                 phrase: state.phrase,
             };
+        case 'sql_phrases':
+            return {
+                ...state,
+                savedPhrases: action.payload,
+            };
         default:
             return state;
     }
@@ -35,14 +40,12 @@ const deleteLastEntry = dispatch => () => {
         dispatch({ type: 'delete_last' });
 };
 
-// const savePhrase = () => {
-//     let phraseString = phrase.join('-');
-//     insertPhrase(phraseString.join('-'));
-//     console.log(phraseString);
-// };
+const sqlPhrases = dispatch => (sqlPhrases) => {
+    dispatch({type: 'sql_phrases', payload: sqlPhrases});
+};
 
 export const { Context, Provider } = createDataContext(
     phraseReducer,
-    { showPhrase, deleteLastEntry },
-    { phrase: [] }
+    { showPhrase, deleteLastEntry, sqlPhrases },
+    { phrase: [], savedPhrases:[] }
 );
