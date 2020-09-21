@@ -3,6 +3,7 @@ import os
 import glob
 import json
 
+
 base_path = "./cardsPng/"
 d = []
 

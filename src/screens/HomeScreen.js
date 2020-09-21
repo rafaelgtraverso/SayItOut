@@ -6,23 +6,23 @@ import CardsGrid from '../components/CardsGrid';
 import {createDatabase, populateCardsTable, getCards} from '../api/local/sqlite';
 import {Data} from '../assets/cardsPng/index';
 import * as RNLocalize from 'react-native-localize';
+import { NavigationEvents } from 'react-navigation';
 // import translate from 'google-translate-api'
 
 const HomeScreen = () => {
   // const translate = require('google-translate-api');
-  console.log(RNLocalize.getLocales().languageCode);
+  console.log(RNLocalize.getLocales()[0].languageCode);
 
   // useEffect(() => {
   //   createDatabase();
-
-  //   Data.map(element =>{
-  //     populateCardsTable(element.name, element.url,null);
-  //   })
-    
+  // // Data.map(element =>{
+  // //   populateCardsTable(element.name, element.url,null);
+  // // })
   // },[]);
 
   return (
     <View style={{flex: 1}}>
+      {/* <NavigationEvents onWill={} /> */}
       <Phrase style={s.phraseInput} />
       <CardsGrid style={s.cardsGridview} />
       {/* <Button title='Create Card' onPress={() => navigation.navigate('CreateCard')} /> */}

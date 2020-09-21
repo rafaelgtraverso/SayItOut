@@ -1,17 +1,37 @@
-import React,{ useContext } from 'react';
+import React,{ useContext,useEffect } from 'react';
 import { Icon } from 'react-native-elements';
 import { View, ScrollView, TouchableOpacity } from 'react-native';
 import s from '../css/styles';
 import {Context as PhraseContext} from '../context/PhraseContext';
 import Card from '../components/Card';
 import {Data} from '../assets/cardsPng/index';
-import { insertPhrase } from '../api/local/sqlite';
+import { getPhrasesCount, insertPhrase } from '../api/local/sqlite';
+import { NavigationEvents } from 'react-navigation';
+import { handleVoice } from '../helpers/tts/handleVoices';
 
 
 const Phrase = () => {
-    const {state, deleteLastEntry} = useContext(PhraseContext)
+    const {state, deleteLastEntry, clearPhrase, setLastPhraseId} = useContext(PhraseContext);
+    console.log(state.phraseId);
+    useEffect(() =>{
+        const cb = (phraseId) => setLastPhraseId(phraseId[0].Last_Id+1); //{phraseId[0].Last_Id!=null ? setLastPhraseId(phraseId[0].Last_Id+1) : setLastPhraseId(1)}; 
+        getPhrasesCount({cb});
+    },[state.phrase]);
+    const savePhrase = () => {
+        // setPhraseId();
+        // // console.log(state.phrase);
+        if (state.phraseId>0){
+            insertPhrase(state.phraseId,state.phrase);
+            clearPhrase();
+        }else{
+            console.log(state);
+        }
+        
+    } ;
+
     return (
         <View style={s.phraseInputView} >
+            {/* <NavigationEvents onWillBlur={clearPhrase} /> */}
             <ScrollView 
                 style={s.phraseInput} 
                 horizontal={true} 
@@ -36,12 +56,20 @@ const Phrase = () => {
                         color='black'
                     />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={()=>insertPhrase(state.phrase.join(' '))}>
+                <TouchableOpacity onPress={savePhrase}>
                     <Icon
                         name='save'
                         type='feather'
                         size={50}
                         color='black'
+                    />
+                </TouchableOpacity>
+                <TouchableOpacity onPress={()=>handleVoice(state.phrase.toString(' '))}>
+                    <Icon
+                        name='play-circle'
+                        type='feather'
+                        size={50}
+                        color='green'
                     />
                 </TouchableOpacity>
             </View>

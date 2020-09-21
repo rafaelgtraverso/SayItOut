@@ -19,7 +19,7 @@ const s = StyleSheet.create({
   },
   phraseInputView: {
     flexDirection: 'row',
-    height: 150,
+    height: 170,
     borderBottomColor: 'black',
     marginBottom: 10,
   },
@@ -27,6 +27,13 @@ const s = StyleSheet.create({
     flex: 0.95,
     borderBottomWidth: 2,
     flexDirection: 'row',
+  },
+  phraseView:{
+    padding:10,
+    borderBottomWidth:1,
+    flexDirection:'row', 
+    flex:1,
+    alignItems:'center'
   },
   cardsGridview: {
     borderWidth: 1,
