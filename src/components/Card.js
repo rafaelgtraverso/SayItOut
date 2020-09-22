@@ -4,7 +4,8 @@ import s from '../css/styles';
 import {Text} from 'react-native-elements';
 
 const Card = ({item}) => {
-    let cardName = item.name.replace(/_/g, ' ');
+    // console.log(item.name);
+    let cardName = item.name;
     // console.log(cardName);
     // let url=require(item.url);
     // console.log(url); 

@@ -33,7 +33,7 @@ const CardsGrid = () => {
             <Card item={item} />
           </TouchableOpacity>
         )}
-        keyExtractor={(item) => item.name}
+        keyExtractor={(item,index) => item.name+index.toString()}
         numColumns={column}
         key={column}
       />

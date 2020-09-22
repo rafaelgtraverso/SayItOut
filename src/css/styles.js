@@ -68,6 +68,11 @@ const s = StyleSheet.create({
     alignItems: 'flex-end',
     paddingRight: 10,
   },
+  loading: {
+    alignContent:'space-around',
+    alignSelf:'center',
+    padding:100,
+  }
 });
 
 export default s;

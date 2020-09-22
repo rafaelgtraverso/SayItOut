@@ -6,7 +6,6 @@ import CardsGrid from '../components/CardsGrid';
 import {createDatabase, populateCardsTable, getCards} from '../api/local/sqlite';
 import {Data} from '../assets/cardsPng/index';
 import * as RNLocalize from 'react-native-localize';
-import { NavigationEvents } from 'react-navigation';
 // import translate from 'google-translate-api'
 
 const HomeScreen = () => {
@@ -15,17 +14,13 @@ const HomeScreen = () => {
 
   // useEffect(() => {
   //   createDatabase();
-  // // Data.map(element =>{
-  // //   populateCardsTable(element.name, element.url,null);
-  // // })
+  //   populateCardsTable();
   // },[]);
 
   return (
     <View style={{flex: 1}}>
-      {/* <NavigationEvents onWill={} /> */}
       <Phrase style={s.phraseInput} />
       <CardsGrid style={s.cardsGridview} />
-      {/* <Button title='Create Card' onPress={() => navigation.navigate('CreateCard')} /> */}
     </View>
   );
 };

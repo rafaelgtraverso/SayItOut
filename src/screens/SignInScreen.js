@@ -7,9 +7,21 @@ import AuthForm from '../components/AuthForm';
 import {Context as AuthContext} from '../context/AuthContext';
 
 import s from '../css/styles';
+import { createDatabase, populateCardsTable } from '../api/local/sqlite';
+const RNFS = require('react-native-fs');
 
 const SignInScreen = ({navigation}) => {
   const {state, signin, clearErrorMessage} = useContext(AuthContext);
+  // const base = `SayItOut.db`;
+  // const dest = RNFS.CachesDirectoryPath.replace('Caches', 'NoCloud');
+  
+  // RNFS.exists(`${dest}/${base}`).then(res => {
+  //   if(!res){
+  //     createDatabase();
+  //     populateCardsTable();
+  //     }
+  // });
+
   return (
     <>
       <View style={s.container}>

@@ -15,9 +15,11 @@ import {Provider as AuthProvider} from './src/context/AuthContext';
 import {Provider as PhraseProvider} from './src/context/PhraseContext';
 
 import {setNavigator} from './src/navigationRef';
+import LoadingCardsScreen from './src/screens/LoadingCardsScreen';
 
 const switchNavigator = createSwitchNavigator({
   resolveAuth: ResolveAuthScreen,
+  loading: LoadingCardsScreen,
   loginFlow: createStackNavigator({
     Signin: SignInScreen,
     Signup: SignUpScreen,

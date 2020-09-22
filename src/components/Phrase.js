@@ -56,20 +56,20 @@ const Phrase = () => {
                         color='black'
                     />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={savePhrase}>
-                    <Icon
-                        name='save'
-                        type='feather'
-                        size={50}
-                        color='black'
-                    />
-                </TouchableOpacity>
                 <TouchableOpacity onPress={()=>handleVoice(state.phrase.toString(' '))}>
                     <Icon
                         name='play-circle'
                         type='feather'
                         size={50}
                         color='green'
+                    />
+                </TouchableOpacity>
+                <TouchableOpacity onPress={savePhrase}>
+                    <Icon
+                        name='save'
+                        type='feather'
+                        size={50}
+                        color='black'
                     />
                 </TouchableOpacity>
             </View>

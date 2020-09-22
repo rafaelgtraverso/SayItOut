@@ -1,6 +1,8 @@
+import { useContext, useEffect } from 'react';
 import SQLite from 'react-native-sqlite-2';
-import { Alert } from 'react-native';
-import { navigate } from '../../navigationRef';
+import { TabRouter } from 'react-navigation';
+import { Data } from '../../assets/cardsPng/index';
+const RNFS = require('react-native-fs');
 
 const db = SQLite.openDatabase("SayItOut.db", "1.0", "", 1);
 
@@ -9,22 +11,22 @@ export const createDatabase = () => {
     db.transaction( txn => {
         txn.executeSql("DROP TABLE IF EXISTS Phrases", [],cb,cb);
         txn.executeSql("CREATE TABLE IF NOT EXISTS Phrases(phrase_id INTEGER, name VARCHAR(60), card_position INTEGER)",[],cb,cb);
-        // txn.executeSql("DROP TABLE IF EXISTS Cards",[],cb,cb);
-        // txn.executeSql("CREATE TABLE IF NOT EXISTS Cards(name VARCHAR(60) PRIMARY KEY, url INTEGER, phone_lang_name VARCHAR(60))",[],cb,cb);
+        txn.executeSql("DROP TABLE IF EXISTS Cards",[],cb,cb);
+        txn.executeSql("CREATE TABLE IF NOT EXISTS Cards(name VARCHAR(60) PRIMARY KEY, url INTEGER, phone_lang_name VARCHAR(60))",[],cb,cb);
     } );
     console.log('db created');
 };
-export const populateCardsTable = (name_eng, url, phone_lang_name) => {
-  db.transaction(txn => {
-    txn.executeSql( "INSERT INTO Cards (name, url, phone_lang_name) values (?,?,?)",
-    [name_eng, url, phone_lang_name],
-    (tx,result) => {
-      if(result.rowsAffected > 0){
-       console.log(result);
-      } else {
-        console.log("We apologise. but we couldn't save the cards");
-      }
-    });
+export const populateCardsTable = () => {
+  Data.forEach(element =>{
+    db.transaction(txn => {
+        txn.executeSql(`
+        INSERT INTO Cards (name, url, phone_lang_name) 
+          values (?,?,?)`,
+        [element.name_eng, element.url, element.phone_lang_name],
+        (tx, result) => console.log(result),
+        (tx, result) => console.log(result)
+        );
+      });
   });
 };
 
@@ -51,7 +53,6 @@ export const getAllPhrases = (payload) => {
       [],
       (tx, res)=>{      
         cb(res.rows._array);
-      // console.log(res.rows._array);
       })
     }
   );
@@ -91,3 +92,5 @@ export const getPhraseCards = (payload) => {
     })
   });
 };
+
+
