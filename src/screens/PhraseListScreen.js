@@ -7,13 +7,14 @@ import { Context as PhraseContext } from '../context/PhraseContext';
 import { View } from 'react-native';
 import Card from '../components/Card';
 import { handleVoice } from '../helpers/tts/handleVoices';
+import * as RNLocalize from 'react-native-localize';
 
 
 
 const PhraseListScreen = () => {
   const { state, sqlPhrases } = useContext(PhraseContext);
-
-  const cb = (phrases) => sqlPhrases(phrases);
+  const phoneLanguage = RNLocalize.getLocales()[0].languageCode;
+  const cb = (phrases) => sqlPhrases(phrases, phoneLanguage);
  useEffect(()=>{
   getAllPhrases({cb});
  },[state.phraseId])

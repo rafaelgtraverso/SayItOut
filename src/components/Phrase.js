@@ -8,18 +8,17 @@ import {Data} from '../assets/cardsPng/index';
 import { getPhrasesCount, insertPhrase } from '../api/local/sqlite';
 import { NavigationEvents } from 'react-navigation';
 import { handleVoice } from '../helpers/tts/handleVoices';
+import * as RNLocalize from 'react-native-localize';
 
 
 const Phrase = () => {
     const {state, deleteLastEntry, clearPhrase, setLastPhraseId} = useContext(PhraseContext);
-    console.log(state.phraseId);
+
     useEffect(() =>{
         const cb = (phraseId) => setLastPhraseId(phraseId[0].Last_Id+1); //{phraseId[0].Last_Id!=null ? setLastPhraseId(phraseId[0].Last_Id+1) : setLastPhraseId(1)}; 
         getPhrasesCount({cb});
     },[state.phrase]);
     const savePhrase = () => {
-        // setPhraseId();
-        // // console.log(state.phrase);
         if (state.phraseId>0){
             insertPhrase(state.phraseId,state.phrase);
             clearPhrase();
@@ -28,6 +27,12 @@ const Phrase = () => {
         }
         
     } ;
+    const phraseToVoice = () => {
+        let phoneLanguage = RNLocalize.getLocales()[0].languageCode
+        let phrase2Voice = ''
+        state.phrase.forEach( e => {phoneLanguage=='it' ? phrase2Voice += ' ' + e.name_it : phrase2Voice += ' ' +e.name})
+        return phrase2Voice;
+    };
 
     return (
         <View style={s.phraseInputView} >
@@ -42,8 +47,8 @@ const Phrase = () => {
                 { state.phrase.length!= 0 
                     ? (
                         state.phrase.map(element => {
-                            let cardData= Data.find(d => d.name === element);
-                            return <Card key={Math.random(9999).toString()} item={cardData} />
+                            // let cardData= Data.find(d => d.name_it === element);
+                            return <Card key={Math.random(9999).toString()} item={element} />
                         })
                     ) : null }
             </ScrollView>
@@ -56,7 +61,7 @@ const Phrase = () => {
                         color='black'
                     />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={()=>handleVoice(state.phrase.toString(' '))}>
+                <TouchableOpacity onPress={()=> handleVoice(phraseToVoice())}>
                     <Icon
                         name='play-circle'
                         type='feather'

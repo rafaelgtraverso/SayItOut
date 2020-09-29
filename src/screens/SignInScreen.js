@@ -8,19 +8,23 @@ import {Context as AuthContext} from '../context/AuthContext';
 
 import s from '../css/styles';
 import { createDatabase, populateCardsTable } from '../api/local/sqlite';
+import {CacheDir} from 'redux-persist-fs-storage';
+
 const RNFS = require('react-native-fs');
 
+
 const SignInScreen = ({navigation}) => {
-  const {state, signin, clearErrorMessage} = useContext(AuthContext);
-  // const base = `SayItOut.db`;
-  // const dest = RNFS.CachesDirectoryPath.replace('Caches', 'NoCloud');
   
-  // RNFS.exists(`${dest}/${base}`).then(res => {
-  //   if(!res){
-  //     createDatabase();
-  //     populateCardsTable();
-  //     }
-  // });
+  const {state, signin, clearErrorMessage} = useContext(AuthContext);
+  const base = `SayItOut.db`;
+  const dest = CacheDir.replace('Caches', 'NoCloud');
+  
+  RNFS.exists(`${dest}/${base}`).then(res => {
+    if(!res){
+      createDatabase();
+      populateCardsTable();
+      }
+  });
 
   return (
     <>
