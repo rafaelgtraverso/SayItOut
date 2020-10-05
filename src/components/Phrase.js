@@ -15,7 +15,7 @@ const Phrase = () => {
     const {state:{token}} = useContext(AuthContext);
 
     useEffect(() =>{
-        const cb = (phraseId) => setLastPhraseId(phraseId[0].Last_Id+1); //{phraseId[0].Last_Id!=null ? setLastPhraseId(phraseId[0].Last_Id+1) : setLastPhraseId(1)}; 
+        const cb = (phraseId) => setLastPhraseId(phraseId[0].Last_Id+1); 
         getPhrasesCount({cb});
     },[state.phrase]);
     const savePhrase = () => {
@@ -46,7 +46,6 @@ const Phrase = () => {
                 { state.phrase.length!= 0 
                     ? (
                         state.phrase.map(element => {
-                            // let cardData= Data.find(d => d.name_it === element);
                             return <Card key={Math.random(9999).toString()} item={element} />
                         })
                     ) : null }

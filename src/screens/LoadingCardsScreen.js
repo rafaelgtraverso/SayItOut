@@ -5,12 +5,10 @@ import s from '../css/styles';
 import { populateCardsTable } from '../api/local/sqlite';
 
 const LoadingCardsScreen = () => {
-   useEffect(()=>{
-    populateCardsTable();
-   },[]);
-   navigate('Home');
-    
-   
+    useEffect(()=>{
+        populateCardsTable();
+    },[]);
+    navigate('Home');
     
     return (
         <SafeAreaView>

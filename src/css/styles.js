@@ -1,19 +1,24 @@
 import {StyleSheet} from 'react-native';
 
+const blue = '#0000FF';
+const red = '#FF0000';
+const green = '#008000';
+const black = '#000000';
+const white = '#FFFFFF'
 const s = StyleSheet.create({
   link: {
-    color: "#0000FF",
+    color: blue,
   },
   error: {
     fontSize: 16,
-    color: '#FF0000',
+    color: red,
   },
   spacer: {
     margin: 10,
   },
   text: {
     fontSize: 48,
-    color: '#008000',
+    color: green,
   },
   container: {
     marginTop: 50,
@@ -30,7 +35,7 @@ const s = StyleSheet.create({
   phraseInputView: {
     flexDirection: 'row',
     height: 170,
-    borderBottomColor: '#000000',
+    borderBottomColor: white,
     marginBottom: 10,
   },
   phraseInput: {
@@ -57,8 +62,8 @@ const s = StyleSheet.create({
     width: 100,
     height: 100,
     borderWidth: 2,
-    borderColor: '#000000',
-    backgroundColor: '#FFFFFF',
+    borderColor: black,
+    backgroundColor: white,
     margin: 5,
   },
   textFlatList: {
