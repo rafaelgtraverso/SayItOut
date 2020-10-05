@@ -26,7 +26,7 @@ const CardsGrid = () => {
     getCards({cb});
   },[]);
   return (
-    <View style={{alignItems: 'center'}} onLayout={onLayout}>
+    <View onLayout={onLayout}>
       <FlatList
         data={dataSql}
         renderItem={({item}) => (

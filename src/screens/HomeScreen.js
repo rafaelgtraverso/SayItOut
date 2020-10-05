@@ -7,7 +7,7 @@ import CardsGrid from '../components/CardsGrid';
 
 const HomeScreen = () => {
   return (
-    <View style={{flex: 1}}>
+    <View >
       <Phrase style={s.phraseInput} />
       <CardsGrid style={s.cardsGridview} />
     </View>

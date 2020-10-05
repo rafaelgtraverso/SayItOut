@@ -4,10 +4,10 @@ import s from '../css/styles';
 import {Text} from 'react-native-elements';
 import * as RNLocalize from 'react-native-localize';
 
-const Card = ({item}) => {
+const Card = (payload) => {
+    const {item} = payload;
     let phoneLanguage = RNLocalize.getLocales()[0].languageCode;
-    // console.log(item.name);
-    // let cardName = item.name.replace(/_/g, ' ');
+
     return (
         <View style={s.cardContainer}>
             <Image

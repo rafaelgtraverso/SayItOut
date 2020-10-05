@@ -1,10 +1,10 @@
 import React, { useContext, useEffect } from 'react';
-import {SafeAreaView, FlatList, TouchableOpacity} from 'react-native';
+import {SafeAreaView, FlatList, TouchableOpacity, View} from 'react-native';
 import s from '../css/styles';
 import {Text, Icon} from 'react-native-elements';
 import { getAllPhrases } from '../api/local/sqlite';
 import { Context as PhraseContext } from '../context/PhraseContext';
-import { View } from 'react-native';
+import { Context as AuthContext } from '../context/AuthContext';
 import Card from '../components/Card';
 import { handleVoice } from '../helpers/tts/handleVoices';
 import * as RNLocalize from 'react-native-localize';
@@ -13,15 +13,15 @@ import * as RNLocalize from 'react-native-localize';
 
 const PhraseListScreen = () => {
   const { state, sqlPhrases } = useContext(PhraseContext);
+  const {state:{token}} = useContext(AuthContext);
   const phoneLanguage = RNLocalize.getLocales()[0].languageCode;
   const cb = (phrases) => sqlPhrases(phrases, phoneLanguage);
- useEffect(()=>{
-  getAllPhrases({cb});
- },[state.phraseId])
   
-
+  useEffect(()=>{
+    getAllPhrases({cb, token});
+  },[state.phraseId]);
+  
   const renderCard = ({item}) => {
-    // console.log(item);
     return (
       <Card 
         key={(item.card_position).toString()+'-'+item.name}

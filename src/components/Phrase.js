@@ -3,16 +3,16 @@ import { Icon } from 'react-native-elements';
 import { View, ScrollView, TouchableOpacity } from 'react-native';
 import s from '../css/styles';
 import {Context as PhraseContext} from '../context/PhraseContext';
+import {Context as AuthContext } from '../context/AuthContext';
 import Card from '../components/Card';
-import {Data} from '../assets/cardsPng/index';
 import { getPhrasesCount, insertPhrase } from '../api/local/sqlite';
-import { NavigationEvents } from 'react-navigation';
 import { handleVoice } from '../helpers/tts/handleVoices';
 import * as RNLocalize from 'react-native-localize';
 
 
 const Phrase = () => {
     const {state, deleteLastEntry, clearPhrase, setLastPhraseId} = useContext(PhraseContext);
+    const {state:{token}} = useContext(AuthContext);
 
     useEffect(() =>{
         const cb = (phraseId) => setLastPhraseId(phraseId[0].Last_Id+1); //{phraseId[0].Last_Id!=null ? setLastPhraseId(phraseId[0].Last_Id+1) : setLastPhraseId(1)}; 
@@ -20,7 +20,7 @@ const Phrase = () => {
     },[state.phrase]);
     const savePhrase = () => {
         if (state.phraseId>0){
-            insertPhrase(state.phraseId,state.phrase);
+            insertPhrase(state.phraseId,state.phrase, token);
             clearPhrase();
         }else{
             console.log(state);
@@ -36,7 +36,6 @@ const Phrase = () => {
 
     return (
         <View style={s.phraseInputView} >
-            {/* <NavigationEvents onWillBlur={clearPhrase} /> */}
             <ScrollView 
                 style={s.phraseInput} 
                 horizontal={true} 

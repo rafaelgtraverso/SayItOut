@@ -9,11 +9,11 @@ const phraseReducer = (state, action) => {
                 phrase: [...state.phrase, action.payload],
             };
         case 'delete_last':
-            let del = state.phrase.pop();
+            state.phrase.pop();
             return {
                 phrase: state.phrase,
             };
-        case 'sql_phrases':
+        case 'sql_phrases':{
             let phrases = action.payload.sqlPhrases.reduce((r,{phrase_id: phrase_id, ...object})=>{
                 let temp = r.find(object => object.phrase_id === phrase_id);
                 if(!temp) r.push(temp = {phrase_id, phraseString:' ', data:[]});
@@ -22,13 +22,14 @@ const phraseReducer = (state, action) => {
                     temp.phraseString += object.name_it+' ';
                 }else{
                     temp.phraseString += object.name+' ';
-                };
+                }
                 return r;
               },[]);
             return {
                 ...state,
                 savedPhrases: phrases,
             };
+        }
         case 'clear_phrase':
             return {
                 ...state,
@@ -52,7 +53,7 @@ const showPhrase = dispatch => (item, phoneLanguage) => {
         handleVoice(item.name_it);
     }else {
         handleVoice(item.name)
-    };
+    }
     
 };
 

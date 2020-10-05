@@ -1,14 +1,10 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View} from 'react-native';
+import s from '../css/styles';
 
-const Spacer = ({children}) => {
+const Spacer = (payload) => {
+  const { children}  = payload;
   return <View style={s.spacer}>{children}</View>;
 };
-
-const s = StyleSheet.create({
-  spacer: {
-    margin: 10,
-  },
-});
 
 export default Spacer;
