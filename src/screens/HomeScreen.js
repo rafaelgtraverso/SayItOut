@@ -1,19 +1,15 @@
-import React, { useEffect} from 'react';
+import React from 'react';
 import {View} from 'react-native';
 import s from '../css/styles';
 import Phrase from '../components/Phrase';
 import CardsGrid from '../components/CardsGrid';
-import {createDatabase} from '../api/local/sqlite';
 
-const HomeScreen = ({navigation}) => {
-  useEffect(() => {
-    createDatabase();
-  },[]);
+
+const HomeScreen = () => {
   return (
-    <View style={{flex: 1}}>
+    <View >
       <Phrase style={s.phraseInput} />
       <CardsGrid style={s.cardsGridview} />
-      {/* <Button title='Create Card' onPress={() => navigation.navigate('CreateCard')} /> */}
     </View>
   );
 };

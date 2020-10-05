@@ -15,9 +15,11 @@ import {Provider as AuthProvider} from './src/context/AuthContext';
 import {Provider as PhraseProvider} from './src/context/PhraseContext';
 
 import {setNavigator} from './src/navigationRef';
+import LoadingCardsScreen from './src/screens/LoadingCardsScreen';
 
 const switchNavigator = createSwitchNavigator({
   resolveAuth: ResolveAuthScreen,
+  loading: LoadingCardsScreen,
   loginFlow: createStackNavigator({
     Signin: SignInScreen,
     Signup: SignUpScreen,
@@ -27,9 +29,9 @@ const switchNavigator = createSwitchNavigator({
       Home: HomeScreen,
       CreateCard: CreateCardScreen,
     }),
-    "My Phrases": PhraseListScreen,
-    Account: AccountScreen,
-  }),
+    Phrases: createStackNavigator({Phrases:PhraseListScreen}),
+    Account: createStackNavigator({Account:AccountScreen}),
+  })
 });
 
 const App = createAppContainer(switchNavigator);
