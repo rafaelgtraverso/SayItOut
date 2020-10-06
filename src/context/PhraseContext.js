@@ -9,22 +9,27 @@ const phraseReducer = (state, action) => {
                 phrase: [...state.phrase, action.payload],
             };
         case 'delete_last':
-            let del = state.phrase.pop();
+            state.phrase.pop();
             return {
                 phrase: state.phrase,
             };
-        case 'sql_phrases':
-            let phrases= action.payload.reduce((r,{phrase_id: phrase_id, ...object})=>{
+        case 'sql_phrases':{
+            let phrases = action.payload.sqlPhrases.reduce((r,{phrase_id: phrase_id, ...object})=>{
                 let temp = r.find(object => object.phrase_id === phrase_id);
                 if(!temp) r.push(temp = {phrase_id, phraseString:' ', data:[]});
                 temp.data.push(object);
-                temp.phraseString += object.name+' '
+                if (action.payload.phoneLanguage == 'it') {
+                    temp.phraseString += object.name_it+' ';
+                }else{
+                    temp.phraseString += object.name+' ';
+                }
                 return r;
               },[]);
             return {
                 ...state,
                 savedPhrases: phrases,
             };
+        }
         case 'clear_phrase':
             return {
                 ...state,
@@ -42,17 +47,22 @@ const phraseReducer = (state, action) => {
 
 
 
-const showPhrase = dispatch => (cardName) => {
-    dispatch({ type:'assembling_phrase', payload: cardName });
-    handleVoice(cardName);
+const showPhrase = dispatch => (item, phoneLanguage) => {
+    dispatch({ type:'assembling_phrase', payload: item });
+    if(phoneLanguage=='it'){
+        handleVoice(item.name_it);
+    }else {
+        handleVoice(item.name)
+    }
+    
 };
 
 const deleteLastEntry = dispatch => () => {
         dispatch({ type: 'delete_last' });
 };
 
-const sqlPhrases = dispatch => (sqlPhrases) => {
-    dispatch({type: 'sql_phrases', payload: sqlPhrases});
+const sqlPhrases = dispatch => (sqlPhrases, phoneLanguage) => {
+    dispatch({type: 'sql_phrases', payload: {sqlPhrases, phoneLanguage}});
 };
 
 const clearPhrase= dispatch => () =>{

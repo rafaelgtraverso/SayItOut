@@ -14,13 +14,15 @@ const authReducer = (state, action) => {
     case 'signin':
       return {
         errorMessage: '',
-        token: action.payload,
+        token: action.payload.token,
+        email: action.payload.email
       };
     case 'signout':
       return {
         ...state,
         errorMessage: '',
         token: null,
+        email:'', 
       };
     case 'clear_error_message':
       return {
@@ -34,12 +36,12 @@ const authReducer = (state, action) => {
 
 const tryLocalSignIn = (dispatch) => async () => {
   const token = await AsyncStorage.getItem('token');
-
+  const email = await AsyncStorage.getItem('email');
   if (token) {
-    dispatch({type: 'signin', payload: token});
+    dispatch({type: 'signin', payload: {token, email}});
     navigate('Home');
   } else {
-    navigate('Signup');
+    navigate('Signin');
   }
 };
 
@@ -51,7 +53,8 @@ const signup = (dispatch) => async ({email, password}) => {
   try {
     const response = await api.post('/signup', {email, password});
     await AsyncStorage.setItem('token', response.data.token);
-    dispatch({type: 'signin', payload: response.data.token});
+    await AsyncStorage.setItem('email', email);
+    dispatch({type: 'signin', payload: {token: response.data.token, email }});
 
     navigate('Home');
   } catch (err) {
@@ -66,7 +69,8 @@ const signin = (dispatch) => async ({email, password}) => {
   try {
     const response = await api.post('/signin', {email, password});
     await AsyncStorage.setItem('token', response.data.token);
-    dispatch({type: 'signin', payload: response.data.token});
+    await AsyncStorage.setItem('email', email);
+    dispatch({type: 'signin', payload: {token: response.data.token, email }});
     navigate('Home');
   } catch (err) {
     console.log(err);
@@ -83,5 +87,5 @@ const signout = (dispatch) => async () => {
 export const {Context, Provider} = createDataContext(
   authReducer,
   {signup, signin, signout, clearErrorMessage, tryLocalSignIn},
-  {token: null, errorMessage: ''},
+  {token: null, email:'', errorMessage: ''},
 );
