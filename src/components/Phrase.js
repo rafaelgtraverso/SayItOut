@@ -12,7 +12,7 @@ import * as RNLocalize from 'react-native-localize';
 
 const Phrase = () => {
     const {state, deleteLastEntry, clearPhrase, setLastPhraseId} = useContext(PhraseContext);
-    const {state:{token}} = useContext(AuthContext);
+    const {state:{email}} = useContext(AuthContext);
 
     useEffect(() =>{
         const cb = (phraseId) => setLastPhraseId(phraseId[0].Last_Id+1); 
@@ -20,10 +20,10 @@ const Phrase = () => {
     },[state.phrase]);
     const savePhrase = () => {
         if (state.phraseId>0){
-            insertPhrase(state.phraseId,state.phrase, token);
+            insertPhrase(state.phraseId,state.phrase, email);
             clearPhrase();
         }else{
-            console.log(state);
+            console.log(state); 
         }
         
     } ;
@@ -39,7 +39,6 @@ const Phrase = () => {
             <ScrollView 
                 style={s.phraseInput} 
                 horizontal={true} 
-                showsHorizontalScrollIndicator={false}
                 ref={ref => this.scrollView = ref}
                 onContentSizeChange={() => this.scrollView.scrollToEnd()}
             >
@@ -51,28 +50,31 @@ const Phrase = () => {
                     ) : null }
             </ScrollView>
             <View style={s.phraseButtons}>
-                <TouchableOpacity onPress={deleteLastEntry}>
+                <TouchableOpacity onPress={deleteLastEntry}  >
                     <Icon
                         name='delete'
                         type='feather'
                         size={50}
                         color='black'
+                        
                     />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={()=> handleVoice(phraseToVoice())}>
+                <TouchableOpacity onPress={()=> handleVoice(phraseToVoice())}  >
                     <Icon
                         name='play-circle'
                         type='feather'
                         size={50}
                         color='green'
+                        
                     />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={savePhrase}>
+                <TouchableOpacity onPress={savePhrase} >
                     <Icon
                         name='save'
                         type='feather'
                         size={50}
                         color='black'
+                        
                     />
                 </TouchableOpacity>
             </View>

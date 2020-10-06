@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { View } from 'react-native';
 import {Text, Input, Button} from 'react-native-elements';
 import Spacer from './Spacer';
 import s from '../css/styles';
@@ -9,10 +10,10 @@ const AuthForm = (payload) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   return (
-    <>
+    <View>
       <Text h2> {headerText} </Text>
       <Spacer />
-      <Input
+      <Input 
         label="Email"
         value={email}
         onChangeText={setEmail}
@@ -35,7 +36,7 @@ const AuthForm = (payload) => {
         onPress={() => onSubmit({email, password})}
       />
       <Spacer />
-    </>
+    </View>
   );
 };
 

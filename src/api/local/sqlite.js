@@ -15,7 +15,7 @@ export const createDatabase = () => {
                     phrase_id INTEGER, 
                     card_id VARCHAR(60), 
                     card_position INTEGER, 
-                    user_token VARCHAR(300))`,
+                    user_token VARCHAR(300))`, 
           [],
           (tx,res)=>console.log(res),
           (tx, err)=>console.log(err));
@@ -59,13 +59,13 @@ export const populateCardsTable = () => {
   });
 };
 
-export const insertPhrase = (phrase_id, phrase, user_token) => {
+export const insertPhrase = (phrase_id, phrase, email) => {
   phrase.forEach((element, index) => {
     db.transaction( txn => {
       txn.executeSql(`
                 INSERT INTO Phrases (phrase_id, card_id, card_position,user_token) 
                 values (?,?,?,?)`,
-        [phrase_id, element.card_id, index, user_token],
+        [phrase_id, element.card_id, index, email],
         (tx,res)=>console.log(res),
         (tx, err)=>console.log(err)
       );
@@ -74,13 +74,13 @@ export const insertPhrase = (phrase_id, phrase, user_token) => {
 };
 
 export const getAllPhrases = (payload) => {
-  const { cb, token } = payload;
+  const { cb, email } = payload;
   db.transaction( txn => {
     txn.executeSql(`
               SELECT phrase_id, card_position, name, name_it, url 
                 FROM Phrases, Cards
                 WHERE user_token = (?) AND Phrases.card_id = Cards.card_id `,
-      [token],
+      [email],
       (tx, res)=>{ cb(res.rows._array)},
       (tx, err)=>console.log(err));
     }
@@ -121,6 +121,18 @@ export const getPhraseCards = (payload) => {
       [nameCards],
       (tx, res)=>{cb(res.rows._array)},
       (tx, err)=>console.log(err));
+  });
+};
+
+export const removePhrase = (payload) => {
+  const  phrase_id  = payload;
+  db.transaction( txn => {
+    txn.executeSql(`
+              DELETE FROM Phrases
+              WHERE phrase_id = (?)`,
+      [phrase_id],
+      (tx, res) => console.log(res),
+      (tx, err) => console.log(err));
   });
 };
 

@@ -11,7 +11,7 @@ const NavLink = (payload) => {
       <Spacer />
       <Text style={s.link}>{text}</Text>
       <Spacer />
-    </TouchableOpacity>
+    </TouchableOpacity> 
   );
 };
 
