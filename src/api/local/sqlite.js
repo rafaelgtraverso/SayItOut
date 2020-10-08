@@ -1,6 +1,5 @@
 import SQLite from 'react-native-sqlite-2';
-import { Data } from '../../assets/cardsPng/index';
-import { Data as DataIt } from '../../assets/it';
+import { Data } from '../../assets/pecsCards/index';
 
 const db = SQLite.openDatabase("SayItOut2.db", "1.0", "", 1);
 
@@ -46,16 +45,6 @@ export const populateCardsTable = () => {
       (tx, err)=>console.log(err)
       );
     }); 
-    DataIt.forEach(element => {
-      txn.executeSql(`
-        UPDATE Cards 
-        SET name_it=?
-        WHERE card_id=?`,
-        [element.name_it, element.card_id],
-        (tx,res)=>console.log(res),
-      (tx, err)=>console.log(err)
-      );
-    });
   });
 };
 
