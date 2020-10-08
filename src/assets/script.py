@@ -5,25 +5,26 @@ import json
 from googletrans import Translator
 
 translator = Translator()
-base_path = "./cardsPng/"
+base_path = "./pecsCards/"
 d = []
 count=0
 
-# for file in glob.iglob(os.path.join(base_path, '*.png'), recursive=True):
-#     dict = ''
-#     count+=1
-#     source='..'+file[1:]
-#     fileName=os.path.basename(file).split('.')[0]
-#     dict="{ card_id:"+str(count)+", name: '"+fileName+"', url: require('"+source+"'), name_it: null },"
-#     d.append(dict)
+for file in glob.iglob(os.path.join(base_path, '*.jpg'), recursive=True):
+    dict = ''
+    count+=1
+    source='..'+file[1:]
+    fileName=os.path.basename(file).split('.')[0]
+    dict="{ card_id:"+str(count)+", name: \""+fileName+"\", url: require(\""+source+"\"), name_it: \""+translator.translate(fileName, dest='it', src='en').text+"\" },"
+    d.append(dict)
+    print(count)
 
-# # os.remove("./cardsPng/index.js")
-# f = open("./index.js", "a")
-# f.write('export const Data = [\n')
-# for item in d:
-#     f.write('\t%s\n' % item)
-# f.write('];')
-# f.close()
+os.remove("./pecsCards/index.js")
+f = open("./pecsCards/index.js", "a")
+f.write('export const Data = [\n')
+for item in d:
+    f.write('\t%s\n' % item)
+f.write('];')
+f.close()
 
 # SCRIPT TO TRANSLATE --- THIS SCRIPT RUNS WITH googletrans which needs a vpn 
 # os.remove('./translated.js')

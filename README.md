@@ -2,7 +2,7 @@
 
 We all heard about autism and how difficult could be for them to talk and express what they want to the people who sorround them. Say It Out aims to help them to communicate those things by using the same PECS (Picture Exchange Communication System) and adding them audio, so even when they want to say something and nobody is looking thay can do it.
 
-This MVP ( Minimum Viable Product ) allows select between 3 thousand cards, create and save phrases. And the most important, will convert the name of the card or the entire phrase into audio.
+This MVP ( Minimum Viable Product ) allows select between 500 cards, create and save phrases. And the most important, will convert the name of the card or the entire phrase into audio.
 
 ## Contributing 
 There is a lot of things to do yet, after all is just an MVP. We will put here the Product Backlog, in the meantime feel free to test the app.
