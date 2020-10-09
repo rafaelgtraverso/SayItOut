@@ -14,7 +14,7 @@ const Card = (payload) => {
                 style={s.image}
                 source={item.url}
             />
-            <Text style={s.textFlatList}>{phoneLanguage=='it' ? item.name_it : item.name.replace(/_/g, ' ')}</Text>
+            <Text style={s.textFlatList}>{phoneLanguage=='it' ? item.name_it : item.name}</Text>
         </View>
     )
 };
