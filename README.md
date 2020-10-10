@@ -5,7 +5,7 @@ We all heard about autism and how difficult could be for them to talk and expres
 This MVP ( Minimum Viable Product ) allows select between 500 cards, create and save phrases. And the most important, will convert the name of the card or the entire phrase into audio.
 
 
-![picture](https://github.com/rafaelgtraverso/SayItOut/blob/master/Images/Simulator%20Screen%20Shot%20-%20iPad%20Pro%20(12.9-inch)%20(4th%20generation)%20-%202020-10-06%20at%2012.36.29.png)
+![picture](https://github.com/rafaelgtraverso/SayItOut/blob/master/Images/Simulator%20Screen%20Shot%20-%20iPad%20Pro%20(12.9-inch)%20(4th%20generation)%20-%202020-10-10%20at%2012.09.10.png)
 
 
 ## Contributing 
