@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { ScrollView } from 'react-native';
+import { View } from 'react-native';
 import { NavigationEvents } from 'react-navigation';
 
 import NavLink from '../components/NavLink';
@@ -41,7 +41,7 @@ const SignInScreen = (payload) => {
 
   return (
     <>
-      <ScrollView >
+      <View style={s.container}>
         <NavigationEvents onWillFocus={clearErrorMessage} />
         <AuthForm
           headerText="Sign In"
@@ -54,7 +54,7 @@ const SignInScreen = (payload) => {
           routeName="Signup"
           text="Don't have an account? Sign up instead"
         />
-      </ScrollView>
+      </View>
     </>
   );
 };

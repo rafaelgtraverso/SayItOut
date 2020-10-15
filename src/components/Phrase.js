@@ -56,6 +56,7 @@ const Phrase = () => {
                         type='feather'
                         size={50}
                         color='black'
+                        
                     />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={()=> handleVoice(phraseToVoice())}  >
