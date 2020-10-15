@@ -12,8 +12,8 @@ const HomeScreen = () => {
   return (
     <View >
       <NavigationEvents onDidFocus={clearPhrase} />
-      <Phrase  />
-      <CardsGrid />
+      <Phrase style={s.phraseInput} />
+      <CardsGrid style={s.cardsGridview} />
     </View>
   );
 };
