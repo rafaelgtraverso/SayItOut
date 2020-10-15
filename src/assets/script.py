@@ -13,7 +13,7 @@ for file in glob.iglob(os.path.join(base_path, '*.jpg'), recursive=True):
     dict = ''
     count+=1
     source='..'+file[1:]
-    fileName=os.path.basename(file).split('.')[0]
+    fileName=os.path.basename(file).split('.')[0].replace('_',' ')
     dict="{ card_id:"+str(count)+", name: \""+fileName+"\", url: require(\""+source+"\"), name_it: \""+translator.translate(fileName, dest='it', src='en').text+"\" },"
     d.append(dict)
     print(count)

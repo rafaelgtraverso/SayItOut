@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { View } from 'react-native';
+import { ScrollView } from 'react-native';
 import { Context as AuthContext } from '../context/AuthContext';
 import AuthForm from '../components/AuthForm';
 import NavLink from '../components/NavLink';
@@ -9,7 +9,7 @@ import s from '../css/styles';
 const SignUpScreen = () => {
   const { state, signup, clearErrorMessage } = useContext(AuthContext);
   return (
-    <View style={s.container}>
+    <ScrollView >
       <NavigationEvents focus={clearErrorMessage} />
       <AuthForm
         headerText="Sign Up"
@@ -21,7 +21,7 @@ const SignUpScreen = () => {
         routeName="Signin"
         text="Already have an account? Sign in instead"
       />
-    </View>
+    </ScrollView>
   );
 };
 
