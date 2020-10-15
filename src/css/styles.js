@@ -1,6 +1,4 @@
 import {StyleSheet} from 'react-native';
-import { Directions } from 'react-native-gesture-handler';
-import AuthForm from '../components/AuthForm';
 
 const blue = '#0000FF';
 const red = '#FF0000';
