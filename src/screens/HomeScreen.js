@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import {View} from 'react-native';
-import s from '../css/styles';
 import Phrase from '../components/Phrase';
 import CardsGrid from '../components/CardsGrid';
 import {Context as PhraseContext} from '../context/PhraseContext';
@@ -12,8 +11,8 @@ const HomeScreen = () => {
   return (
     <View >
       <NavigationEvents onDidFocus={clearPhrase} />
-      <Phrase style={s.phraseInput} />
-      <CardsGrid style={s.cardsGridview} />
+      <Phrase />
+      <CardsGrid />
     </View>
   );
 };

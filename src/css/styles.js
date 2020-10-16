@@ -33,14 +33,12 @@ const s = StyleSheet.create({
     alignItems: 'center',
   },
   phraseInputView: {
-    flexDirection: 'row',
-    height: 170,
     margin: 15,
-    paddingHorizontal:10,
-    borderBottomWidth: 2,
   },
   phraseInput: {
-    flex: 0.90,
+    paddingBottom:5,
+    borderBottomWidth:3,
+    height:150,
   },
   phraseView:{
     padding:10,
@@ -50,14 +48,13 @@ const s = StyleSheet.create({
     alignItems:'center'
   },
   phraseButtons: {
-    flex: 0.1,
+    flexWrap:"wrap",
+    flexDirection:'row',
+    alignSelf:'flex-end',
+    margin:5,
   },
   cardsGridview: {
-    borderWidth: 1,
-    padding: 5,
-    marginHorizontal: 5,
     alignItems: 'center',
-    flex: 0.8,
   },
   phraseListView:{
     marginBottom:120,
