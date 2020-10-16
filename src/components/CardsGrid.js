@@ -26,7 +26,7 @@ const CardsGrid = () => {
     getCards({cb});
   },[]);
   return (
-    <View onLayout={onLayout}>
+    <View onLayout={onLayout} style={s.cardsGridview}>
       <FlatList
         data={dataSql}
         renderItem={({item}) => (
