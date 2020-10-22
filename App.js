@@ -23,6 +23,9 @@ const switchNavigator = createSwitchNavigator({
   loginFlow: createStackNavigator({
     Signin: SignInScreen,
     Signup: SignUpScreen,
+  },
+  {
+    headerMode: 'none',
   }),
   mainFlow: createBottomTabNavigator({
     Cards: createStackNavigator({

@@ -1,8 +1,7 @@
 import React, { useContext } from 'react';
-import { ScrollView } from 'react-native';
+import { KeyboardAvoidingView } from 'react-native';
 import { NavigationEvents } from 'react-navigation';
 
-import NavLink from '../components/NavLink';
 import AuthForm from '../components/AuthForm';
 import { Context as AuthContext } from '../context/AuthContext';
 
@@ -41,20 +40,15 @@ const SignInScreen = (payload) => {
 
   return (
     <>
-      <ScrollView>
+      <KeyboardAvoidingView style={s.container} behavior='height'>
         <NavigationEvents onWillFocus={clearErrorMessage} />
         <AuthForm
-          headerText="Sign In"
+          headerText="signin"
           errorMessage={state.errorMessage}
           submitButtonText="Sign in"
           onSubmit={signin}
         />
-        <NavLink
-          navigation={navigation}
-          routeName="Signup"
-          text="Don't have an account? Sign up instead"
-        />
-      </ScrollView>
+      </KeyboardAvoidingView>
     </>
   );
 };

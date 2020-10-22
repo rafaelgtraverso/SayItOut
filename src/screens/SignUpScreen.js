@@ -1,27 +1,22 @@
 import React, { useContext } from 'react';
-import { ScrollView } from 'react-native';
+import { KeyboardAvoidingView } from 'react-native';
 import { Context as AuthContext } from '../context/AuthContext';
 import AuthForm from '../components/AuthForm';
-import NavLink from '../components/NavLink';
 import { NavigationEvents } from 'react-navigation';
 import s from '../css/styles';
 
 const SignUpScreen = () => {
   const { state, signup, clearErrorMessage } = useContext(AuthContext);
   return (
-    <ScrollView>
-      <NavigationEvents focus={clearErrorMessage} />
+    <KeyboardAvoidingView style={s.container} behavior='height'>
+      <NavigationEvents onWillFocus={clearErrorMessage} />
       <AuthForm
-        headerText="Sign Up"
+        headerText="signup"
         errorMessage={state.errorMessage}
         submitButtonText="Sign Up"
         onSubmit={signup}
       />
-      <NavLink
-        routeName="Signin"
-        text="Already have an account? Sign in instead"
-      />
-    </ScrollView>
+    </KeyboardAvoidingView>
   );
 };
 
