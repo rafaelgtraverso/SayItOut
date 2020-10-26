@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Image, View, Dimensions } from 'react-native';
+import { Image, View } from 'react-native';
 import {Text, Input, Button } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Spacer from './Spacer';
@@ -23,61 +23,58 @@ const AuthForm = (payload) => {
         <Image source={logoSubtitle} style={s.logosSubtitle} resizeMode='center' />
         <Spacer/>
       </View>
-      
-        <View style={s.containerInput}>
-        {headerText=='signup' ? <Text style={s.textForm}>Registration Form</Text> : null}
-          <Input 
-            value={email}
-            onChangeText={setEmail}
-            autoCapitalize="none"
-            autoCorrect={false}
-            placeholder='Email'
-            leftIcon={
-              <Icon
-                name='user'
-                size={24}
-                color='black'
-              />
-            }
-          />
-          <Input
-            secureTextEntry
-            placeholder="Password"
-            value={password}
-            onChangeText={setPassword}
-            autoCapitalize="none"
-            autoCorrect={false}
-            leftIcon={
-              <Icon
-                name='lock'
-                size={24}
-                color='black'
-              />
-            }
-          />
-          {errorMessage ? <Text style={s.error}>{errorMessage}</Text> : null}
-          <Spacer />
-          <Button
-            title={submitButtonText}
-            onPress={() => onSubmit({email, password})}
-            buttonStyle={s.button}
-          />
-          {headerText == 'signin'
-          ? <NavLink
-              routeName="Signup"
-              text="Don't have an account? Sign up instead"
-            />
-          : <NavLink
-              routeName="Signin"
-              text="Already have an account? Sign in instead"
+      <View style={s.containerInput}>
+      {headerText=='signup' ? <Text style={s.textForm}>Registration Form</Text> : null}
+        <Input 
+          value={email}
+          onChangeText={setEmail}
+          autoCapitalize="none"
+          autoCorrect={false}
+          placeholder='Email'
+          leftIcon={
+            <Icon
+              name='user'
+              size={24}
+              color='black'
             />
           }
-        
-        </View>
-      {/* </View> */}
+        />
+        <Input
+          secureTextEntry
+          placeholder="Password"
+          value={password}
+          onChangeText={setPassword}
+          autoCapitalize="none"
+          autoCorrect={false}
+          leftIcon={
+            <Icon
+              name='lock'
+              size={24}
+              color='black'
+            />
+          }
+        />
+        {errorMessage ? <Text style={s.error}>{errorMessage}</Text> : null}
+        <Spacer />
+        <Button
+          title={submitButtonText}
+          onPress={() => onSubmit({email, password})}
+          buttonStyle={s.button}
+        />
+        {headerText == 'signin'
+        ? <NavLink
+            routeName="Signup"
+            text="Don't have an account? Sign up instead"
+          />
+        : <NavLink
+            routeName="Signin"
+            text="Already have an account? Sign in instead"
+          />
+        }
+      
+      </View>
     </View>
   );
 };
-
 
 export default AuthForm;

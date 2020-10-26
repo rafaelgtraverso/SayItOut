@@ -1,0 +1,9 @@
+export const ADD_ERROR = 'ADD_ERROR';
+export const SIGN_IN = 'SIGN_IN';
+export const SIGN_OUT = 'SIGN_OUT';
+export const CLEAR_ERROR_MESSAGE = 'CLEAR_ERROR_MESSAGE';
+export const ASSEMBLING_PHRASE = 'ASSEMBLING_PHRASE';
+export const DELETE_LAST_CARD = 'DELETE_LAST_CARD';
+export const SQL_PHRASE = 'SQL_PHRASES';
+export const CLEAR_PHRASE = 'CLEAR_PHRASE';
+export const SET_PHRASE_ID = 'SET_PHRASE_ID';

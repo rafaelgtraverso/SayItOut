@@ -13,9 +13,11 @@ import ResolveAuthScreen from './src/screens/ResolveAuthScreen';
 
 import {Provider as AuthProvider} from './src/context/AuthContext';
 import {Provider as PhraseProvider} from './src/context/PhraseContext';
+import { Provider } from 'react-redux'; 
 
 import {setNavigator} from './src/navigationRef';
 import LoadingCardsScreen from './src/screens/LoadingCardsScreen';
+import configureStore from './src/store';
 
 const switchNavigator = createSwitchNavigator({
   resolveAuth: ResolveAuthScreen,
@@ -39,16 +41,27 @@ const switchNavigator = createSwitchNavigator({
 
 const App = createAppContainer(switchNavigator);
 
+const store = configureStore();
+
 export default () => {
   return (
-    <AuthProvider>
-      <PhraseProvider>
-        <App
-          ref={(navigator) => {
-            setNavigator(navigator) 
-          }}
-        />
-      </PhraseProvider>
-    </AuthProvider>
+    <Provider store={store}>
+      <App
+        ref={(navigator) => {
+          setNavigator(navigator) 
+        }}
+      />
+    </Provider>
   );
+  // return (
+  //   <AuthProvider>
+  //     <PhraseProvider>
+  //       <App
+  //         ref={(navigator) => {
+  //           setNavigator(navigator) 
+  //         }}
+  //       />
+  //     </PhraseProvider>
+  //   </AuthProvider>
+  // );
 };

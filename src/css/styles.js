@@ -2,7 +2,6 @@ import {StyleSheet, Dimensions} from 'react-native';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 const { width: WIDTH } = Dimensions.get('window');
-console.log(WIDTH);
 const blue = 'rgba(0,0,255,1)';
 const red = 'rgba(255,0,0,1)';
 const green = 'rgba(69,160,0,1)';
@@ -35,22 +34,14 @@ const s = StyleSheet.create({
   },
   container:{
     flex:1 ,
-    // flexDirection:'row'
-    // justifyContent: 'space-around',
-    // alignItems: 'center',
   },
   logoContainer:{
     flex:1,
     alignItems:'center',
     justifyContent:'space-around',
-    // marginBottom:30,
   },
   containerForm: {
-    // width:wp('80%'),
     flex:1,
-    // flexDirection:'row',
-    // flexWrap:'wrap'
-    // justifyContent: 'space-around',
   },
   containerInput:{
     flex:1,

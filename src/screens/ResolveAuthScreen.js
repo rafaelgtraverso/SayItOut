@@ -1,14 +1,32 @@
 import {useContext, useEffect} from 'react';
 import {Context as AuthContext} from '../context/AuthContext';
 
-const ResolveAuthScreen = () => {
-  const {tryLocalSignIn} = useContext(AuthContext);
+import {connect} from 'react-redux';
+import { tryLocalSignIn } from '../actions/auth';
 
+
+const ResolveAuthScreen = (props) => {
+  //const {tryLocalSignIn} = useContext(AuthContext);
+  // console.log(props);
+  // console.log(props.navigation.state);
   useEffect(() => {
-    tryLocalSignIn();
+    props.localSignIn();
   }, []);
 
   return null;
 };
 
-export default ResolveAuthScreen;
+const mapStateToProps = (state) => {
+  return {
+   auths:state.authReducer
+ }
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return{
+    localSignIn: () => dispatch(tryLocalSignIn()),
+  }
+};
+
+export default connect(mapStateToProps,mapDispatchToProps)(ResolveAuthScreen);
+

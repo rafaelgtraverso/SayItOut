@@ -7,6 +7,7 @@ import * as RNLocalize from 'react-native-localize';
 const Card = (payload) => {
     const {item} = payload;
     let phoneLanguage = RNLocalize.getLocales()[0].languageCode;
+    const name = item.name.replace(/_/g, ' ');
 
     return (
         <View style={s.cardContainer}>
@@ -14,7 +15,7 @@ const Card = (payload) => {
                 style={s.image}
                 source={item.url}
             />
-            <Text style={s.textFlatList}>{phoneLanguage=='it' ? item.name_it : item.name.replace(/_/g, ' ')}</Text>
+            <Text style={s.textFlatList}>{phoneLanguage=='it' ? item.name_it : name }</Text>
         </View>
     )
 };
