@@ -1,16 +1,13 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { KeyboardAvoidingView } from 'react-native';
-import { Context as AuthContext } from '../context/AuthContext';
 import AuthForm from '../components/AuthForm';
 import { NavigationEvents } from 'react-navigation';
 import s from '../css/styles';
 import {connect} from 'react-redux';
-import { signup, clearErrorMessage } from '../actions/auth';
+import { clearErrorMessage } from '../actions/auth';
 
 const SignUpScreen = (props) => {
-  // const { state, signup, clearErrorMessage } = useContext(AuthContext);
   const onSignUp = props.sign_up;
-  console.log(onSignUp.toString());
   return (
     <KeyboardAvoidingView style={s.container} behavior='height'>
       <NavigationEvents onWillFocus={props.clear_error_message} />
@@ -25,7 +22,7 @@ const SignUpScreen = (props) => {
 };
 
 const mapStateToProps = (state) => {
-
+  
   return {
    auths:state.authReducer
  }
@@ -33,10 +30,21 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return{
-    // sign_in: ({email, password}) => dispatch(signin({email, password})),
-    sign_up: ({email, password}) => dispatch(signup({email, password})),
+    sign_up: async ({email, password}) => {
+      try {
+        const response = await api.post('/signup', {email, password});
+        await AsyncStorage.setItem('token', response.data.token);
+        await AsyncStorage.setItem('email', email);
+        if (response ){
+          dispatch(signin(response.data.token, email));
+          navigate('Home');
+        }
+      } catch (err) {
+        dispatch(authError());
+        console.log(err)
+      } 
+    },
     clear_error_message: () => dispatch(clearErrorMessage()),
-    //signout: () => dispatch(signout())
   }
 };
 
