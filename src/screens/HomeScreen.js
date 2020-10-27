@@ -1,12 +1,11 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import {View} from 'react-native';
 import Phrase from '../components/Phrase';
 import CardsGrid from '../components/CardsGrid';
-import {Context as PhraseContext} from '../context/PhraseContext';
 import { NavigationEvents } from 'react-navigation';
 import {connect} from 'react-redux';
 import { clearPhrase } from '../actions/phrases';
-
+import PropTypes from 'prop-types';
 
 const HomeScreen = (props) => {
   // const {clearPhrase} = useContext(PhraseContext);
@@ -17,6 +16,11 @@ const HomeScreen = (props) => {
       <CardsGrid />
     </View>
   );
+};
+
+HomeScreen.propTypes = {
+  clear_phrase: PropTypes.func,
+  phrases: PropTypes.object,
 };
 
 

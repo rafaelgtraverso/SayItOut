@@ -1,6 +1,5 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import {Text, Button} from 'react-native';
-import {Context as AuthContext} from '../context/AuthContext';
 import {SafeAreaView} from 'react-navigation';
 import Spacer from '../components/Spacer';
 import s from '../css/styles'
@@ -8,6 +7,7 @@ import {connect} from 'react-redux';
 import { signout } from '../actions/auth';
 import AsyncStorage from '@react-native-community/async-storage';
 import { navigate } from '../navigationRef';
+import PropTypes from 'prop-types';
 
 const AccountScreen = (props) => {
   return (
@@ -17,6 +17,11 @@ const AccountScreen = (props) => {
       <Button title="Log out" onPress={props.sign_out} />
     </SafeAreaView>
   );
+};
+
+AccountScreen.propTypes = {
+  sign_out: PropTypes.func,
+  auths: PropTypes.object
 };
 
 const mapStateToProps = (state) => {

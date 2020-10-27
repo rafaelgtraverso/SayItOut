@@ -7,6 +7,7 @@ import { getCards } from '../api/local/sqlite';
 import { showPhrase } from '../actions/phrases';
 import {connect} from 'react-redux';
 import { handleVoice } from '../helpers/tts/handleVoices';
+import PropTypes from 'prop-types';
 
 const CardsGrid = (props) => {
   const phoneLanguage = RNLocalize.getLocales()[0].languageCode;
@@ -31,7 +32,7 @@ const CardsGrid = (props) => {
       <FlatList
         data={dataSql}
         renderItem={({item}) => (
-          <TouchableOpacity onPress={() => props.show_phrase(item)}>
+          <TouchableOpacity onPress={() => props.show_phrase(item, phoneLanguage)}>
             <Card item={item} />
           </TouchableOpacity>
         )}
@@ -43,6 +44,9 @@ const CardsGrid = (props) => {
   );
 };
 
+CardsGrid.propTypes = {
+  show_phrase: PropTypes.func
+};
 
 const mapStateToProps = (state) => {
   return {

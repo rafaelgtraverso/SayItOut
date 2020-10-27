@@ -7,7 +7,8 @@ import { getPhrasesCount, insertPhrase } from '../api/local/sqlite';
 import { handleVoice } from '../helpers/tts/handleVoices';
 import * as RNLocalize from 'react-native-localize';
 import {connect} from 'react-redux';
-import { deleteLastEntry, clearPhrase, setLastPhraseId } from '../actions/phrases';
+import { deleteLastEntry, clearPhrase, setLastPhraseId, showPhrase } from '../actions/phrases';
+import PropTypes from 'prop-types';
 
 const Phrase = (props) => {
     useEffect(() =>{
@@ -75,6 +76,14 @@ const Phrase = (props) => {
     )
 };
 
+Phrase.propTypes = {
+    show_phrase: PropTypes.func,
+    delete_last_entry: PropTypes.func,
+    clear_phrase: PropTypes.func,
+    set_last_phrase_id: PropTypes.func,
+    phrases: PropTypes.object,
+    auths: PropTypes.object
+  };
 
 const mapStateToProps = (state) => {
     return {

@@ -1,14 +1,12 @@
-import {StyleSheet, Dimensions} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
-const { width: WIDTH } = Dimensions.get('window');
 const blue = 'rgba(0,0,255,1)';
 const red = 'rgba(255,0,0,1)';
 const green = 'rgba(69,160,0,1)';
 const black = 'rgba(0,0,0,1)';
 const white = '#rgba(255,255,255,1)';
-const bluegray ='rgba(245,252,255,1)';
-const gray= 'rgba(0,0,0,0.25)';
+
 
 const s = StyleSheet.create({
   link: {

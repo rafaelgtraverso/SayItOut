@@ -15,6 +15,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 
 import api from '../api/remote/heroku';
 import { navigate } from '../navigationRef';
+import PropTypes from 'prop-types';
 
 const RNFS = require('react-native-fs');
 
@@ -56,6 +57,13 @@ const SignInScreen = (props) => {
   );
 };
 
+SignInScreen.propTypes = {
+  sign_in: PropTypes.func,
+  clear_error_message: PropTypes.func,
+  auths: PropTypes.object
+};
+
+
 
 const mapStateToProps = (state) => {
 
@@ -76,8 +84,7 @@ const mapDispatchToProps = (dispatch) => {
           navigate('Home');
         }
       } catch (err) {
-        dispatch(authError());
-        console.log(err)
+        dispatch(authError('Please check your credentials'));
       } 
     },
     clear_error_message: () => dispatch(clearErrorMessage()),

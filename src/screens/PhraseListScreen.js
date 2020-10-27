@@ -8,6 +8,7 @@ import { handleVoice } from '../helpers/tts/handleVoices';
 import * as RNLocalize from 'react-native-localize';
 import {connect} from 'react-redux';
 import { sqlPhrases } from '../actions/phrases';
+import PropTypes from 'prop-types';
 
 const PhraseListScreen = (props) => {
   const email = props.auths.email;
@@ -71,6 +72,12 @@ const PhraseListScreen = (props) => {
       </View>
     </SafeAreaView>
   );
+};
+
+PhraseListScreen.propTypes = {
+  sql_phrases: PropTypes.func,
+  phrases: PropTypes.object,
+  auths: PropTypes.object
 };
 
 const mapStateToProps = (state) => {

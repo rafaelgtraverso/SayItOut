@@ -4,7 +4,11 @@ import AuthForm from '../components/AuthForm';
 import { NavigationEvents } from 'react-navigation';
 import s from '../css/styles';
 import {connect} from 'react-redux';
-import { clearErrorMessage } from '../actions/auth';
+import { clearErrorMessage, signin, authError } from '../actions/auth';
+import api from '../api/remote/heroku';
+import { navigate } from '../navigationRef';
+import AsyncStorage from '@react-native-community/async-storage';
+import PropTypes from 'prop-types';
 
 const SignUpScreen = (props) => {
   const onSignUp = props.sign_up;
@@ -21,6 +25,12 @@ const SignUpScreen = (props) => {
   );
 };
 
+SignUpScreen.propTypes = {
+  sign_up: PropTypes.func,
+  clear_error_message: PropTypes.func,
+  auths: PropTypes.object
+};
+
 const mapStateToProps = (state) => {
   
   return {
@@ -35,13 +45,13 @@ const mapDispatchToProps = (dispatch) => {
         const response = await api.post('/signup', {email, password});
         await AsyncStorage.setItem('token', response.data.token);
         await AsyncStorage.setItem('email', email);
-        if (response ){
+        if (response){
           dispatch(signin(response.data.token, email));
           navigate('Home');
         }
       } catch (err) {
-        dispatch(authError());
-        console.log(err)
+        dispatch(authError('Something went wrong with the sign up'));
+        console.log(err);
       } 
     },
     clear_error_message: () => dispatch(clearErrorMessage()),

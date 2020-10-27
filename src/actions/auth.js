@@ -5,10 +5,10 @@ export const clearErrorMessage = () => (
   type: CLEAR_ERROR_MESSAGE
 });
 
-export const authError = () => (
+export const authError = (message) => (
   {
     type: ADD_ERROR,
-    payload: 'Something went wrong with the sign up',
+    payload: message,
   }
 );
 
