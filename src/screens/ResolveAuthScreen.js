@@ -1,14 +1,41 @@
-import {useContext, useEffect} from 'react';
-import {Context as AuthContext} from '../context/AuthContext';
+import { useEffect } from 'react';
+import AsyncStorage from '@react-native-community/async-storage';
+import { navigate } from '../navigationRef';
 
-const ResolveAuthScreen = () => {
-  const {tryLocalSignIn} = useContext(AuthContext);
+import { connect } from 'react-redux';
+import { signin } from '../actions/auth';
 
+
+const ResolveAuthScreen = props => {
+  const { localSignIn } = props;
   useEffect(() => {
-    tryLocalSignIn();
+    localSignIn();
   }, []);
 
   return null;
 };
 
-export default ResolveAuthScreen;
+const mapStateToProps = (state) => {
+  return {
+   auths:state.authReducer
+ }
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return{
+    localSignIn: async () => {
+      const token = await AsyncStorage.getItem('token');
+      console.log(token);
+      const email = await AsyncStorage.getItem('email');
+      console.log(email);
+      if (token) {
+        dispatch(signin(token, email));
+        navigate('Home');
+      } else {
+        navigate('Signin');
+      }
+    }
+  }
+};
+
+export default connect(mapStateToProps,mapDispatchToProps)(ResolveAuthScreen);

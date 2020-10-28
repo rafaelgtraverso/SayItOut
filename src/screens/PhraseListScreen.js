@@ -1,43 +1,40 @@
-import React, { useContext, useEffect } from 'react';
-import {SafeAreaView, FlatList, TouchableOpacity, View} from 'react-native';
+import React, { useEffect } from 'react';
+import { SafeAreaView, FlatList, TouchableOpacity, View } from 'react-native';
 import s from '../css/styles';
-import {Text, Icon} from 'react-native-elements';
+import { Text, Icon } from 'react-native-elements';
 import { getAllPhrases, removePhrase } from '../api/local/sqlite';
-import { Context as PhraseContext } from '../context/PhraseContext';
-import { Context as AuthContext } from '../context/AuthContext';
 import Card from '../components/Card';
 import { handleVoice } from '../helpers/tts/handleVoices';
 import * as RNLocalize from 'react-native-localize';
+import { connect } from 'react-redux';
+import { sqlPhrases } from '../actions/phrases';
+import PropTypes from 'prop-types';
 
-
-
-const PhraseListScreen = () => {
-  const { state, sqlPhrases } = useContext(PhraseContext);
-  const {state:{email}} = useContext(AuthContext);
+const PhraseListScreen = props => {
+  const email = props.auths.email;
   const phoneLanguage = RNLocalize.getLocales()[0].languageCode;
-  const cb = (phrases) => sqlPhrases(phrases, phoneLanguage);
+  const cb = (phrases) => props.sql_phrases(phrases, phoneLanguage);
   useEffect(()=>{
-    getAllPhrases({cb, email});
-  },[state.phraseId]);
+    getAllPhrases({ cb, email });
+  },[props.phrases.phraseId]);
 
   const deletePhrase = (item) => {
     removePhrase(item.phrase_id);
-    getAllPhrases({cb,email});
+    getAllPhrases({ cb,email });
   };
-  
-  
-  const renderCard = ({item}) => {
+
+  const renderCard = ({ item }) => {
     return (
-      <Card 
+      <Card
         key={(item.card_position).toString()+'-'+item.name}
         item={item}
         />
     )
   }
-  const renderPhrase = ({item}) => {
+  const renderPhrase = ({ item }) => {
     return (
       <View style={s.phraseView}>
-        <FlatList 
+        <FlatList
           horizontal
           data={item.data}
           renderItem={renderCard}
@@ -63,12 +60,12 @@ const PhraseListScreen = () => {
     )
   };
   return (
-    <SafeAreaView forceInset={{top: 'always'}} >
+    <SafeAreaView forceInset={{ top: 'always' }} >
       <Text style={s.text}> Saved Phrases </Text>
       <View >
-        <FlatList 
+        <FlatList
           style={s.phraseListView}
-          data={state.savedPhrases}
+          data={props.phrases.savedPhrases}
           renderItem={renderPhrase}
           keyExtractor={item =>item.phrase_id.toString()}
         />
@@ -77,4 +74,23 @@ const PhraseListScreen = () => {
   );
 };
 
-export default PhraseListScreen;
+PhraseListScreen.propTypes = {
+  sql_phrases: PropTypes.func,
+  phrases: PropTypes.object,
+  auths: PropTypes.object
+};
+
+const mapStateToProps = (state) => {
+  return {
+   phrases:state.phraseReducer,
+   auths:state.authReducer
+ }
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return{
+      sql_phrases:  (phrases, phoneLanguage) => dispatch(sqlPhrases(phrases, phoneLanguage)),
+  }
+};
+
+export default connect(mapStateToProps,mapDispatchToProps)(PhraseListScreen);

@@ -1,7 +1,7 @@
 import React from 'react';
-import {View} from 'react-native';
+import { View } from 'react-native';
 import s from '../css/styles';
-import {Text} from 'react-native-elements';
+import { Text } from 'react-native-elements';
 
 const CreateCardScreen = () => {
   return (

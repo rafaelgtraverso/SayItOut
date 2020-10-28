@@ -1,27 +1,31 @@
-import React, { useContext } from 'react';
-import { ScrollView } from 'react-native';
+import React from 'react';
+import { KeyboardAvoidingView } from 'react-native';
 import { NavigationEvents } from 'react-navigation';
 
-import NavLink from '../components/NavLink';
 import AuthForm from '../components/AuthForm';
-import { Context as AuthContext } from '../context/AuthContext';
 
 import s from '../css/styles';
 import { createDatabase, populateCardsTable } from '../api/local/sqlite';
 import { CacheDir, DocumentDir } from 'redux-persist-fs-storage';
 import { getSystemName } from 'react-native-device-info';
 
+import { connect } from 'react-redux';
+import { signin, clearErrorMessage, authError } from '../actions/auth';
+import AsyncStorage from '@react-native-community/async-storage';
+
+import api from '../api/remote/heroku';
+import { navigate } from '../navigationRef';
+import PropTypes from 'prop-types';
+
 const RNFS = require('react-native-fs');
 
 
-const SignInScreen = (payload) => {
-  const {navigation} = payload;
+const SignInScreen = props => {
+  const { sign_in,clear_error_message, auths:{ errorMessage } } = props;
   const systemName = getSystemName().toLowerCase();
-  const {state, signin, clearErrorMessage} = useContext(AuthContext);
   const base = `SayItOut2.db`;
   const destIos = CacheDir.replace('Caches', 'NoCloud');
   const destAndroid = DocumentDir.replace('Caches', 'NoCloud');
-
 
   if(systemName.includes('android')){
     RNFS.exists(`${destAndroid}/${base}`).then(res => {
@@ -37,26 +41,54 @@ const SignInScreen = (payload) => {
         populateCardsTable();
         }
     });
-  } 
-
+  }
   return (
     <>
-      <ScrollView>
-        <NavigationEvents onWillFocus={clearErrorMessage} />
+      <KeyboardAvoidingView style={s.container} behavior='height'>
+        <NavigationEvents onWillFocus={clear_error_message} />
         <AuthForm
-          headerText="Sign In"
-          errorMessage={state.errorMessage}
+          headerText="signin"
+          errorMessage={errorMessage}
           submitButtonText="Sign in"
-          onSubmit={signin}
+          onSubmit={sign_in}
         />
-        <NavLink
-          navigation={navigation}
-          routeName="Signup"
-          text="Don't have an account? Sign up instead"
-        />
-      </ScrollView>
+      </KeyboardAvoidingView>
     </>
   );
 };
 
-export default SignInScreen;
+SignInScreen.propTypes = {
+  sign_in: PropTypes.func,
+  clear_error_message: PropTypes.func,
+  auths: PropTypes.object
+};
+
+
+
+const mapStateToProps = (state) => {
+
+  return {
+   auths:state.authReducer
+ }
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return{
+    sign_in: async ({ email, password }) => {
+      try {
+        const response = await api.post('/signin', { email, password });
+        await AsyncStorage.setItem('token', response.data.token);
+        await AsyncStorage.setItem('email', email);
+        if (response ){
+          dispatch(signin(response.data.token, email));
+          navigate('Home');
+        }
+      } catch (err) {
+        dispatch(authError('Please check your credentials'));
+      }
+    },
+    clear_error_message: () => dispatch(clearErrorMessage()),
+  }
+};
+
+export default connect(mapStateToProps,mapDispatchToProps)(SignInScreen);
