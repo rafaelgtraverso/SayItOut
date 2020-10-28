@@ -1,17 +1,17 @@
 import React from 'react';
-import {View} from 'react-native';
+import { View } from 'react-native';
 import Phrase from '../components/Phrase';
 import CardsGrid from '../components/CardsGrid';
 import { NavigationEvents } from 'react-navigation';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import { clearPhrase } from '../actions/phrases';
 import PropTypes from 'prop-types';
 
-const HomeScreen = (props) => {
-  // const {clearPhrase} = useContext(PhraseContext);
+const HomeScreen = props => {
+  const { clear_phrase } = props;
   return (
     <View >
-      <NavigationEvents onWillFocus={props.clear_phrase} />
+      <NavigationEvents onWillFocus={clear_phrase} />
       <Phrase />
       <CardsGrid />
     </View>
@@ -32,7 +32,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return{
-    clear_phrase: () => dispatch(clearPhrase()), 
+    clear_phrase: () => dispatch(clearPhrase()),
   }
 };
 

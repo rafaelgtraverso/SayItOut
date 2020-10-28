@@ -1,40 +1,40 @@
 import React, { useEffect } from 'react';
-import {SafeAreaView, FlatList, TouchableOpacity, View} from 'react-native';
+import { SafeAreaView, FlatList, TouchableOpacity, View } from 'react-native';
 import s from '../css/styles';
-import {Text, Icon} from 'react-native-elements';
+import { Text, Icon } from 'react-native-elements';
 import { getAllPhrases, removePhrase } from '../api/local/sqlite';
 import Card from '../components/Card';
 import { handleVoice } from '../helpers/tts/handleVoices';
 import * as RNLocalize from 'react-native-localize';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import { sqlPhrases } from '../actions/phrases';
 import PropTypes from 'prop-types';
 
-const PhraseListScreen = (props) => {
+const PhraseListScreen = props => {
   const email = props.auths.email;
   const phoneLanguage = RNLocalize.getLocales()[0].languageCode;
   const cb = (phrases) => props.sql_phrases(phrases, phoneLanguage);
   useEffect(()=>{
-    getAllPhrases({cb, email});
+    getAllPhrases({ cb, email });
   },[props.phrases.phraseId]);
 
   const deletePhrase = (item) => {
     removePhrase(item.phrase_id);
-    getAllPhrases({cb,email});
+    getAllPhrases({ cb,email });
   };
-  
-  const renderCard = ({item}) => {
+
+  const renderCard = ({ item }) => {
     return (
-      <Card 
+      <Card
         key={(item.card_position).toString()+'-'+item.name}
         item={item}
         />
     )
   }
-  const renderPhrase = ({item}) => {
+  const renderPhrase = ({ item }) => {
     return (
       <View style={s.phraseView}>
-        <FlatList 
+        <FlatList
           horizontal
           data={item.data}
           renderItem={renderCard}
@@ -60,10 +60,10 @@ const PhraseListScreen = (props) => {
     )
   };
   return (
-    <SafeAreaView forceInset={{top: 'always'}} >
+    <SafeAreaView forceInset={{ top: 'always' }} >
       <Text style={s.text}> Saved Phrases </Text>
       <View >
-        <FlatList 
+        <FlatList
           style={s.phraseListView}
           data={props.phrases.savedPhrases}
           renderItem={renderPhrase}

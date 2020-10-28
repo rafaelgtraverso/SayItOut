@@ -6,9 +6,10 @@ import { connect } from 'react-redux';
 import { signin } from '../actions/auth';
 
 
-const ResolveAuthScreen = (props) => {
+const ResolveAuthScreen = props => {
+  const { localSignIn } = props;
   useEffect(() => {
-    props.localSignIn();
+    localSignIn();
   }, []);
 
   return null;
@@ -38,4 +39,3 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(mapStateToProps,mapDispatchToProps)(ResolveAuthScreen);
-

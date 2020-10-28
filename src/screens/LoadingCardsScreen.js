@@ -9,7 +9,7 @@ const LoadingCardsScreen = () => {
         populateCardsTable();
     },[]);
     navigate('Home');
-    
+
     return (
         <SafeAreaView>
             <View style={s.loading}>

@@ -22,7 +22,7 @@ const authReducer = (state, action) => {
         ...state,
         errorMessage: '',
         token: null,
-        email:'', 
+        email:'',
       };
     case 'clear_error_message':
       return {
@@ -38,7 +38,7 @@ const tryLocalSignIn = (dispatch) => async () => {
   const token = await AsyncStorage.getItem('token');
   const email = await AsyncStorage.getItem('email');
   if (token) {
-    dispatch({type: 'signin', payload: {token, email}});
+    dispatch({ type: 'signin', payload: { token, email } });
     navigate('Home');
   } else {
     navigate('Signin');
@@ -46,15 +46,15 @@ const tryLocalSignIn = (dispatch) => async () => {
 };
 
 const clearErrorMessage = (dispatch) => () => {
-  dispatch({type: 'clear_error_message'});
+  dispatch({ type: 'clear_error_message' });
 };
 
-const signup = (dispatch) => async ({email, password}) => {
+const signup = (dispatch) => async ({ email, password }) => {
   try {
-    const response = await api.post('/signup', {email, password});
+    const response = await api.post('/signup', { email, password });
     await AsyncStorage.setItem('token', response.data.token);
     await AsyncStorage.setItem('email', email);
-    dispatch({type: 'signin', payload: {token: response.data.token, email }});
+    dispatch({ type: 'signin', payload: { token: response.data.token, email } });
 
     navigate('Home');
   } catch (err) {
@@ -65,27 +65,27 @@ const signup = (dispatch) => async ({email, password}) => {
   }
 };
 
-const signin = (dispatch) => async ({email, password}) => {
+const signin = (dispatch) => async ({ email, password }) => {
   try {
-    const response = await api.post('/signin', {email, password});
+    const response = await api.post('/signin', { email, password });
     await AsyncStorage.setItem('token', response.data.token);
     await AsyncStorage.setItem('email', email);
-    dispatch({type: 'signin', payload: {token: response.data.token, email }});
+    dispatch({ type: 'signin', payload: { token: response.data.token, email } });
     navigate('Home');
   } catch (err) {
     console.log(err);
-    dispatch({type: 'add_error', payload: 'Please check your credentials'});
+    dispatch({ type: 'add_error', payload: 'Please check your credentials' });
   }
 };
 
 const signout = (dispatch) => async () => {
   await AsyncStorage.removeItem('token');
-  dispatch({type: 'signout'});
+  dispatch({ type: 'signout' });
   navigate('Signin');
 };
 
-export const {Context, Provider} = createDataContext(
+export const { Context, Provider } = createDataContext(
   authReducer,
-  {signup, signin, signout, clearErrorMessage, tryLocalSignIn},
-  {token: null, email:'', errorMessage: ''},
+  { signup, signin, signout, clearErrorMessage, tryLocalSignIn },
+  { token: null, email:'', errorMessage: '' },
 );

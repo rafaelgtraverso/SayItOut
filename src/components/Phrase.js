@@ -6,14 +6,14 @@ import Card from '../components/Card';
 import { getPhrasesCount, insertPhrase } from '../api/local/sqlite';
 import { handleVoice } from '../helpers/tts/handleVoices';
 import * as RNLocalize from 'react-native-localize';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import { deleteLastEntry, clearPhrase, setLastPhraseId, showPhrase } from '../actions/phrases';
 import PropTypes from 'prop-types';
 
-const Phrase = (props) => {
+const Phrase = props => {
     useEffect(() =>{
-        const cb = (phraseId) => props.set_last_phrase_id(phraseId[0].Last_Id+1); 
-        getPhrasesCount({cb});
+        const cb = (phraseId) => props.set_last_phrase_id(phraseId[0].Last_Id+1);
+        getPhrasesCount({ cb });
     },[props.phrases.phrase]);
 
     const savePhrase = () => {
@@ -21,9 +21,9 @@ const Phrase = (props) => {
             insertPhrase(props.phrases.phraseId,props.phrases.phrase, props.auths.email);
             props.clear_phrase();
         }else{
-            console.log(props.phrases); 
+            console.log(props.phrases);
         }
-        
+
     } ;
     const phraseToVoice = () => {
         let phoneLanguage = RNLocalize.getLocales()[0].languageCode
@@ -33,14 +33,14 @@ const Phrase = (props) => {
     };
     return (
         <View style={s.phraseInputView} >
-             <ScrollView 
-                style={s.phraseInput} 
-                horizontal={true} 
+             <ScrollView
+                style={s.phraseInput}
+                horizontal={true}
                 ref={ref => this.scrollView = ref}
                 onContentSizeChange={() => this.scrollView.scrollToEnd()}
             >
-                { props.phrases.phrase.length!= 0 
-                    ? ( 
+                { props.phrases.phrase.length!= 0
+                    ? (
                         props.phrases.phrase.map(element => {
                             return <Card key={Math.random(9999).toString()} item={element} />
                         })
@@ -52,7 +52,7 @@ const Phrase = (props) => {
                         name='delete'
                         type='feather'
                         size={50}
-                        color='black'    
+                        color='black'
                     />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={()=> handleVoice(phraseToVoice())}  >
@@ -68,10 +68,10 @@ const Phrase = (props) => {
                         name='save'
                         type='feather'
                         size={50}
-                        color='black'     
+                        color='black'
                     />
                 </TouchableOpacity>
-            </View> 
+            </View>
         </View>
     )
 };
@@ -91,14 +91,14 @@ const mapStateToProps = (state) => {
      auths:state.authReducer
    }
   };
-  
+
   const mapDispatchToProps = (dispatch) => {
     return{
         show_phrase:  (item) => dispatch(showPhrase(item)),
         delete_last_entry: () => dispatch(deleteLastEntry()),
-        clear_phrase: () => dispatch(clearPhrase()), 
+        clear_phrase: () => dispatch(clearPhrase()),
         set_last_phrase_id: (lastPhraseId) => dispatch(setLastPhraseId(lastPhraseId)),
     }
   };
-  
+
   export default connect(mapStateToProps,mapDispatchToProps)(Phrase);

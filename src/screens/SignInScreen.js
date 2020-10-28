@@ -9,7 +9,7 @@ import { createDatabase, populateCardsTable } from '../api/local/sqlite';
 import { CacheDir, DocumentDir } from 'redux-persist-fs-storage';
 import { getSystemName } from 'react-native-device-info';
 
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import { signin, clearErrorMessage, authError } from '../actions/auth';
 import AsyncStorage from '@react-native-community/async-storage';
 
@@ -20,7 +20,8 @@ import PropTypes from 'prop-types';
 const RNFS = require('react-native-fs');
 
 
-const SignInScreen = (props) => {
+const SignInScreen = props => {
+  const { sign_in,clear_error_message, auths:{ errorMessage } } = props;
   const systemName = getSystemName().toLowerCase();
   const base = `SayItOut2.db`;
   const destIos = CacheDir.replace('Caches', 'NoCloud');
@@ -40,17 +41,16 @@ const SignInScreen = (props) => {
         populateCardsTable();
         }
     });
-  } 
-  const onSignIn = props.sign_in;
+  }
   return (
     <>
       <KeyboardAvoidingView style={s.container} behavior='height'>
-        <NavigationEvents onWillFocus={props.clear_error_message} />
+        <NavigationEvents onWillFocus={clear_error_message} />
         <AuthForm
           headerText="signin"
-          errorMessage={props.auths.errorMessage}
+          errorMessage={errorMessage}
           submitButtonText="Sign in"
-          onSubmit={onSignIn}
+          onSubmit={sign_in}
         />
       </KeyboardAvoidingView>
     </>
@@ -74,9 +74,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return{
-    sign_in: async ({email, password}) => {
+    sign_in: async ({ email, password }) => {
       try {
-        const response = await api.post('/signin', {email, password});
+        const response = await api.post('/signin', { email, password });
         await AsyncStorage.setItem('token', response.data.token);
         await AsyncStorage.setItem('email', email);
         if (response ){
@@ -85,7 +85,7 @@ const mapDispatchToProps = (dispatch) => {
         }
       } catch (err) {
         dispatch(authError('Please check your credentials'));
-      } 
+      }
     },
     clear_error_message: () => dispatch(clearErrorMessage()),
   }

@@ -1,5 +1,5 @@
-import {StyleSheet} from 'react-native';
-import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import { StyleSheet } from 'react-native';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 const blue = 'rgba(0,0,255,1)';
 const red = 'rgba(255,0,0,1)';
@@ -75,7 +75,7 @@ const s = StyleSheet.create({
   phraseView:{
     padding:10,
     borderBottomWidth:1,
-    flexDirection:'row', 
+    flexDirection:'row',
     flex:1,
     alignItems:'center'
   },

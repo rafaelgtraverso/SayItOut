@@ -11,9 +11,7 @@ import SignInScreen from './src/screens/SignInScreen';
 import SignUpScreen from './src/screens/SignUpScreen';
 import ResolveAuthScreen from './src/screens/ResolveAuthScreen';
 
-import {Provider as AuthProvider} from './src/context/AuthContext';
-import {Provider as PhraseProvider} from './src/context/PhraseContext';
-import { Provider } from 'react-redux'; 
+import {Provider} from 'react-redux';
 
 import {setNavigator} from './src/navigationRef';
 import LoadingCardsScreen from './src/screens/LoadingCardsScreen';
@@ -48,20 +46,9 @@ export default () => {
     <Provider store={store}>
       <App
         ref={(navigator) => {
-          setNavigator(navigator) 
+          setNavigator(navigator)
         }}
       />
     </Provider>
   );
-  // return (
-  //   <AuthProvider>
-  //     <PhraseProvider>
-  //       <App
-  //         ref={(navigator) => {
-  //           setNavigator(navigator) 
-  //         }}
-  //       />
-  //     </PhraseProvider>
-  //   </AuthProvider>
-  // );
 };

@@ -1,20 +1,21 @@
 import React from 'react';
-import {Text, Button} from 'react-native';
-import {SafeAreaView} from 'react-navigation';
+import { Text, Button } from 'react-native';
+import { SafeAreaView } from 'react-navigation';
 import Spacer from '../components/Spacer';
 import s from '../css/styles'
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import { signout } from '../actions/auth';
 import AsyncStorage from '@react-native-community/async-storage';
 import { navigate } from '../navigationRef';
 import PropTypes from 'prop-types';
 
-const AccountScreen = (props) => {
+const AccountScreen = props => {
+  const { sign_out } = props;
   return (
-    <SafeAreaView forceInset={{top: 'always'}}>
+    <SafeAreaView forceInset={{ top: 'always' }}>
       <Text style={s.text}> My Account</Text>
       <Spacer />
-      <Button title="Log out" onPress={props.sign_out} />
+      <Button title="Log out" onPress={sign_out} />
     </SafeAreaView>
   );
 };
@@ -37,7 +38,7 @@ const mapDispatchToProps = (dispatch) => {
       await AsyncStorage.removeItem('token');
       dispatch(signout);
       navigate('Signin');
-    }  
+    }
   }
 };
 

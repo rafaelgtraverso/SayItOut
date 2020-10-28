@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { Image, View } from 'react-native';
-import {Text, Input, Button } from 'react-native-elements';
+import { Text, Input, Button } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Spacer from './Spacer';
 import s from '../css/styles';
@@ -9,11 +9,11 @@ import logoTitle from '../assets/LogoTitle.png';
 import logoSubtitle from '../assets/LogoSubtitle.png';
 import NavLink from '../components/NavLink';
 
-const AuthForm = (payload) => {
-  const {headerText, errorMessage, onSubmit, submitButtonText} = payload;
+const AuthForm = params => {
+  const { headerText, errorMessage, onSubmit, submitButtonText } = params;
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  
+
   return (
     <View style={s.containerForm}>
 
@@ -25,7 +25,7 @@ const AuthForm = (payload) => {
       </View>
       <View style={s.containerInput}>
       {headerText=='signup' ? <Text style={s.textForm}>Registration Form</Text> : null}
-        <Input 
+        <Input
           value={email}
           onChangeText={setEmail}
           autoCapitalize="none"
@@ -58,7 +58,7 @@ const AuthForm = (payload) => {
         <Spacer />
         <Button
           title={submitButtonText}
-          onPress={() => onSubmit({email, password})}
+          onPress={() => onSubmit({ email, password })}
           buttonStyle={s.button}
         />
         {headerText == 'signin'
@@ -71,7 +71,6 @@ const AuthForm = (payload) => {
             text="Already have an account? Sign in instead"
           />
         }
-      
       </View>
     </View>
   );

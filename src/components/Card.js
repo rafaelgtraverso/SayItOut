@@ -1,11 +1,11 @@
 import React from 'react';
-import {View, Image} from 'react-native';
+import { View, Image } from 'react-native';
 import s from '../css/styles';
-import {Text} from 'react-native-elements';
+import { Text } from 'react-native-elements';
 import * as RNLocalize from 'react-native-localize';
 
-const Card = (payload) => {
-    const {item} = payload;
+const Card = params => {
+    const { item } = params;
     let phoneLanguage = RNLocalize.getLocales()[0].languageCode;
     const name = item.name.replace(/_/g, ' ');
 

@@ -15,7 +15,7 @@ export const authError = (message) => (
 export const signin = (token,email) => (
   {
     type: SIGN_IN,
-    payload:{token, email}
+    payload:{ token, email }
   }
 );
 
@@ -24,6 +24,3 @@ export const signout = () => (
     type: SIGN_OUT
   }
 );
-
-
-  
