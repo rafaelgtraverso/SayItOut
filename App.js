@@ -1,7 +1,7 @@
 import React from 'react';
-import {createAppContainer, createSwitchNavigator} from 'react-navigation';
-import {createStackNavigator} from 'react-navigation-stack';
-import {createBottomTabNavigator} from 'react-navigation-tabs';
+import { createAppContainer, createSwitchNavigator } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
+import { createBottomTabNavigator } from 'react-navigation-tabs';
 
 import AccountScreen from './src/screens/AccountScreen';
 import CreateCardScreen from './src/screens/CreateCardScreen';
@@ -11,9 +11,9 @@ import SignInScreen from './src/screens/SignInScreen';
 import SignUpScreen from './src/screens/SignUpScreen';
 import ResolveAuthScreen from './src/screens/ResolveAuthScreen';
 
-import {Provider} from 'react-redux';
+import { Provider } from 'react-redux';
 
-import {setNavigator} from './src/navigationRef';
+import { setNavigator } from './src/navigationRef';
 import LoadingCardsScreen from './src/screens/LoadingCardsScreen';
 import configureStore from './src/store';
 
@@ -32,8 +32,8 @@ const switchNavigator = createSwitchNavigator({
       Home: HomeScreen,
       CreateCard: CreateCardScreen,
     }),
-    Phrases: createStackNavigator({Phrases:PhraseListScreen}),
-    Account: createStackNavigator({Account:AccountScreen}),
+    Phrases: createStackNavigator({ Phrases:PhraseListScreen }),
+    Account: createStackNavigator({ Account:AccountScreen }),
   })
 });
 
@@ -41,6 +41,7 @@ const App = createAppContainer(switchNavigator);
 
 const store = configureStore();
 
+// eslint-disable-next-line react/display-name
 export default () => {
   return (
     <Provider store={store}>
