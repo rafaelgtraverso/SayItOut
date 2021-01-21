@@ -18,9 +18,9 @@
 		3373BAFC3D94100C1E458006 /* libPods-SayItOut.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AAA4E0ACBE11A02D3E623366 /* libPods-SayItOut.a */; };
 		4080303AF8357334BF467030 /* libPods-SayItOut-SayItOutTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A5E2499E7742545FCA25C189 /* libPods-SayItOut-SayItOutTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		85052E5925BA125D00C148FB /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 008F07F21AC5B25A0029DE68 /* main.jsbundle */; };
-		C6B30CE1E99090530932B9D6 /* libPods-SayItOut-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4481A02AA364C113AF06B5B0 /* libPods-SayItOut-tvOS.a */; };
-		CD8E9310CFA4C53F1D577DA5 /* libPods-SayItOut-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 687915F19BD1DC236721794A /* libPods-SayItOut-tvOSTests.a */; };
+		9C86179C6A4BD203944486C3 /* libPods-SayItOut-SayItOutTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56262168749BCFA903DA65DC /* libPods-SayItOut-SayItOutTests.a */; };
+		CD335CFBF6AD48E2519DBDE2 /* libPods-SayItOut-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 852F015F3A574FD666FB289A /* libPods-SayItOut-tvOS.a */; };
+		EE63BC752420634BA3355E50 /* libPods-SayItOut-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D16D517C465886512ECEB73C /* libPods-SayItOut-tvOSTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +68,7 @@
 		687915F19BD1DC236721794A /* libPods-SayItOut-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SayItOut-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7514C58936AF22612589DBEF /* Pods-SayItOut-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SayItOut-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-SayItOut-tvOSTests/Pods-SayItOut-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = SayItOut/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		852F015F3A574FD666FB289A /* libPods-SayItOut-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SayItOut-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B1CE7B2687849B9AF912867 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 		912AEEB5AAFB4EE7A02E3D50 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		92B75F0F018445D48638E418 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
