@@ -18,9 +18,9 @@ const AuthForm = params => {
     <View style={s.containerForm}>
 
       <View style={s.logoContainer} >
-        <Image source={logoTitle} style={s.logosTitle} resizeMode='center' />
-        <Image source={logo} style={s.logo} resizeMode='center' />
-        <Image source={logoSubtitle} style={s.logosSubtitle} resizeMode='center' />
+        <Image source={logoTitle} style={s.logosTitle} resizeMode='contain' />
+        <Image source={logo} style={s.logo} resizeMode='contain' />
+        <Image source={logoSubtitle} style={s.logosSubtitle} resizeMode='contain' />
         <Spacer/>
       </View>
       <View style={s.containerInput}>
