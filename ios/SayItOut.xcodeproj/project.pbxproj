@@ -15,15 +15,12 @@
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* SayItOutTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* SayItOutTests.m */; };
-		75FC72CA1F4FC62E71C78961 /* libPods-SayItOut.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE2EDB91B8EDB302B4DBA287 /* libPods-SayItOut.a */; };
+		3373BAFC3D94100C1E458006 /* libPods-SayItOut.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AAA4E0ACBE11A02D3E623366 /* libPods-SayItOut.a */; };
+		4080303AF8357334BF467030 /* libPods-SayItOut-SayItOutTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A5E2499E7742545FCA25C189 /* libPods-SayItOut-SayItOutTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		859C2C2825AC63DD008F3B9F /* Icon-167.png in Resources */ = {isa = PBXBuildFile; fileRef = 859C2C0A25AC63DD008F3B9F /* Icon-167.png */; };
-		859C2C2925AC63DD008F3B9F /* Icon-120.png in Resources */ = {isa = PBXBuildFile; fileRef = 859C2C0B25AC63DD008F3B9F /* Icon-120.png */; };
-		859C2C2B25AC63DD008F3B9F /* Icon-152.png in Resources */ = {isa = PBXBuildFile; fileRef = 859C2C0D25AC63DD008F3B9F /* Icon-152.png */; };
-		859C2C3925AC64C3008F3B9F /* Icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = 859C2C3825AC64C3008F3B9F /* Icon-76.png */; };
-		9C86179C6A4BD203944486C3 /* libPods-SayItOut-SayItOutTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56262168749BCFA903DA65DC /* libPods-SayItOut-SayItOutTests.a */; };
-		CD335CFBF6AD48E2519DBDE2 /* libPods-SayItOut-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 852F015F3A574FD666FB289A /* libPods-SayItOut-tvOS.a */; };
-		EE63BC752420634BA3355E50 /* libPods-SayItOut-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D16D517C465886512ECEB73C /* libPods-SayItOut-tvOSTests.a */; };
+		85052E5925BA125D00C148FB /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 008F07F21AC5B25A0029DE68 /* main.jsbundle */; };
+		C6B30CE1E99090530932B9D6 /* libPods-SayItOut-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4481A02AA364C113AF06B5B0 /* libPods-SayItOut-tvOS.a */; };
+		CD8E9310CFA4C53F1D577DA5 /* libPods-SayItOut-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 687915F19BD1DC236721794A /* libPods-SayItOut-tvOSTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +46,6 @@
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* SayItOutTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SayItOutTests.m; sourceTree = "<group>"; };
 		05221EC8FC134FE58D533854 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
-		0570383E968DB77B4AA6AC10 /* Pods-SayItOut-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SayItOut-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-SayItOut-tvOSTests/Pods-SayItOut-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		1042805A8E3A4FCBB4FB487F /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* SayItOut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SayItOut.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = SayItOut/AppDelegate.h; sourceTree = "<group>"; };
@@ -57,40 +53,37 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = SayItOut/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = SayItOut/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = SayItOut/main.m; sourceTree = "<group>"; };
+		1855866A9485D942EE4A2216 /* Pods-SayItOut-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SayItOut-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-SayItOut-tvOSTests/Pods-SayItOut-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		192A8F14E6EE723CCC02142D /* Pods-SayItOut-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SayItOut-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-SayItOut-tvOS/Pods-SayItOut-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		216D657B08BF0AFFC91FD4F9 /* Pods-SayItOut-SayItOutTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SayItOut-SayItOutTests.debug.xcconfig"; path = "Target Support Files/Pods-SayItOut-SayItOutTests/Pods-SayItOut-SayItOutTests.debug.xcconfig"; sourceTree = "<group>"; };
+		2A27173DF7305FF8F999216B /* Pods-SayItOut-SayItOutTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SayItOut-SayItOutTests.release.xcconfig"; path = "Target Support Files/Pods-SayItOut-SayItOutTests/Pods-SayItOut-SayItOutTests.release.xcconfig"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* SayItOut-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SayItOut-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* SayItOut-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SayItOut-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D6C7C6844B22C90B9ED9A43 /* Pods-SayItOut.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SayItOut.release.xcconfig"; path = "Target Support Files/Pods-SayItOut/Pods-SayItOut.release.xcconfig"; sourceTree = "<group>"; };
 		439BD6A514484A0085CEA9BB /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
+		4481A02AA364C113AF06B5B0 /* libPods-SayItOut-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SayItOut-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4839C3A386BA44AFB9877E72 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		4B4BB2FF9291477AACE35616 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
 		4C82FDCD4D3A4C4CA07D3523 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		5492EE96C7F14195B7346C40 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
-		56262168749BCFA903DA65DC /* libPods-SayItOut-SayItOutTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SayItOut-SayItOutTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		66A9FB217A14AA997E30426F /* Pods-SayItOut-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SayItOut-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-SayItOut-tvOS/Pods-SayItOut-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		687915F19BD1DC236721794A /* libPods-SayItOut-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SayItOut-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7514C58936AF22612589DBEF /* Pods-SayItOut-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SayItOut-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-SayItOut-tvOSTests/Pods-SayItOut-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = SayItOut/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		852F015F3A574FD666FB289A /* libPods-SayItOut-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SayItOut-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		859C2C0A25AC63DD008F3B9F /* Icon-167.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-167.png"; path = "../../../../../Downloads/appiconmaker/Icon-167.png"; sourceTree = "<group>"; };
-		859C2C0B25AC63DD008F3B9F /* Icon-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-120.png"; path = "../../../../../Downloads/appiconmaker/Icon-120.png"; sourceTree = "<group>"; };
-		859C2C0D25AC63DD008F3B9F /* Icon-152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-152.png"; path = "../../../../../Downloads/appiconmaker/Icon-152.png"; sourceTree = "<group>"; };
-		859C2C3825AC64C3008F3B9F /* Icon-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-76.png"; path = "../../../../../Downloads/appiconmaker/Icon-76.png"; sourceTree = "<group>"; };
 		8B1CE7B2687849B9AF912867 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
-		8C74B33413491A5514D18B4F /* Pods-SayItOut-SayItOutTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SayItOut-SayItOutTests.debug.xcconfig"; path = "Target Support Files/Pods-SayItOut-SayItOutTests/Pods-SayItOut-SayItOutTests.debug.xcconfig"; sourceTree = "<group>"; };
 		912AEEB5AAFB4EE7A02E3D50 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		92B75F0F018445D48638E418 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		93030FC6DB094379B9F8827B /* Fontisto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Fontisto.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; };
+		A5E2499E7742545FCA25C189 /* libPods-SayItOut-SayItOutTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SayItOut-SayItOutTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A888A2FF3DE8E8C82269E7EC /* Pods-SayItOut-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SayItOut-tvOS.release.xcconfig"; path = "Target Support Files/Pods-SayItOut-tvOS/Pods-SayItOut-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		AAA4E0ACBE11A02D3E623366 /* libPods-SayItOut.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SayItOut.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5F47E3FF7D4483DAA84732A /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
-		C719B753067FCE516C893075 /* Pods-SayItOut.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SayItOut.debug.xcconfig"; path = "Target Support Files/Pods-SayItOut/Pods-SayItOut.debug.xcconfig"; sourceTree = "<group>"; };
-		CCB43E43E84ACF7C996F2C57 /* Pods-SayItOut-SayItOutTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SayItOut-SayItOutTests.release.xcconfig"; path = "Target Support Files/Pods-SayItOut-SayItOutTests/Pods-SayItOut-SayItOutTests.release.xcconfig"; sourceTree = "<group>"; };
-		D16D517C465886512ECEB73C /* libPods-SayItOut-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SayItOut-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3559605AB5B4F7C86516F81 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		D8451EA1175E4ACFAFE9CDE0 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
-		D9FC76AB9B799BBA3FFBA83D /* Pods-SayItOut-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SayItOut-tvOS.release.xcconfig"; path = "Target Support Files/Pods-SayItOut-tvOS/Pods-SayItOut-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		DBC6D957900344C4B5689CB4 /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
-		E579100E0932E34EF0E7584A /* Pods-SayItOut-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SayItOut-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-SayItOut-tvOSTests/Pods-SayItOut-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
-		EE2EDB91B8EDB302B4DBA287 /* libPods-SayItOut.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SayItOut.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCF1E39024793047F32DB5A8 /* Pods-SayItOut.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SayItOut.debug.xcconfig"; path = "Target Support Files/Pods-SayItOut/Pods-SayItOut.debug.xcconfig"; sourceTree = "<group>"; };
 		FD95A26414BB4320AD89D9A7 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
+		FF4121CEBA3149517F06E3DA /* Pods-SayItOut.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SayItOut.release.xcconfig"; path = "Target Support Files/Pods-SayItOut/Pods-SayItOut.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C86179C6A4BD203944486C3 /* libPods-SayItOut-SayItOutTests.a in Frameworks */,
+				4080303AF8357334BF467030 /* libPods-SayItOut-SayItOutTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,7 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				75FC72CA1F4FC62E71C78961 /* libPods-SayItOut.a in Frameworks */,
+				3373BAFC3D94100C1E458006 /* libPods-SayItOut.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,7 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD335CFBF6AD48E2519DBDE2 /* libPods-SayItOut-tvOS.a in Frameworks */,
+				C6B30CE1E99090530932B9D6 /* libPods-SayItOut-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,7 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE63BC752420634BA3355E50 /* libPods-SayItOut-tvOSTests.a in Frameworks */,
+				CD8E9310CFA4C53F1D577DA5 /* libPods-SayItOut-tvOSTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,10 +146,6 @@
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
-				859C2C3825AC64C3008F3B9F /* Icon-76.png */,
-				859C2C0B25AC63DD008F3B9F /* Icon-120.png */,
-				859C2C0D25AC63DD008F3B9F /* Icon-152.png */,
-				859C2C0A25AC63DD008F3B9F /* Icon-167.png */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
@@ -167,14 +156,14 @@
 		1C25BC17A74A636A2246C776 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				C719B753067FCE516C893075 /* Pods-SayItOut.debug.xcconfig */,
-				2D6C7C6844B22C90B9ED9A43 /* Pods-SayItOut.release.xcconfig */,
-				8C74B33413491A5514D18B4F /* Pods-SayItOut-SayItOutTests.debug.xcconfig */,
-				CCB43E43E84ACF7C996F2C57 /* Pods-SayItOut-SayItOutTests.release.xcconfig */,
-				66A9FB217A14AA997E30426F /* Pods-SayItOut-tvOS.debug.xcconfig */,
-				D9FC76AB9B799BBA3FFBA83D /* Pods-SayItOut-tvOS.release.xcconfig */,
-				0570383E968DB77B4AA6AC10 /* Pods-SayItOut-tvOSTests.debug.xcconfig */,
-				E579100E0932E34EF0E7584A /* Pods-SayItOut-tvOSTests.release.xcconfig */,
+				FCF1E39024793047F32DB5A8 /* Pods-SayItOut.debug.xcconfig */,
+				FF4121CEBA3149517F06E3DA /* Pods-SayItOut.release.xcconfig */,
+				216D657B08BF0AFFC91FD4F9 /* Pods-SayItOut-SayItOutTests.debug.xcconfig */,
+				2A27173DF7305FF8F999216B /* Pods-SayItOut-SayItOutTests.release.xcconfig */,
+				192A8F14E6EE723CCC02142D /* Pods-SayItOut-tvOS.debug.xcconfig */,
+				A888A2FF3DE8E8C82269E7EC /* Pods-SayItOut-tvOS.release.xcconfig */,
+				1855866A9485D942EE4A2216 /* Pods-SayItOut-tvOSTests.debug.xcconfig */,
+				7514C58936AF22612589DBEF /* Pods-SayItOut-tvOSTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -184,10 +173,10 @@
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
-				EE2EDB91B8EDB302B4DBA287 /* libPods-SayItOut.a */,
-				56262168749BCFA903DA65DC /* libPods-SayItOut-SayItOutTests.a */,
-				852F015F3A574FD666FB289A /* libPods-SayItOut-tvOS.a */,
-				D16D517C465886512ECEB73C /* libPods-SayItOut-tvOSTests.a */,
+				AAA4E0ACBE11A02D3E623366 /* libPods-SayItOut.a */,
+				A5E2499E7742545FCA25C189 /* libPods-SayItOut-SayItOutTests.a */,
+				4481A02AA364C113AF06B5B0 /* libPods-SayItOut-tvOS.a */,
+				687915F19BD1DC236721794A /* libPods-SayItOut-tvOSTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -256,11 +245,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "SayItOutTests" */;
 			buildPhases = (
-				BA1D6CF1EDE6D8F82F2452D0 /* [CP] Check Pods Manifest.lock */,
+				6100CA6C5BAE9916A2FE8D2D /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				05697D41343272543B4FF9F5 /* [CP] Copy Pods Resources */,
+				16462EF63B39CF3A10D5EB1D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -276,13 +265,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "SayItOut" */;
 			buildPhases = (
-				0FAAEA6EC17D24ECDDE15B6B /* [CP] Check Pods Manifest.lock */,
+				04CCC75098814AF0E4FE7D7E /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				C635879403B5F4329E9B2B23 /* [CP] Copy Pods Resources */,
+				70E24399E27B98B0E9FF8B2A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -297,7 +286,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "SayItOut-tvOS" */;
 			buildPhases = (
-				8236735152F9D70BBBF89376 /* [CP] Check Pods Manifest.lock */,
+				676161A68F3AA8207271A59A /* [CP] Check Pods Manifest.lock */,
 				FD10A7F122414F3F0027D42C /* Start Packager */,
 				2D02E4771E0B4A5D006451C7 /* Sources */,
 				2D02E4781E0B4A5D006451C7 /* Frameworks */,
@@ -317,7 +306,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "SayItOut-tvOSTests" */;
 			buildPhases = (
-				C8516087DA66428142C2749B /* [CP] Check Pods Manifest.lock */,
+				B9096535BD3928C2E907036A /* [CP] Check Pods Manifest.lock */,
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
 				2D02E48D1E0B4A5D006451C7 /* Frameworks */,
 				2D02E48E1E0B4A5D006451C7 /* Resources */,
@@ -392,11 +381,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85052E5925BA125D00C148FB /* main.jsbundle in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
-				859C2C2825AC63DD008F3B9F /* Icon-167.png in Resources */,
-				859C2C3925AC64C3008F3B9F /* Icon-76.png in Resources */,
-				859C2C2925AC63DD008F3B9F /* Icon-120.png in Resources */,
-				859C2C2B25AC63DD008F3B9F /* Icon-152.png in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -433,7 +419,29 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
-		05697D41343272543B4FF9F5 /* [CP] Copy Pods Resources */ = {
+		04CCC75098814AF0E4FE7D7E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SayItOut-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		16462EF63B39CF3A10D5EB1D /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -483,28 +491,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SayItOut-SayItOutTests/Pods-SayItOut-SayItOutTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		0FAAEA6EC17D24ECDDE15B6B /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SayItOut-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -519,29 +505,7 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
-		8236735152F9D70BBBF89376 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SayItOut-tvOS-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BA1D6CF1EDE6D8F82F2452D0 /* [CP] Check Pods Manifest.lock */ = {
+		6100CA6C5BAE9916A2FE8D2D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -563,7 +527,29 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C635879403B5F4329E9B2B23 /* [CP] Copy Pods Resources */ = {
+		676161A68F3AA8207271A59A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SayItOut-tvOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		70E24399E27B98B0E9FF8B2A /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -613,7 +599,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SayItOut/Pods-SayItOut-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C8516087DA66428142C2749B /* [CP] Check Pods Manifest.lock */ = {
+		B9096535BD3928C2E907036A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -728,7 +714,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8C74B33413491A5514D18B4F /* Pods-SayItOut-SayItOutTests.debug.xcconfig */;
+			baseConfigurationReference = 216D657B08BF0AFFC91FD4F9 /* Pods-SayItOut-SayItOutTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -751,7 +737,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CCB43E43E84ACF7C996F2C57 /* Pods-SayItOut-SayItOutTests.release.xcconfig */;
+			baseConfigurationReference = 2A27173DF7305FF8F999216B /* Pods-SayItOut-SayItOutTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -771,7 +757,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C719B753067FCE516C893075 /* Pods-SayItOut.debug.xcconfig */;
+			baseConfigurationReference = FCF1E39024793047F32DB5A8 /* Pods-SayItOut.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -780,6 +766,7 @@
 				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = "";
 				INFOPLIST_FILE = SayItOut/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 0.6;
 				OTHER_LDFLAGS = (
@@ -798,7 +785,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2D6C7C6844B22C90B9ED9A43 /* Pods-SayItOut.release.xcconfig */;
+			baseConfigurationReference = FF4121CEBA3149517F06E3DA /* Pods-SayItOut.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -807,6 +794,7 @@
 				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = TMGA7FP7Y5;
 				INFOPLIST_FILE = SayItOut/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 0.6;
 				OTHER_LDFLAGS = (
@@ -825,7 +813,7 @@
 		};
 		2D02E4971E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 66A9FB217A14AA997E30426F /* Pods-SayItOut-tvOS.debug.xcconfig */;
+			baseConfigurationReference = 192A8F14E6EE723CCC02142D /* Pods-SayItOut-tvOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -853,7 +841,7 @@
 		};
 		2D02E4981E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D9FC76AB9B799BBA3FFBA83D /* Pods-SayItOut-tvOS.release.xcconfig */;
+			baseConfigurationReference = A888A2FF3DE8E8C82269E7EC /* Pods-SayItOut-tvOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -881,7 +869,7 @@
 		};
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0570383E968DB77B4AA6AC10 /* Pods-SayItOut-tvOSTests.debug.xcconfig */;
+			baseConfigurationReference = 1855866A9485D942EE4A2216 /* Pods-SayItOut-tvOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -908,7 +896,7 @@
 		};
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E579100E0932E34EF0E7584A /* Pods-SayItOut-tvOSTests.release.xcconfig */;
+			baseConfigurationReference = 7514C58936AF22612589DBEF /* Pods-SayItOut-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;

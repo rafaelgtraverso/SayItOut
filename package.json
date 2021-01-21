@@ -5,6 +5,7 @@
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios --simulator='iPad Pro (12.9-inch) (4th generation)'",
+    "build:ios": "react-native bundle --entry-file='index.js' --bundle-output='./ios/main.jsbundle' --dev=false --platform='ios'",
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint ."
