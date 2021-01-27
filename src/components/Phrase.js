@@ -26,9 +26,9 @@ const Phrase = props => {
 
     } ;
     const phraseToVoice = () => {
-        let phoneLanguage = RNLocalize.getLocales()[0].languageCode
+        let locale = RNLocalize.getLocales()[0].languageCode
         let phrase2Voice = ''
-        props.phrases.phrase.forEach( e => {phoneLanguage=='it' ? phrase2Voice += ' ' + e.name_it : phrase2Voice += ' ' +e.name})
+        props.phrases.phrase.forEach( e => {locale=='it' ? phrase2Voice += ' ' + e.name_it : phrase2Voice += ' ' +e.name})
         return phrase2Voice;
     };
     return (

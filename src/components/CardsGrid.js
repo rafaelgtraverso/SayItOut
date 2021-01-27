@@ -10,7 +10,7 @@ import { handleVoice } from '../helpers/tts/handleVoices';
 import PropTypes from 'prop-types';
 
 const CardsGrid = props => {
-  const phoneLanguage = RNLocalize.getLocales()[0].languageCode;
+  const locale = RNLocalize.getLocales()[0].languageCode;
   const screenWidth = Dimensions.get('window').width;
   const [column, setColumn] = useState(
     parseInt(screenWidth / (s.image.width + 10), 10),
@@ -32,7 +32,7 @@ const CardsGrid = props => {
       <FlatList
         data={dataSql}
         renderItem={({ item }) => (
-          <TouchableOpacity onPress={() => props.show_phrase(item, phoneLanguage)}>
+          <TouchableOpacity onPress={() => props.show_phrase(item, locale)}>
             <Card item={item} />
           </TouchableOpacity>
         )}
@@ -56,9 +56,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return{
-    show_phrase:  (item, phoneLanguage) => {
+    show_phrase:  (item, locale) => {
       dispatch(showPhrase(item));
-      if(phoneLanguage=='it'){
+      if(locale=='it'){
         handleVoice(item.name_it);
       }else {
           handleVoice(item.name)

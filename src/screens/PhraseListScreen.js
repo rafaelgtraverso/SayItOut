@@ -12,8 +12,8 @@ import PropTypes from 'prop-types';
 
 const PhraseListScreen = props => {
   const email = props.auths.email;
-  const phoneLanguage = RNLocalize.getLocales()[0].languageCode;
-  const cb = (phrases) => props.sql_phrases(phrases, phoneLanguage);
+  const locale = RNLocalize.getLocales()[0].languageCode;
+  const cb = (phrases) => props.sql_phrases(phrases, locale);
   useEffect(()=>{
     getAllPhrases({ cb, email });
   },[props.phrases.phraseId]);
@@ -89,7 +89,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return{
-      sql_phrases:  (phrases, phoneLanguage) => dispatch(sqlPhrases(phrases, phoneLanguage)),
+      sql_phrases:  (phrases, locale) => dispatch(sqlPhrases(phrases, locale)),
   }
 };
 
