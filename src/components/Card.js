@@ -2,20 +2,23 @@ import React from 'react';
 import { View, Image } from 'react-native';
 import s from '../css/styles';
 import { Text } from 'react-native-elements';
-import * as RNLocalize from 'react-native-localize';
+import { t } from '../helpers/i18n'
+import { Data } from '../assets/pecsCards/index2';
+
 
 const Card = params => {
     const { item } = params;
-    let locale = RNLocalize.getLocales()[0].languageCode;
-    const name = item.name.replace(/_/g, ' ');
+
+    // TODO: get rid of this line by creating tranlation files right.
+    const name = item.replace(/_/g, ' ');
 
     return (
         <View style={s.cardContainer}>
             <Image
                 style={s.image}
-                source={item.url}
+                source={Data[item]}
             />
-            <Text style={s.textFlatList}>{locale=='it' ? item.name_it : name }</Text>
+            <Text style={s.textFlatList}>{t[name]}</Text>
         </View>
     )
 };

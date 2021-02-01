@@ -2,9 +2,9 @@ from collections import defaultdict
 import os
 import glob
 import json
-from googletrans import Translator
+# from googletrans import Translator
 
-translator = Translator()
+# translator = Translator()
 base_path = "./pecsCards/"
 d = []
 count=0
@@ -15,6 +15,7 @@ for file in glob.iglob(os.path.join(base_path, '*.jpg'), recursive=True):
     source='..'+file[1:]
     fileName=os.path.basename(file).split('.')[0]
     dict="{ card_id:"+str(count)+", name: \""+fileName+"\", url: require(\""+source+"\"), name_it: \""+translator.translate(fileName, dest='it', src='en').text+"\" },"
+    # dict='{ "' +fileName + '": require("'+ source +'") },'
     d.append(dict)
     print(count)
 

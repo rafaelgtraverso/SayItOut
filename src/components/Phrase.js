@@ -5,7 +5,7 @@ import s from '../css/styles';
 import Card from '../components/Card';
 import { getPhrasesCount, insertPhrase } from '../api/local/sqlite';
 import { handleVoice } from '../helpers/tts/handleVoices';
-import * as RNLocalize from 'react-native-localize';
+import { t } from '../helpers/i18n'
 import { connect } from 'react-redux';
 import { deleteLastEntry, clearPhrase, setLastPhraseId, showPhrase } from '../actions/phrases';
 import PropTypes from 'prop-types';
@@ -26,9 +26,8 @@ const Phrase = props => {
 
     } ;
     const phraseToVoice = () => {
-        let locale = RNLocalize.getLocales()[0].languageCode
         let phrase2Voice = ''
-        props.phrases.phrase.forEach( e => {locale=='it' ? phrase2Voice += ' ' + e.name_it : phrase2Voice += ' ' +e.name})
+        props.phrases.phrase.map(name => phrase2Voice += ` ${t[name]}`)
         return phrase2Voice;
     };
     return (

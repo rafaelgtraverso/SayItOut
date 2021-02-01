@@ -86,7 +86,7 @@ export const Data = [
 	{ card_id:85, name: "Ride-on", url: require("../pecsCards/Ride-on.jpg"), name_it: "Cavalcare" },
 	{ card_id:86, name: "Teeth", url: require("../pecsCards/Teeth.jpg"), name_it: "Denti" },
 	{ card_id:87, name: "Feet", url: require("../pecsCards/Feet.jpg"), name_it: "piedi" },
-	{ card_id:88, name: "Remote_Control]", url: require("../pecsCards/Remote_Control].jpg"), name_it: "REMOTE CONTROL]" },
+	{ card_id:88, name: "Remote_Control", url: require("../pecsCards/Remote_Control.jpg"), name_it: "REMOTE CONTROL" },
 	{ card_id:89, name: "Throwing", url: require("../pecsCards/Throwing.jpg"), name_it: "Lancio" },
 	{ card_id:90, name: "Physical_Therapy_room", url: require("../pecsCards/Physical_Therapy_room.jpg"), name_it: "Physical_Therapy_room" },
 	{ card_id:91, name: "School", url: require("../pecsCards/School.jpg"), name_it: "Scuola" },

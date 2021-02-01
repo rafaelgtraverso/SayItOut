@@ -1,17 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { View, FlatList, Dimensions, TouchableOpacity } from 'react-native';
 import s from '../css/styles';
 import Card from '../components/Card';
-import * as RNLocalize from 'react-native-localize';
-import { getCards } from '../api/local/sqlite';
+import { t } from '../helpers/i18n'
 import { showPhrase } from '../actions/phrases';
 import { connect } from 'react-redux';
 import { handleVoice } from '../helpers/tts/handleVoices';
 import PropTypes from 'prop-types';
 
 const CardsGrid = props => {
-  const locale = RNLocalize.getLocales()[0].languageCode;
   const screenWidth = Dimensions.get('window').width;
+
   const [column, setColumn] = useState(
     parseInt(screenWidth / (s.image.width + 10), 10),
   );
@@ -22,17 +21,12 @@ const CardsGrid = props => {
     );
   };
 
-  const [dataSql,setDataSql]=useState([]);
-  useEffect(()=>{
-    const cb = cards => setDataSql(cards);
-    getCards({ cb });
-  },[]);
   return (
     <View onLayout={onLayout} style={s.cardsGridview}>
       <FlatList
-        data={dataSql}
+        data={Object.keys(t).splice(0, 10)}
         renderItem={({ item }) => (
-          <TouchableOpacity onPress={() => props.show_phrase(item, locale)}>
+          <TouchableOpacity onPress={() => props.show_phrase(item)}>
             <Card item={item} />
           </TouchableOpacity>
         )}
@@ -56,13 +50,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return{
-    show_phrase:  (item, locale) => {
+    show_phrase: item => {
       dispatch(showPhrase(item));
-      if(locale=='it'){
-        handleVoice(item.name_it);
-      }else {
-          handleVoice(item.name)
-      }
+      handleVoice(t[item]);
     }
   }
 };

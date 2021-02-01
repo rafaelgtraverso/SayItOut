@@ -11,8 +11,8 @@ import NavLink from '../components/NavLink';
 
 const AuthForm = params => {
   const { headerText, errorMessage, onSubmit, submitButtonText } = params;
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('jgt@cloudingsystems.co.uk');
+  const [password, setPassword] = useState('asdf1234');
 
   return (
     <View style={s.containerForm}>
