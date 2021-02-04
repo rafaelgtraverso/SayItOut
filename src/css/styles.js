@@ -10,7 +10,7 @@ const white = '#rgba(255,255,255,1)';
 
 const s = StyleSheet.create({
   link: {
-    color: blue,
+    color: blue
   },
   textForm:{
     alignSelf:'center',

@@ -25,9 +25,9 @@ const mapDispatchToProps = (dispatch) => {
   return{
     localSignIn: async () => {
       const token = await AsyncStorage.getItem('token');
-      console.log(token);
+      // console.log(token);
       const email = await AsyncStorage.getItem('email');
-      console.log(email);
+      // console.log(email);
       if (token) {
         dispatch(signin(token, email));
         navigate('Home');

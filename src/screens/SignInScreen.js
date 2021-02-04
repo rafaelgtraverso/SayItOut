@@ -16,6 +16,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 import api from '../api/remote/heroku';
 import { navigate } from '../navigationRef';
 import PropTypes from 'prop-types';
+import auth from '@react-native-firebase/auth'
 
 const RNFS = require('react-native-fs');
 
@@ -76,15 +77,19 @@ const mapDispatchToProps = (dispatch) => {
   return{
     sign_in: async ({ email, password }) => {
       try {
-        const response = await api.post('/signin', { email, password });
-        await AsyncStorage.setItem('token', response.data.token);
-        await AsyncStorage.setItem('email', email);
-        if (response ){
-          dispatch(signin(response.data.token, email));
+        const response = await auth().signInWithEmailAndPassword(
+          email,
+          password
+        );
+        if (response && response.user){
+          await AsyncStorage.setItem('token', (await response.user.getIdTokenResult()).token);
+          await AsyncStorage.setItem('email', email);
+          dispatch(signin((await response.user.getIdTokenResult()).token, email));
           navigate('Home');
         }
       } catch (err) {
         dispatch(authError('Please check your credentials'));
+        console.log(err)
       }
     },
     clear_error_message: () => dispatch(clearErrorMessage()),

@@ -84,8 +84,8 @@ const signout = (dispatch) => async () => {
   navigate('Signin');
 };
 
-export const { Context, Provider } = createDataContext(
-  authReducer,
-  { signup, signin, signout, clearErrorMessage, tryLocalSignIn },
-  { token: null, email:'', errorMessage: '' },
-);
+// export const { Context, Provider } = createDataContext(
+//   authReducer,
+//   { signup, signin, signout, clearErrorMessage, tryLocalSignIn },
+//   { token: null, email:'', errorMessage: '' },
+// );

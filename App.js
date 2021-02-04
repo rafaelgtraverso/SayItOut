@@ -16,6 +16,7 @@ import { Provider } from 'react-redux';
 import { setNavigator } from './src/navigationRef';
 import LoadingCardsScreen from './src/screens/LoadingCardsScreen';
 import configureStore from './src/store';
+import PasswordRecoveryScreen from './src/screens/PasswordRecoveryScreen';
 
 const switchNavigator = createSwitchNavigator({
   resolveAuth: ResolveAuthScreen,
@@ -23,6 +24,7 @@ const switchNavigator = createSwitchNavigator({
   loginFlow: createStackNavigator({
     Signin: SignInScreen,
     Signup: SignUpScreen,
+    RecoveryPassword: PasswordRecoveryScreen,
   },
   {
     headerMode: 'none',

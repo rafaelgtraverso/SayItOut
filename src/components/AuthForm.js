@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { Image, View } from 'react-native';
+import { Image, View, SafeAreaView } from 'react-native';
 import { Text, Input, Button } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import Spacer from './Spacer';
 import s from '../css/styles';
 import logo from '../assets/logo.png';
 import logoTitle from '../assets/LogoTitle.png';
@@ -15,16 +14,14 @@ const AuthForm = params => {
   const [password, setPassword] = useState('');
 
   return (
-    <View style={s.containerForm}>
-
+    <SafeAreaView style={s.containerForm}>
       <View style={s.logoContainer} >
         <Image source={logoTitle} style={s.logosTitle} resizeMode='contain' />
         <Image source={logo} style={s.logo} resizeMode='contain' />
         <Image source={logoSubtitle} style={s.logosSubtitle} resizeMode='contain' />
-        <Spacer/>
       </View>
       <View style={s.containerInput}>
-      {headerText=='signup' ? <Text style={s.textForm}>Registration Form</Text> : null}
+      {headerText=='signup' ? <Text style={s.textForm}>Sign Up</Text> : null}
         <Input
           value={email}
           onChangeText={setEmail}
@@ -55,24 +52,29 @@ const AuthForm = params => {
           }
         />
         {errorMessage ? <Text style={s.error}>{errorMessage}</Text> : null}
-        <Spacer />
         <Button
           title={submitButtonText}
           onPress={() => onSubmit({ email, password })}
           buttonStyle={s.button}
         />
-        {headerText == 'signin'
-        ? <NavLink
-            routeName="Signup"
-            text="Don't have an account? Sign up instead"
-          />
-        : <NavLink
-            routeName="Signin"
-            text="Already have an account? Sign in instead"
-          />
-        }
+        <View>
+          <NavLink
+              routeName="RecoveryPassword"
+              text="Forgot your password?"
+            />
+          {headerText == 'signin'
+          ? <NavLink
+              routeName="Signup"
+              text="Don't have an account? Sign up instead"
+            />
+          : <NavLink
+              routeName="Signin"
+              text="Already have an account? Sign in instead"
+            />
+          }
+        </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
