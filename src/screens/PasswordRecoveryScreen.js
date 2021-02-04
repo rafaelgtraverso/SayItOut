@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import s from '../css/styles';
-import { SafeAreaView } from 'react-native';
+import { SafeAreaView ,View } from 'react-native';
 import { Text, Input, Button } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
@@ -10,7 +10,7 @@ import { clearErrorMessage, authError } from '../actions/auth';
 import { navigate } from '../navigationRef';
 import PropTypes from 'prop-types';
 import auth from '@react-native-firebase/auth'
-import { View } from 'react-native';
+import NavLink from '../components/NavLink';
 
 const RecoveryPasswordScreen = props => {
   const { reset_password, auths:{ errorMessage } } = props;
@@ -18,9 +18,9 @@ const RecoveryPasswordScreen = props => {
 
   return (
     <>
-      <SafeAreaView style={s.containerForm}>
+      <SafeAreaView style={s.container}>
         <View style={s.containerInput}>
-            <Text style={s.logosTitle}> Please enter you email address to reset your password:</Text>
+            <Text style={s.text}> Please enter you email address to reset your password:</Text>
             <Input
                 value={email}
                 onChangeText={setEmail}
@@ -40,6 +40,10 @@ const RecoveryPasswordScreen = props => {
                 title='Reset'
                 onPress={()=>reset_password(email)}
                 buttonStyle={s.button}
+                />
+                <NavLink
+                    routeName="Signin"
+                    text="I remember my password take me back to Sign In"
                 />
         </View>
       </SafeAreaView>

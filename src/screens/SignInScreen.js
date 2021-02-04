@@ -13,7 +13,6 @@ import { connect } from 'react-redux';
 import { signin, clearErrorMessage, authError } from '../actions/auth';
 import AsyncStorage from '@react-native-community/async-storage';
 
-import api from '../api/remote/heroku';
 import { navigate } from '../navigationRef';
 import PropTypes from 'prop-types';
 import auth from '@react-native-firebase/auth'
