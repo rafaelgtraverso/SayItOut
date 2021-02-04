@@ -8,7 +8,6 @@ const inialState = {
 const phraseReducer = (state = inialState, action) => {
     switch (action.type) {
         case ASSEMBLING_PHRASE:
-            // console.log(action.payload);
             return {
                 ...state,
                 phrase: [...state.phrase, action.payload],

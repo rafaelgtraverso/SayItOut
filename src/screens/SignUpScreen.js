@@ -44,7 +44,6 @@ const mapDispatchToProps = (dispatch) => {
     sign_up: async ({ email, password }) => {
       const emailPattern = /^\w+(\.\w+)*@[a-zA-Z_]+?\.[a-zA-Z]{2,3}(\.[a-zA-Z]{2}){0,1}$/;
       if ( !email.match(emailPattern)){
-        console.log(email);
         dispatch(authError('Invalid email'));
         return
       }
