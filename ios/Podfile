@@ -12,6 +12,7 @@ target 'SayItOut' do
   pod 'RNCAsyncStorage', :path => '../node_modules/@react-native-community/async-storage'
   pod 'TextToSpeech', :path => '../node_modules/react-native-tts'
   pod 'RNSqlite2', :path => '../node_modules/react-native-sqlite-2'
+  pod 'Firebase/Analytics'
 
   target 'SayItOutTests' do
     inherit! :complete

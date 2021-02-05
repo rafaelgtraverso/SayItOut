@@ -7,20 +7,12 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:637414120369:android:7f77c7944c5aaa100d3b90",
+        "mobilesdk_app_id": "1:637414120369:android:d143f239f24a0f8c0d3b90",
         "android_client_info": {
           "package_name": "com.sayitout"
         }
       },
       "oauth_client": [
-        {
-          "client_id": "637414120369-bq56mpi09hnmdgvmbe2p1bchops9ohdd.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.sayitout",
-            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
-          }
-        },
         {
           "client_id": "637414120369-r0u9r7ni68v44hqtum63maprt4v802v4.apps.googleusercontent.com",
           "client_type": 3
@@ -37,6 +29,14 @@
             {
               "client_id": "637414120369-r0u9r7ni68v44hqtum63maprt4v802v4.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "637414120369-4ak6ns159277phmjberf939tvdtrsl0l.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.reactjs.native.example.SayItOut",
+                "app_store_id": "1548235423"
+              }
             }
           ]
         }

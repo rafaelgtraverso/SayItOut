@@ -36,6 +36,7 @@ const mapDispatchToProps = (dispatch) => {
   return{
     sign_out: async () => {
       await AsyncStorage.removeItem('token');
+      await AsyncStorage.removeItem('email');
       dispatch(signout);
       navigate('Signin');
     }
