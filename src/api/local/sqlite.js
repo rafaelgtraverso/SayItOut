@@ -92,7 +92,7 @@ export const getCards = (payload) => {
   const { cb } = payload;
   db.transaction( txn => {
     txn.executeSql(`
-              SELECT name, url
+              SELECT name, url, card_id
               FROM Cards
               ORDER BY name ASC
               LIMIT 100`,
