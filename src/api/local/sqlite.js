@@ -32,7 +32,6 @@ export const createDatabase = () => {
           (tx,res)=>console.log(res),
           (tx, err)=>console.log(err));
     } );
-    console.log('db created');
 };
 export const populateCardsTable = () => {
   db.transaction(txn => {

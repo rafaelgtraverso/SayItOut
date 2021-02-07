@@ -17,11 +17,13 @@ const Phrase = props => {
     },[props.phrases.phrase]);
 
     const savePhrase = () => {
-        if (props.phrases.phraseId>0){
-            insertPhrase(props.phrases.phraseId,props.phrases.phrase, props.auths.email);
-            props.clear_phrase();
-        }else{
-            console.log(props.phrases);
+        try{
+            if (props.phrases.phraseId>0){
+                insertPhrase(props.phrases.phraseId,props.phrases.phrase, props.auths.email);
+                props.clear_phrase();
+            }
+        }catch (err){
+            console.log(err);
         }
 
     } ;

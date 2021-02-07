@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>637414120369-4ak6ns159277phmjberf939tvdtrsl0l.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.637414120369-4ak6ns159277phmjberf939tvdtrsl0l</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>637414120369-bq56mpi09hnmdgvmbe2p1bchops9ohdd.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyC2xh0SPUsRuoftRncRe-GOs6mMtZXPzM4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>637414120369</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>org.reactjs.native.example.SayItOut</string>
+	<key>PROJECT_ID</key>
+	<string>say-it-out-8c609</string>
+	<key>STORAGE_BUCKET</key>
+	<string>say-it-out-8c609.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:637414120369:ios:f09390c0666014f30d3b90</string>
+</dict>
+</plist>
