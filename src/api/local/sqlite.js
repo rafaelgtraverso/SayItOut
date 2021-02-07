@@ -94,8 +94,7 @@ export const getCards = (payload) => {
     txn.executeSql(`
               SELECT name, url, card_id
               FROM Cards
-              ORDER BY name ASC
-              LIMIT 100`,
+              ORDER BY name ASC`,
       [],
       (tx, res)=>{ cb(res.rows._array) },
       (tx, err)=>console.log(err));
