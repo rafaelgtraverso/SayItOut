@@ -1,5 +1,6 @@
 import createDataContext from './createDataContext';
 import { handleVoice } from '../helpers/tts/handleVoices';
+import { t } from '../helpers/i18n'
 
 const phraseReducer = (state, action) => {
     switch (action.type) {
@@ -18,11 +19,7 @@ const phraseReducer = (state, action) => {
                 let temp = r.find(object => object.phrase_id === phrase_id);
                 if(!temp) r.push(temp = { phrase_id, phraseString:' ', data:[] });
                 temp.data.push(object);
-                if (action.payload.phoneLanguage == 'it') {
-                    temp.phraseString += object.name_it+' ';
-                }else{
-                    temp.phraseString += object.name+' ';
-                }
+                temp.phraseString += `${t[object.name]} `;
                 return r;
               },[]);
             return {
@@ -47,22 +44,17 @@ const phraseReducer = (state, action) => {
 
 
 
-const showPhrase = dispatch => (item, phoneLanguage) => {
+const showPhrase = dispatch => (item) => {
     dispatch({ type:'assembling_phrase', payload: item });
-    if(phoneLanguage=='it'){
-        handleVoice(item.name_it);
-    }else {
-        handleVoice(item.name)
-    }
-
+    handleVoice(t[item.name]);
 };
 
 const deleteLastEntry = dispatch => () => {
         dispatch({ type: 'delete_last' });
 };
 
-const sqlPhrases = dispatch => (sqlPhrases, phoneLanguage) => {
-    dispatch({ type: 'sql_phrases', payload: { sqlPhrases, phoneLanguage } });
+const sqlPhrases = dispatch => (sqlPhrases, locale) => {
+    dispatch({ type: 'sql_phrases', payload: { sqlPhrases, locale } });
 };
 
 const clearPhrase= dispatch => () =>{

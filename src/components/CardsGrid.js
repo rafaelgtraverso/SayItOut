@@ -37,7 +37,7 @@ const CardsGrid = props => {
             <Card item={item} />
           </TouchableOpacity>
         )}
-        keyExtractor={(item,index) => item.name+index.toString()}
+        keyExtractor={(item, index) => item.name + index.toString()}
         numColumns={column}
         key={column}
       />

@@ -1,3 +1,5 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
 require_relative '../node_modules/react-native/scripts/react_native_pods'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
@@ -11,8 +13,8 @@ target 'SayItOut' do
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
   pod 'RNCAsyncStorage', :path => '../node_modules/@react-native-community/async-storage'
   pod 'TextToSpeech', :path => '../node_modules/react-native-tts'
-  pod 'RNSqlite2', :path => '../node_modules/react-native-sqlite-2'
   pod 'Firebase/Analytics'
+  pod 'react-native-sqlite-storage', :path => '../node_modules/react-native-sqlite-storage'
 
   target 'SayItOutTests' do
     inherit! :complete
