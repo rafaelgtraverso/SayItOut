@@ -22,7 +22,7 @@ export const insertPhrase = (phrase_id, phrase, email) => {
   });
 };
 
-export const getAllPhrases = (payload) => {
+export const getAllPhrases = payload => {
   const { cb, email } = payload;
   db.transaction( txn => {
     txn.executeSql(`
@@ -35,7 +35,7 @@ export const getAllPhrases = (payload) => {
   });
 };
 
-export const getPhrasesCount = (payload) => {
+export const getPhrasesCount = payload => {
   const { cb } = payload;
   db.transaction(txn => {
     txn.executeSql(`
@@ -46,7 +46,7 @@ export const getPhrasesCount = (payload) => {
   });
 };
 
-export const getCards = (payload) => {
+export const getCards = payload => {
   const { cb } = payload;
   db.transaction( txn => {
     txn.executeSql(`
@@ -59,7 +59,7 @@ export const getCards = (payload) => {
   });
 };
 
-export const getPhraseCards = (payload) => {
+export const getPhraseCards = payload => {
   const { cb, nameCards } = payload;
   db.transaction( txn => {
     txn.executeSql(`
@@ -72,7 +72,7 @@ export const getPhraseCards = (payload) => {
   });
 };
 
-export const removePhrase = (payload) => {
+export const removePhrase = payload => {
   const  phrase_id  = payload;
   db.transaction( txn => {
     txn.executeSql(`

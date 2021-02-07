@@ -9,17 +9,18 @@ import { connect } from 'react-redux';
 import { handleVoice } from '../helpers/tts/handleVoices';
 import PropTypes from 'prop-types';
 
+const columnWidth = width => {
+  return parseInt(width / (s.image.width + 10), 10)
+}
+
 const CardsGrid = props => {
   const screenWidth = Dimensions.get('window').width;
 
-  const [column, setColumn] = useState(
-    parseInt(screenWidth / (s.image.width + 10), 10),
-  );
+  const [column, setColumn] = useState(columnWidth(screenWidth));
 
-  const onLayout = (event) => {
-    setColumn(
-      parseInt(event.nativeEvent.layout.width / (s.image.width + 10), 10),
-    );
+  const onLayout = e => {
+    const { width } = e.nativeEvent.layout;
+    setColumn(columnWidth(width));
   };
 
   const [dataSql,setDataSql]=useState([]);
@@ -49,14 +50,14 @@ CardsGrid.propTypes = {
   show_phrase: PropTypes.func
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
-   phrases:state.phraseReducer
- }
+    phrases: state.phraseReducer
+  }
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return{
+const mapDispatchToProps = dispatch => {
+  return {
     show_phrase: item => {
       dispatch(showPhrase(item));
       handleVoice(t[item.name]);

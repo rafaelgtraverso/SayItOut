@@ -8,19 +8,15 @@ import { t } from '../helpers/i18n'
 const Card = params => {
     const { item } = params;
 
-    if (item) {
-        return (
-            <View style={s.cardContainer}>
-                <Image
-                    style={s.image}
-                    source={item.url}
-                />
-                <Text style={s.textFlatList}>{t[item.name]}</Text>
-            </View>
-        )
-    } else {
-        return null
-    }
+    return item
+        ? <View style={s.cardContainer}>
+            <Image
+                style={s.image}
+                source={item.url}
+            />
+            <Text style={s.textFlatList}>{t[item.name]}</Text>
+        </View>
+        : null
 };
 
 export default Card;
