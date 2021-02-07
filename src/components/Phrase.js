@@ -27,7 +27,8 @@ const Phrase = props => {
     } ;
     const phraseToVoice = () => {
         let phrase2Voice = ''
-        props.phrases.phrase.map(name => phrase2Voice += ` ${t[name]}`)
+        console.log(props.phrases.phrase)
+        props.phrases.phrase.map(item => phrase2Voice += ` ${t[item.name]}`)
         return phrase2Voice;
     };
     return (

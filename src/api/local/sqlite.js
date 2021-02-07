@@ -92,8 +92,10 @@ export const getCards = (payload) => {
   const { cb } = payload;
   db.transaction( txn => {
     txn.executeSql(`
-              SELECT *
-              FROM Cards`,
+              SELECT name, url
+              FROM Cards
+              ORDER BY name ASC
+              LIMIT 100`,
       [],
       (tx, res)=>{ cb(res.rows._array) },
       (tx, err)=>console.log(err));

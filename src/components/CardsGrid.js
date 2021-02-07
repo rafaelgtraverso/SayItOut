@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, FlatList, Dimensions, TouchableOpacity } from 'react-native';
 import s from '../css/styles';
 import Card from '../components/Card';
+import { getCards } from '../api/local/sqlite';
 import { t } from '../helpers/i18n'
 import { showPhrase } from '../actions/phrases';
 import { connect } from 'react-redux';
@@ -21,10 +22,16 @@ const CardsGrid = props => {
     );
   };
 
+  const [dataSql,setDataSql]=useState([]);
+  useEffect(()=>{
+    const cb = cards => setDataSql(cards);
+    getCards({ cb });
+  },[]);
+
   return (
     <View onLayout={onLayout} style={s.cardsGridview}>
       <FlatList
-        data={Object.keys(t).splice(0, 10)}
+        data={dataSql}
         renderItem={({ item }) => (
           <TouchableOpacity onPress={() => props.show_phrase(item)}>
             <Card item={item} />
@@ -52,7 +59,7 @@ const mapDispatchToProps = (dispatch) => {
   return{
     show_phrase: item => {
       dispatch(showPhrase(item));
-      handleVoice(t[item]);
+      handleVoice(t[item.name]);
     }
   }
 };
