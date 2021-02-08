@@ -59,8 +59,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     show_phrase: item => {
-      dispatch(showPhrase(item));
       handleVoice(t[item.name]);
+      dispatch(showPhrase(item));
     }
   }
 };
