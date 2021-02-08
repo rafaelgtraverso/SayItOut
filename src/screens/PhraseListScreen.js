@@ -31,6 +31,7 @@ const PhraseListScreen = props => {
         />
     )
   }
+
   const renderPhrase = ({ item }) => {
     return (
       <View style={s.phraseView}>
@@ -59,6 +60,7 @@ const PhraseListScreen = props => {
        </View>
     )
   };
+
   return (
     <SafeAreaView forceInset={{ top: 'always' }} >
       <Text style={s.text}> Saved Phrases </Text>

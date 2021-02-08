@@ -47,8 +47,9 @@ const Phrase = props => {
             >
                 {
                     phrase.length != 0
-                        ? phrase.map(element => {
-                            return <Card key={Math.random(9999).toString()} item={element} />
+                        ? phrase.map((item, index) => {
+                            const key = index.toString();
+                            return <Card key={key} item={item} />
                         })
                     : null
                 }
