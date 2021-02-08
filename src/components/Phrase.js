@@ -11,16 +11,20 @@ import { deleteLastEntry, clearPhrase, setLastPhraseId, showPhrase } from '../ac
 import PropTypes from 'prop-types';
 
 const Phrase = props => {
+    const { auths, phrases, clear_phrase } = props;
+    const { phraseId, phrase } = phrases;
+    const { email } = auths;
+
     useEffect(() =>{
-        const cb = (phraseId) => props.set_last_phrase_id(phraseId[0].Last_Id+1);
+        const cb = phraseId => props.set_last_phrase_id(phraseId[0].Last_Id + 1);
         getPhrasesCount({ cb });
-    },[props.phrases.phrase]);
+    }, [phrase]);
 
     const savePhrase = () => {
         try{
-            if (props.phrases.phraseId>0){
-                insertPhrase(props.phrases.phraseId,props.phrases.phrase, props.auths.email);
-                props.clear_phrase();
+            if (phraseId > 0){
+                insertPhrase(phraseId, phrase, email);
+                clear_phrase();
             }
         }catch (err){
             console.log(err);
@@ -28,50 +32,36 @@ const Phrase = props => {
 
     } ;
     const phraseToVoice = () => {
+        const { phrase } = props.phrases;
         let phrase2Voice = ''
-        console.log(props.phrases.phrase)
-        props.phrases.phrase.map(item => phrase2Voice += ` ${t[item.name]}`)
+        phrase.map(item => phrase2Voice += ` ${t[item.name]}`)
         return phrase2Voice;
     };
     return (
         <View style={s.phraseInputView} >
-             <ScrollView
+            <ScrollView
                 style={s.phraseInput}
                 horizontal={true}
                 ref={ref => this.scrollView = ref}
                 onContentSizeChange={() => this.scrollView.scrollToEnd()}
             >
-                { props.phrases.phrase.length!= 0
-                    ? (
-                        props.phrases.phrase.map(element => {
+                {
+                    phrase.length != 0
+                        ? phrase.map(element => {
                             return <Card key={Math.random(9999).toString()} item={element} />
                         })
-                    ) : null }
+                    : null
+                }
             </ScrollView>
             <View style={s.phraseButtons}>
                 <TouchableOpacity onPress={()=>props.delete_last_entry()} >
-                    <Icon
-                        name='delete'
-                        type='feather'
-                        size={50}
-                        color='black'
-                    />
+                    <Icon name='delete' type='feather' size={50} color='black' />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={()=> handleVoice(phraseToVoice())}  >
-                    <Icon
-                        name='play-circle'
-                        type='feather'
-                        size={50}
-                        color='green'
-                    />
+                    <Icon name='play-circle' type='feather' size={50} color='green' />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={savePhrase} >
-                    <Icon
-                        name='save'
-                        type='feather'
-                        size={50}
-                        color='black'
-                    />
+                    <Icon name='save' type='feather' size={50} color='black' />
                 </TouchableOpacity>
             </View>
         </View>
@@ -87,19 +77,20 @@ Phrase.propTypes = {
     auths: PropTypes.object
   };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
+    const { phraseReducer, authReducer } = state;
     return {
-     phrases:state.phraseReducer,
-     auths:state.authReducer
+     phrases: phraseReducer,
+     auths: authReducer
    }
   };
 
-  const mapDispatchToProps = (dispatch) => {
+  const mapDispatchToProps = dispatch => {
     return{
-        show_phrase:  (item) => dispatch(showPhrase(item)),
+        show_phrase:  item => dispatch(showPhrase(item)),
         delete_last_entry: () => dispatch(deleteLastEntry()),
         clear_phrase: () => dispatch(clearPhrase()),
-        set_last_phrase_id: (lastPhraseId) => dispatch(setLastPhraseId(lastPhraseId)),
+        set_last_phrase_id: lastPhraseId => dispatch(setLastPhraseId(lastPhraseId)),
     }
   };
 
