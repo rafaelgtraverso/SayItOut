@@ -66,12 +66,17 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return{
     reset_password: async (email) => {
-      try {
-        await auth().sendPasswordResetEmail(email).then(navigate('Signin'));
-      } catch (err) {
-        dispatch(authError('Something went wrong! Please make sure you have enter the same email you use when you register. If you are sure is the correct email, please contact support@cloudingsystems.co.uk'));
-        console.log(err)
+      const emailPattern = /^\w+(\.\w+)*@[a-zA-Z_]+?\.[a-zA-Z]{2,3}(\.[a-zA-Z]{2}){0,1}$/;
+      if ( !email.match(emailPattern)){
+        dispatch(authError('Invalid email'));
+        return
       }
+      await auth().sendPasswordResetEmail(email)
+        .then(()=>navigate('Signin'))
+        .catch(() => {
+          dispatch(authError(`Something went wrong! Please make sure you have enter the same email you use when you register.
+              If you are sure is the correct email, please contact support@cloudingsystems.co.uk`))
+        });
     },
     clear_error_message: () => dispatch(clearErrorMessage()),
   }

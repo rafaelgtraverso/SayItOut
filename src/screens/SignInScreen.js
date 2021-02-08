@@ -75,6 +75,15 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return{
     sign_in: async ({ email, password }) => {
+      const emailPattern = /^\w+(\.\w+)*@[a-zA-Z_]+?\.[a-zA-Z]{2,3}(\.[a-zA-Z]{2}){0,1}$/;
+      if ( !email.match(emailPattern)){
+        dispatch(authError('Invalid email'));
+        return
+      }
+      if(password.length < 6){
+        dispatch(authError('The password must be at least 6 characters'));
+        return
+      }
       try {
         const response = await auth().signInWithEmailAndPassword(
           email,
