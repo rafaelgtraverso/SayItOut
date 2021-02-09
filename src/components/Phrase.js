@@ -7,7 +7,7 @@ import { getPhrasesCount, insertPhrase } from '../api/local/sqlite';
 import { handleVoice } from '../helpers/tts/handleVoices';
 import { t } from '../helpers/i18n'
 import { connect } from 'react-redux';
-import { deleteLastEntry, clearPhrase, setLastPhraseId, showPhrase } from '../actions/phrases';
+import { deleteLastEntry, clearPhrase, setLastPhraseId } from '../actions/phrases';
 import PropTypes from 'prop-types';
 
 const Phrase = props => {
@@ -70,7 +70,6 @@ const Phrase = props => {
 };
 
 Phrase.propTypes = {
-    show_phrase: PropTypes.func,
     delete_last_entry: PropTypes.func,
     clear_phrase: PropTypes.func,
     set_last_phrase_id: PropTypes.func,
@@ -79,16 +78,14 @@ Phrase.propTypes = {
   };
 
 const mapStateToProps = state => {
-    const { phraseReducer, authReducer } = state;
     return {
-     phrases: phraseReducer,
-     auths: authReducer
+     phrases: state.phraseReducer,
+     auths: state.authReducer
    }
   };
 
   const mapDispatchToProps = dispatch => {
     return{
-        show_phrase:  item => dispatch(showPhrase(item)),
         delete_last_entry: () => dispatch(deleteLastEntry()),
         clear_phrase: () => dispatch(clearPhrase()),
         set_last_phrase_id: lastPhraseId => dispatch(setLastPhraseId(lastPhraseId)),
