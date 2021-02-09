@@ -9,25 +9,26 @@ base_path = "./pecsCards/"
 d = []
 count=0
 
-for file in glob.iglob(os.path.join(base_path, '*.jpg'), recursive=True):
+for file in glob.iglob(os.path.join(base_path, '*.jpg')):
     dict = ''
     count+=1
-    source='..'+file[1:]
+    source='../../assets'+file[1:]
     fileName=os.path.basename(file).split('.')[0]
-    dict="{ card_id:"+str(count)+", name: \""+fileName+"\", url: require(\""+source+"\"), name_it: \""+translator.translate(fileName, dest='it', src='en').text+"\" },"
+    dict = f'INSERT INTO Cards (card_id,name) values ("{str(count)}","{fileName}");'
+    # dict="{ card_id:"+str(count)+", name: \""+fileName+"\", url: require(\""+source+"\"), name_it: \""+translator.translate(fileName, dest='it', src='en').text+"\" },"
     # dict='{ "' +fileName + '": require("'+ source +'") },'
     d.append(dict)
     print(count)
 
-os.remove("./pecsCards/index.js")
-f = open("./pecsCards/index.js", "a")
-f.write('export const Data = [\n')
+os.remove("./insertSql.sql")
+f = open("./insertSql.sql", "a")
+# f.write('export const imgData = {\n')
 for item in d:
     f.write('\t%s\n' % item)
-f.write('];')
+# f.write('};')
 f.close()
 
-# SCRIPT TO TRANSLATE --- THIS SCRIPT RUNS WITH googletrans which needs a vpn 
+# SCRIPT TO TRANSLATE --- THIS SCRIPT RUNS WITH googletrans which needs a vpn
 # os.remove('./translated.js')
 # file = open('./translate.js')
 # f = open('./translated.js','a')

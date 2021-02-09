@@ -35,7 +35,7 @@ const CardsGrid = props => {
         data={dataSql}
         renderItem={({ item }) => (
           <TouchableOpacity onPress={() => props.show_phrase(item)}>
-            <Card item={item} />
+            <Card item={item}/>
           </TouchableOpacity>
         )}
         keyExtractor={(item, index) => item.name + index.toString()}

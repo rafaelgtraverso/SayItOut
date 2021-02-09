@@ -26,7 +26,7 @@ export const getAllPhrases = payload => {
   const { cb, email } = payload;
   db.transaction( txn => {
     txn.executeSql(`
-        SELECT phrase_id, card_position, name, url
+        SELECT phrase_id, card_position, name
         FROM Phrases, Cards
         WHERE user_token = (?) AND Phrases.card_id = Cards.card_id `,
       [email],
@@ -50,7 +50,7 @@ export const getCards = payload => {
   const { cb } = payload;
   db.transaction( txn => {
     txn.executeSql(`
-        SELECT name, url, card_id
+        SELECT card_id, name
         FROM Cards
         ORDER BY name ASC`,
       [],
