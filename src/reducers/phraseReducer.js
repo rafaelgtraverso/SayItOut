@@ -1,4 +1,5 @@
 import { ASSEMBLING_PHRASE, DELETE_LAST_CARD, SQL_PHRASE, CLEAR_PHRASE, SET_PHRASE_ID } from '../actions/types';
+import { t } from '../helpers/i18n'
 
 const inialState = {
     phrase: [],
@@ -22,11 +23,7 @@ const phraseReducer = (state = inialState, action) => {
                 let temp = r.find(object => object.phrase_id === phrase_id);
                 if(!temp) r.push(temp = { phrase_id, phraseString:' ', data:[] });
                 temp.data.push(object);
-                if (action.payload.phoneLanguage == 'it') {
-                    temp.phraseString += object.name_it+' ';
-                }else{
-                    temp.phraseString += object.name+' ';
-                }
+                temp.phraseString += `${t[object.name]} `;
                 return r;
               },[]);
             return {

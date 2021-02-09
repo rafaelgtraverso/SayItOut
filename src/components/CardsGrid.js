@@ -2,24 +2,25 @@ import React, { useState, useEffect } from 'react';
 import { View, FlatList, Dimensions, TouchableOpacity } from 'react-native';
 import s from '../css/styles';
 import Card from '../components/Card';
-import * as RNLocalize from 'react-native-localize';
 import { getCards } from '../api/local/sqlite';
+import { t } from '../helpers/i18n'
 import { showPhrase } from '../actions/phrases';
 import { connect } from 'react-redux';
 import { handleVoice } from '../helpers/tts/handleVoices';
 import PropTypes from 'prop-types';
 
-const CardsGrid = props => {
-  const phoneLanguage = RNLocalize.getLocales()[0].languageCode;
-  const screenWidth = Dimensions.get('window').width;
-  const [column, setColumn] = useState(
-    parseInt(screenWidth / (s.image.width + 10), 10),
-  );
+const columnWidth = width => {
+  return parseInt(width / (s.image.width + 10), 10)
+}
 
-  const onLayout = (event) => {
-    setColumn(
-      parseInt(event.nativeEvent.layout.width / (s.image.width + 10), 10),
-    );
+const CardsGrid = props => {
+  const screenWidth = Dimensions.get('window').width;
+
+  const [column, setColumn] = useState(columnWidth(screenWidth));
+
+  const onLayout = e => {
+    const { width } = e.nativeEvent.layout;
+    setColumn(columnWidth(width));
   };
 
   const [dataSql,setDataSql]=useState([]);
@@ -27,16 +28,17 @@ const CardsGrid = props => {
     const cb = cards => setDataSql(cards);
     getCards({ cb });
   },[]);
+
   return (
     <View onLayout={onLayout} style={s.cardsGridview}>
       <FlatList
         data={dataSql}
         renderItem={({ item }) => (
-          <TouchableOpacity onPress={() => props.show_phrase(item, phoneLanguage)}>
-            <Card item={item} />
+          <TouchableOpacity onPress={() => props.show_phrase(item)}>
+            <Card item={item}/>
           </TouchableOpacity>
         )}
-        keyExtractor={(item,index) => item.name+index.toString()}
+        keyExtractor={(item, index) => item.name + index.toString()}
         numColumns={column}
         key={column}
       />
@@ -48,21 +50,17 @@ CardsGrid.propTypes = {
   show_phrase: PropTypes.func
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
-   phrases:state.phraseReducer
- }
+    phrases: state.phraseReducer
+  }
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return{
-    show_phrase:  (item, phoneLanguage) => {
+const mapDispatchToProps = dispatch => {
+  return {
+    show_phrase: item => {
       dispatch(showPhrase(item));
-      if(phoneLanguage=='it'){
-        handleVoice(item.name_it);
-      }else {
-          handleVoice(item.name)
-      }
+      // handleVoice(t[item.name]);
     }
   }
 };
