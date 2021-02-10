@@ -33,10 +33,6 @@
     "react-native-responsive-screen": "^1.4.1",
     "react-native-safe-area-context": "^3.1.4",
     "react-native-screens": "^2.10.1",
-<<<<<<< HEAD
-    "react-native-sqlite-2": "^3.1.0",
-=======
->>>>>>> 18d3dc1ebeca230319fe3de7b444968334a276b4
     "react-native-sqlite-storage": "^5.0.0",
     "react-native-svg": "^12.1.0",
     "react-native-svg-transformer": "^0.14.3",

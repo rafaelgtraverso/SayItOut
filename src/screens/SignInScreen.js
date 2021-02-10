@@ -13,6 +13,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 import { navigate } from '../navigationRef';
 import PropTypes from 'prop-types';
 import auth from '@react-native-firebase/auth'
+import { isValidEmail } from '../helpers/validators/validators';
 
 const SignInScreen = props => {
   const { sign_in,clear_error_message, auths:{ errorMessage } } = props;
@@ -50,13 +51,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return{
     sign_in: async ({ email, password }) => {
-      const emailPattern = /^\w+(\.\w+)*@[a-zA-Z_]+?\.[a-zA-Z]{2,3}(\.[a-zA-Z]{2}){0,1}$/;
-      if ( !email.match(emailPattern)){
+      if ( !isValidEmail(email)){
         dispatch(authError('Invalid email'));
-        return
-      }
-      if(password.length < 6){
-        dispatch(authError('The password must be at least 6 characters'));
         return
       }
       try {

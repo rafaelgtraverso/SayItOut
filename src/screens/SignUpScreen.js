@@ -8,7 +8,9 @@ import { clearErrorMessage, signin, authError } from '../actions/auth';
 import { navigate } from '../navigationRef';
 import AsyncStorage from '@react-native-community/async-storage';
 import PropTypes from 'prop-types';
-import auth from '@react-native-firebase/auth'
+import auth from '@react-native-firebase/auth';
+import { isValidPassword, isValidEmail } from '../helpers/validators/validators';
+
 
 const SignUpScreen = props => {
   const { sign_up,clear_error_message,auths:{ errorMessage } } = props;
@@ -42,13 +44,12 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return{
     sign_up: async ({ email, password }) => {
-      const emailPattern = /^\w+(\.\w+)*@[a-zA-Z_]+?\.[a-zA-Z]{2,3}(\.[a-zA-Z]{2}){0,1}$/;
-      if ( !email.match(emailPattern)){
+      if ( !isValidEmail(email)){
         dispatch(authError('Invalid email'));
         return
       }
-      if(password.length < 6){
-        dispatch(authError('The password must be at least 6 characters'));
+      if(isValidPassword(password)){
+        dispatch(authError('The password must be at least 8 characters long and must have at least 1 digit, 1 lower case and 1 upper case.'));
         return
       }
       try {

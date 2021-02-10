@@ -60,7 +60,7 @@ const mapDispatchToProps = dispatch => {
   return {
     show_phrase: item => {
       dispatch(showPhrase(item));
-      // handleVoice(t[item.name]);
+      handleVoice(t[item.name]);
     }
   }
 };
