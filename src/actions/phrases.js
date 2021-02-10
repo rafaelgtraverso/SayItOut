@@ -11,10 +11,10 @@ export const deleteLastEntry = () => (
     { type: DELETE_LAST_CARD }
 );
 
-export const sqlPhrases = (sqlPhrases, phoneLanguage) => (
+export const sqlPhrases = (sqlPhrases, locale) => (
     {
         type: SQL_PHRASE,
-        payload: { sqlPhrases, phoneLanguage }
+        payload: { sqlPhrases, locale }
     }
 );
 

@@ -4,7 +4,7 @@ import { navigate } from '../navigationRef';
 import s from '../css/styles';
 import { populateCardsTable } from '../api/local/sqlite';
 
-const LoadingCardsScreen = () => {
+const LoadingScreen = () => {
     useEffect(()=>{
         populateCardsTable();
     },[]);
@@ -14,10 +14,9 @@ const LoadingCardsScreen = () => {
         <SafeAreaView>
             <View style={s.loading}>
                 <ActivityIndicator size='large' color='green' />
-                <Text>Creating Database</Text>
             </View>
         </SafeAreaView>
     );
 };
 
-export default LoadingCardsScreen;
+export default LoadingScreen;

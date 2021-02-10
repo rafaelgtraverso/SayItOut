@@ -14,13 +14,13 @@ import ResolveAuthScreen from './src/screens/ResolveAuthScreen';
 import { Provider } from 'react-redux';
 
 import { setNavigator } from './src/navigationRef';
-import LoadingCardsScreen from './src/screens/LoadingCardsScreen';
+import LoadingScreen from './src/screens/LoadingScreen';
 import configureStore from './src/store';
 import PasswordRecoveryScreen from './src/screens/PasswordRecoveryScreen';
 
 const switchNavigator = createSwitchNavigator({
   resolveAuth: ResolveAuthScreen,
-  loading: LoadingCardsScreen,
+  loading: LoadingScreen,
   loginFlow: createStackNavigator({
     Signin: SignInScreen,
     Signup: SignUpScreen,
