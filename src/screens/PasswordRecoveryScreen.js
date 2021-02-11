@@ -11,6 +11,7 @@ import { navigate } from '../navigationRef';
 import PropTypes from 'prop-types';
 import auth from '@react-native-firebase/auth'
 import NavLink from '../components/NavLink';
+import { isValidEmail } from '../helpers/validators/validators';
 
 const RecoveryPasswordScreen = props => {
   const { reset_password, auths:{ errorMessage } } = props;
@@ -66,8 +67,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return{
     reset_password: async (email) => {
-      const emailPattern = /^\w+(\.\w+)*@[a-zA-Z_]+?\.[a-zA-Z]{2,3}(\.[a-zA-Z]{2}){0,1}$/;
-      if ( !email.match(emailPattern)){
+      if ( !isValidEmail(email)){
         dispatch(authError('Invalid email'));
         return
       }

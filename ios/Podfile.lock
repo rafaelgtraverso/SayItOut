@@ -393,6 +393,8 @@ PODS:
     - React
   - RNScreens (2.10.1):
     - React
+  - RNSqlite2 (1.0.0):
+    - React
   - RNSVG (12.1.0):
     - React
   - RNVectorIcons (7.0.0):
@@ -463,6 +465,7 @@ DEPENDENCIES:
   - RNLocalize (from `../node_modules/react-native-localize`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
+  - RNSqlite2 (from `../node_modules/react-native-sqlite-2`)
   - RNSVG (from `../node_modules/react-native-svg`)
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
   - TextToSpeech (from `../node_modules/react-native-tts`)
@@ -570,6 +573,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-reanimated"
   RNScreens:
     :path: "../node_modules/react-native-screens"
+  RNSqlite2:
+    :path: "../node_modules/react-native-sqlite-2"
   RNSVG:
     :path: "../node_modules/react-native-svg"
   RNVectorIcons:
@@ -640,6 +645,7 @@ SPEC CHECKSUMS:
   RNLocalize: 49634a6a605dcdeb319e9c42a5c2f1aec508694b
   RNReanimated: 89f5e0a04d1dd52fbf27e7e7030d8f80a646a3fc
   RNScreens: b748efec66e095134c7166ca333b628cd7e6f3e2
+  RNSqlite2: f255020dc5fbfbf7d1943f0cc38550cf6f4e001c
   RNSVG: ce9d996113475209013317e48b05c21ee988d42e
   RNVectorIcons: da6fe858f5a65d7bbc3379540a889b0b12aa5976
   TextToSpeech: 4e2fc50c7495416c6da5a1662ad3f750c58d3c85
