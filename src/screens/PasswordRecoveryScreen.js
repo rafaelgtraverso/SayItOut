@@ -11,6 +11,7 @@ import { navigate } from '../navigationRef';
 import PropTypes from 'prop-types';
 import auth from '@react-native-firebase/auth'
 import NavLink from '../components/NavLink';
+import { isValidEmail } from '../helpers/validators/validators';
 
 const RecoveryPasswordScreen = props => {
   const { reset_password, auths:{ errorMessage } } = props;
@@ -66,12 +67,16 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return{
     reset_password: async (email) => {
-      try {
-        await auth().sendPasswordResetEmail(email).then(navigate('Signin'));
-      } catch (err) {
-        dispatch(authError('Something went wrong! Please make sure you have enter the same email you use when you register. If you are sure is the correct email, please contact support@cloudingsystems.co.uk'));
-        console.log(err)
+      if ( !isValidEmail(email)){
+        dispatch(authError('Invalid email'));
+        return
       }
+      await auth().sendPasswordResetEmail(email)
+        .then(()=>navigate('Signin'))
+        .catch(() => {
+          dispatch(authError(`Something went wrong! Please make sure you have enter the same email you use when you register.
+              If you are sure is the correct email, please contact support@cloudingsystems.co.uk`))
+        });
     },
     clear_error_message: () => dispatch(clearErrorMessage()),
   }
