@@ -17,9 +17,9 @@
 		2DCD954D1E0B4F2C00145EB5 /* SayItOutTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* SayItOutTests.m */; };
 		2FF84893263A15B79CD31373 /* libPods-SayItOut-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 73409CED17F6E9F0CFD8B780 /* libPods-SayItOut-tvOS.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		857B928725D02F7900CD7608 /* www in Resources */ = {isa = PBXBuildFile; fileRef = 857B928625D02F7900CD7608 /* www */; };
+		851174E225D9A40500D73811 /* www in Resources */ = {isa = PBXBuildFile; fileRef = 851174E125D9A40500D73811 /* www */; };
+		851174EC25D9A45700D73811 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 851174EB25D9A45700D73811 /* GoogleService-Info.plist */; };
 		B480E9F233D10B0ADEBABA58 /* libPods-SayItOut-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F9D3873699B02E8AD6893840 /* libPods-SayItOut-tvOSTests.a */; };
-		BBEB6D3C25D31AC300F67EB1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BBEB6D3B25D31AC200F67EB1 /* GoogleService-Info.plist */; };
 		E874A46ABC3E57ECEFDC99FF /* libPods-SayItOut.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 516412A49B1F9C5A361CD595 /* libPods-SayItOut.a */; };
 		F1196926F891A01CF727DFAD /* libPods-SayItOut-SayItOutTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02AE32A88DD862B32A44BBF0 /* libPods-SayItOut-SayItOutTests.a */; };
 /* End PBXBuildFile section */
@@ -69,7 +69,8 @@
 		6FF848D437954A4FC49284EB /* Pods-SayItOut-SayItOutTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SayItOut-SayItOutTests.release.xcconfig"; path = "Target Support Files/Pods-SayItOut-SayItOutTests/Pods-SayItOut-SayItOutTests.release.xcconfig"; sourceTree = "<group>"; };
 		73409CED17F6E9F0CFD8B780 /* libPods-SayItOut-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SayItOut-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = SayItOut/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		857B928625D02F7900CD7608 /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = ../www; sourceTree = "<group>"; };
+		851174E125D9A40500D73811 /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = ../android/app/src/main/assets/www; sourceTree = "<group>"; };
+		851174EB25D9A45700D73811 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		866AB1840304E401F7C11B7A /* Pods-SayItOut.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SayItOut.debug.xcconfig"; path = "Target Support Files/Pods-SayItOut/Pods-SayItOut.debug.xcconfig"; sourceTree = "<group>"; };
 		8B1CE7B2687849B9AF912867 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 		912AEEB5AAFB4EE7A02E3D50 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
@@ -77,7 +78,6 @@
 		92B75F0F018445D48638E418 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		93030FC6DB094379B9F8827B /* Fontisto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Fontisto.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; };
 		A24C92A8DA9D26BE69764895 /* Pods-SayItOut-SayItOutTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SayItOut-SayItOutTests.debug.xcconfig"; path = "Target Support Files/Pods-SayItOut-SayItOutTests/Pods-SayItOut-SayItOutTests.debug.xcconfig"; sourceTree = "<group>"; };
-		BBEB6D3B25D31AC200F67EB1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Dev.Projects/SayItOut/ios/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C5F47E3FF7D4483DAA84732A /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
 		D3559605AB5B4F7C86516F81 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		D8451EA1175E4ACFAFE9CDE0 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
@@ -145,8 +145,8 @@
 		13B07FAE1A68108700A75B9A /* SayItOut */ = {
 			isa = PBXGroup;
 			children = (
-				BBEB6D3B25D31AC200F67EB1 /* GoogleService-Info.plist */,
-				857B928625D02F7900CD7608 /* www */,
+				851174EB25D9A45700D73811 /* GoogleService-Info.plist */,
+				851174E125D9A40500D73811 /* www */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -388,8 +388,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				857B928725D02F7900CD7608 /* www in Resources */,
-				BBEB6D3C25D31AC300F67EB1 /* GoogleService-Info.plist in Resources */,
+				851174E225D9A40500D73811 /* www in Resources */,
+				851174EC25D9A45700D73811 /* GoogleService-Info.plist in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
