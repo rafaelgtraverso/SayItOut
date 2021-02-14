@@ -96,6 +96,7 @@ def scrap_home(url):
         scrap_categorie(uri)
 
     save_record(results)
+    search_and_categorize()
 
     return results
 
@@ -134,5 +135,4 @@ def search_and_categorize():
                         print(f"SAVING CARD {query, link_catid, name.replace(' ', '_').lower()+'%'}")
 
 
-search_and_categorize()
-# print(json.dumps(scrap_home("http://mypecs.com/categories.aspx"), indent=4))
+print(json.dumps(scrap_home("http://mypecs.com/categories.aspx"), indent=4))
