@@ -102,6 +102,7 @@ const s = StyleSheet.create({
   textFlatList: {
     textAlign: 'center',
     width: 100,
+    textTransform: 'capitalize'
   },
   flatList: {
     alignItems: 'center',
