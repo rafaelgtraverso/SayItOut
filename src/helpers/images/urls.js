@@ -462,7 +462,7 @@ export const imgData = {
 	"Eggplant": require("../../assets/pecsCards/Eggplant.jpg"),
 	"Star": require("../../assets/pecsCards/Star.jpg"),
 	"Mustard": require("../../assets/pecsCards/Mustard.jpg"),
-	"eyes": require("../../assets/pecsCards/eyes.jpg"),
+	"eyes": require("../../assets/pecsCards/Eyes.jpg"),
 	"Strawberry": require("../../assets/pecsCards/Strawberry.jpg"),
 	"Remote_Control": require("../../assets/pecsCards/Remote_Control.jpg"),
 	"February": require("../../assets/pecsCards/February.jpg"),
