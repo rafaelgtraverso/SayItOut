@@ -4,8 +4,9 @@ import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-nat
 const blue = 'rgba(0,0,255,1)';
 const red = 'rgba(255,0,0,1)';
 const green = 'rgba(69,160,0,1)';
-const black = 'rgba(0,0,0,1)';
+// const black = 'rgba(0,0,0,1)';
 const white = '#rgba(255,255,255,1)';
+const grey1 = '#ddd';
 
 
 const s = StyleSheet.create({
@@ -95,7 +96,8 @@ const s = StyleSheet.create({
     width: 100,
     height: 100,
     borderWidth: 2,
-    borderColor: black,
+    borderColor: grey1,
+    borderRadius: 10,
     backgroundColor: white,
     margin: 5,
   },
