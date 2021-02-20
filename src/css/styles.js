@@ -71,7 +71,7 @@ const s = StyleSheet.create({
   phraseInput: {
     paddingBottom:5,
     borderBottomWidth:3,
-    height:150,
+    height:250,
   },
   phraseView:{
     padding:10,
@@ -93,8 +93,8 @@ const s = StyleSheet.create({
     marginBottom:120,
   },
   image: {
-    width: 100,
-    height: 100,
+    width: 150,
+    height: 150,
     borderWidth: 2,
     borderColor: grey1,
     borderRadius: 10,

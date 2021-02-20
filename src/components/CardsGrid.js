@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { View, FlatList, Dimensions, TouchableOpacity } from 'react-native';
 import s from '../css/styles';
 import Card from '../components/Card';
-import { getCards } from '../api/local/sqlite';
 import { t } from '../helpers/i18n'
 import { showPhrase } from '../actions/phrases';
 import { connect } from 'react-redux';
@@ -14,6 +13,7 @@ const columnWidth = width => {
 }
 
 const CardsGrid = props => {
+  const { on_Press, data } = props
   const screenWidth = Dimensions.get('window').width;
 
   const [column, setColumn] = useState(columnWidth(screenWidth));
@@ -23,18 +23,12 @@ const CardsGrid = props => {
     setColumn(columnWidth(width));
   };
 
-  const [dataSql,setDataSql]=useState([]);
-  useEffect(()=>{
-    const cb = cards => setDataSql(cards);
-    getCards({ cb });
-  },[]);
-
   return (
     <View onLayout={onLayout} style={s.cardsGridview}>
       <FlatList
-        data={dataSql}
+        data={data}
         renderItem={({ item }) => (
-          <TouchableOpacity onPress={() => props.show_phrase(item)}>
+          <TouchableOpacity onPress={() => on_Press(item)}>
             <Card item={item}/>
           </TouchableOpacity>
         )}
@@ -47,12 +41,15 @@ const CardsGrid = props => {
 };
 
 CardsGrid.propTypes = {
-  show_phrase: PropTypes.func
+  show_phrase: PropTypes.func,
+  on_Press: PropTypes.func,
+  data: PropTypes.array
 };
 
 const mapStateToProps = state => {
   return {
-    phrases: state.phraseReducer
+    phrases: state.phraseReducer,
+    cards: state.cardsReducer
   }
 };
 
@@ -61,7 +58,7 @@ const mapDispatchToProps = dispatch => {
     show_phrase: item => {
       dispatch(showPhrase(item));
       handleVoice(t[item.name]);
-    }
+    },
   }
 };
 

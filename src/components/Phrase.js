@@ -9,6 +9,7 @@ import { t } from '../helpers/i18n'
 import { connect } from 'react-redux';
 import { deleteLastEntry, clearPhrase, setLastPhraseId } from '../actions/phrases';
 import PropTypes from 'prop-types';
+import { navigate } from '../navigationRef';
 
 const Phrase = props => {
     const { auths, phrases, clear_phrase } = props;
@@ -34,7 +35,7 @@ const Phrase = props => {
     const phraseToVoice = () => {
         const { phrase } = props.phrases;
         let phrase2Voice = ''
-        phrase.map(item => phrase2Voice += ` ${t[item.name]}`)
+        phrase.map(item => phrase2Voice += `${t[item.name]}`)
         return phrase2Voice;
     };
     return (

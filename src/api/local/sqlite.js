@@ -47,13 +47,28 @@ export const getPhrasesCount = payload => {
 };
 
 export const getCards = payload => {
+  const { cb, cat_name } = payload;
+  db.transaction( txn => {
+    txn.executeSql(`
+        SELECT DISTINCT c.card_id as card_id, c.name as name
+        FROM Cards as  c
+        join Categories as cat
+        where c.cat_id=cat.id	and parent=(?)`,
+      [cat_name],
+      (tx, res)=> cb(res.rows.raw()),
+      (tx, err)=> console.log(err));
+  });
+};
+
+export const getCategories = payload => {
   const { cb } = payload;
   db.transaction( txn => {
     txn.executeSql(`
-        SELECT card_id, name
-        FROM Cards
-        ORDER BY name ASC`,
-      [],
+        SELECT DISTINCT c.card_id as card_id, c.name as name, cat.name as cat_name, is_parent
+        FROM Cards as  c
+        JOIN Categories as cat
+        WHERE c.cat_id=cat.id AND is_parent=(?)`,
+      [1],
       (tx, res)=> cb(res.rows.raw()),
       (tx, err)=> console.log(err));
   });
