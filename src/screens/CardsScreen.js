@@ -1,0 +1,58 @@
+import React, { useEffect, useState } from 'react';
+import { View } from 'react-native';
+import Phrase from '../components/Phrase';
+import CardsGrid from '../components/CardsGrid';
+import { getCards } from '../api/local/sqlite'
+import { connect } from 'react-redux';
+import { showPhrase } from '../actions/phrases';
+import PropTypes from 'prop-types';
+import { handleVoice } from '../helpers/tts/handleVoices';
+import { t } from '../helpers/i18n'
+
+const CardsScreen = props => {
+  const { cards: { cat_name }, show_phrase } = props;
+
+  const [dataSql,setDataSql]=useState([]);
+  useEffect(()=>{
+    const cb = cards_cat => setDataSql(cards_cat);
+    getCards({ cb, cat_name });
+  },[]);
+
+  return (
+
+    <View >
+      <Phrase />
+      <CardsGrid
+        data={dataSql}
+        on_Press = {show_phrase}
+      />
+    </View>
+  );
+};
+
+CardsScreen.propTypes = {
+  show_phrase: PropTypes.func,
+  phrases: PropTypes.object,
+  cat_name: PropTypes.string,
+  cat_cards: PropTypes.array,
+  cards: PropTypes.object,
+};
+
+
+const mapStateToProps = (state) => {
+  return {
+   phrases:state.phraseReducer,
+   cards:state.cardsReducer
+ }
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return{
+    show_phrase: item => {
+      dispatch(showPhrase(item));
+      handleVoice(t[item.name]);
+    },
+  }
+};
+
+export default connect(mapStateToProps,mapDispatchToProps)(CardsScreen);
