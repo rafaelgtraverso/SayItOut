@@ -68,7 +68,7 @@ export const getCategories = payload => {
         FROM Cards as  c
         JOIN Categories as cat
         WHERE c.cat_id=cat.id AND is_parent=(?)`,
-      [1],
+      ['1'],
       (tx, res)=> cb(res.rows.raw()),
       (tx, err)=> console.log(err));
   });
