@@ -9,7 +9,6 @@ import { t } from '../helpers/i18n'
 import { connect } from 'react-redux';
 import { deleteLastEntry, clearPhrase, setLastPhraseId } from '../actions/phrases';
 import PropTypes from 'prop-types';
-import { navigate } from '../navigationRef';
 
 const Phrase = props => {
     const { auths, phrases, clear_phrase } = props;
@@ -44,7 +43,7 @@ const Phrase = props => {
                 style={s.phraseInput}
                 horizontal={true}
                 ref={ref => this.scrollView = ref}
-                onContentSizeChange={() => this.scrollView.scrollToEnd()}
+                onContentSizeChange={() => this.scrollView ? this.scrollView.scrollToEnd() : false}
             >
                 {
                     phrase.length != 0
