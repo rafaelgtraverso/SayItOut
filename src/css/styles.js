@@ -66,12 +66,14 @@ const s = StyleSheet.create({
     alignItems: 'center',
   },
   phraseInputView: {
-    margin: 15,
+    marginTop:100,
+    marginHorizontal:20,
+    marginBottom:15
   },
   phraseInput: {
     paddingBottom:5,
     borderBottomWidth:3,
-    height:250,
+    height:200,
   },
   phraseView:{
     padding:10,
@@ -116,6 +118,14 @@ const s = StyleSheet.create({
     alignContent:'space-around',
     alignSelf:'center',
     padding:100,
+  },
+  header:{
+    height:60,
+    marginTop:10,
+  },
+  headerContent:{
+    fontSize:40,
+    textTransform: 'capitalize'
   }
 });
 

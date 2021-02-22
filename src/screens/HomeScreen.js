@@ -1,7 +1,8 @@
-import React, {useEffect,useState} from 'react';
-import { View } from 'react-native';
+import React, { useEffect,useState } from 'react';
+import { SafeAreaView } from 'react-native';
 import Phrase from '../components/Phrase';
 import CardsGrid from '../components/CardsGrid';
+import HeaderCards from '../components/HeaderCards';
 import { connect } from 'react-redux';
 import { clearPhrase } from '../actions/phrases';
 import { setCategory } from '../actions/cards'
@@ -20,13 +21,17 @@ const HomeScreen = props => {
   },[]);
 
   return (
-    <View >
+    <SafeAreaView >
+      <HeaderCards
+        title="Categories"
+        goBack={false}
+        />
       <Phrase />
       <CardsGrid
         data={dataSql}
         on_Press={display_categories}
       />
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -49,7 +54,7 @@ const mapDispatchToProps = (dispatch) => {
     display_categories: item =>{
       if(item.is_parent==1) {
         dispatch(setCategory(item.cat_name.trim()));
-        navigate('Cards');
+        navigate('Cards', { title: 'fff' });
       }
     },
   }

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { View } from 'react-native';
+import { SafeAreaView } from 'react-native';
 import Phrase from '../components/Phrase';
 import CardsGrid from '../components/CardsGrid';
+import HeaderCards from '../components/HeaderCards';
 import { getCards } from '../api/local/sqlite'
 import { connect } from 'react-redux';
 import { showPhrase } from '../actions/phrases';
@@ -19,14 +20,18 @@ const CardsScreen = props => {
   },[]);
 
   return (
-
-    <View >
-      <Phrase />
-      <CardsGrid
-        data={dataSql}
-        on_Press = {show_phrase}
-      />
-    </View>
+    <SafeAreaView >
+      <HeaderCards
+        title={cat_name}
+        goBack={true}
+        prevScreen='Home'
+        />
+        <Phrase />
+        <CardsGrid
+          data={dataSql}
+          on_Press = {show_phrase}
+        />
+    </SafeAreaView>
   );
 };
 

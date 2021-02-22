@@ -35,6 +35,8 @@ const switchNavigator = createSwitchNavigator({
       Home: HomeScreen,
       Cards: CardsScreen,
       CreateCard: CreateCardScreen,
+    },{
+      headerMode: 'none',
     }),
     Phrases: createStackNavigator({ Phrases:PhraseListScreen }),
     Account: createStackNavigator({ Account:AccountScreen }),
