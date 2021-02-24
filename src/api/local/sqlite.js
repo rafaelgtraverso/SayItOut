@@ -53,8 +53,8 @@ export const getCards = payload => {
         SELECT DISTINCT c.card_id as card_id, c.name as name
         FROM Cards as  c
         join Categories as cat
-        where c.cat_id=cat.id	and parent=(?)`,
-      [cat_name],
+        where c.cat_id=cat.id	and parent=(?) and is_parent=(?)`,
+      [cat_name,'0'],
       (tx, res)=> cb(res.rows.raw()),
       (tx, err)=> console.log(err));
   });
