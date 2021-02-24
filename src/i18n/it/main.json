@@ -125,7 +125,6 @@
   "corn": "mais",
   "winner": "vincitore",
   "pen": "penna",
-  "time-out": "punito",
   "play_video_game": "giocare ai video giochi",
   "surprised": "sorpreso",
   "ice_cream_cone": "cono gelato",
@@ -575,5 +574,16 @@
   "no_climbing": "no_climbing",
   "f": "f",
   "trampoline": "trampolino",
-  "tank": "serbatoio"
+  "tank": "serbatoio",
+  "activities":"attività",
+  "animals":"animali",
+  "foods":"Alimenti",
+  "communicating":"comunicare",
+  "self_help":"auto aiuto",
+  "basics":"le basi",
+  "clothing":"capi di abbigliamento",
+  "household":"domestico",
+  "places":"posti",
+  "tools":"itensili",
+  "transportation":"trasporto"
 }

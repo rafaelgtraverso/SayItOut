@@ -579,5 +579,11 @@
   "animals":"animals",
   "foods":"foods",
   "communicating":"communicating",
-  "self help":"self help"
+  "self_help":"self help",
+  "basics":"basics",
+  "clothing":"clothing",
+  "household":"household",
+  "places":"places",
+  "tools":"tools",
+  "transportation":"transportation"
 }

@@ -580,5 +580,11 @@ export const imgData = {
 	"animals": require("../../assets/cards/cow.jpg"),
 	"communicating": require("../../assets/cards/hello.jpg"),
 	"foods": require("../../assets/cards/waffles.jpg"),
-	"self help": require("../../assets/cards/clean_up.jpg"),
+	"self_help": require("../../assets/cards/clean_up.jpg"),
+	"basics": require("../../assets/cards/star.jpg"),
+	"clothing": require("../../assets/cards/baseball_cap.jpg"),
+	"household": require("../../assets/cards/couch.jpg"),
+	"places": require("../../assets/cards/park.jpg"),
+	"tools": require("../../assets/cards/hammer.jpg"),
+	"transportation": require("../../assets/cards/train.jpg"),
 };

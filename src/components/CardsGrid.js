@@ -26,9 +26,7 @@ const CardsGrid = props => {
         data={data}
         renderItem={({ item }) => (
           <TouchableOpacity onPress={() => on_Press(item)}>
-            <Card
-            item={item}
-            />
+            <Card item={item} />
           </TouchableOpacity>
         )}
         keyExtractor={(item, index) => item.name + index.toString()}
