@@ -576,4 +576,9 @@ export const imgData = {
 	"f": require("../../assets/cards/f.jpg"),
 	"trampoline": require("../../assets/cards/trampoline.jpg"),
 	"tank": require("../../assets/cards/tank.jpg"),
+	"activities": require('../../assets/cards/swing.jpg'),
+	"animals": require("../../assets/cards/cow.jpg"),
+	"communicating": require("../../assets/cards/hello.jpg"),
+	"foods": require("../../assets/cards/waffles.jpg"),
+	"self help": require("../../assets/cards/clean_up.jpg"),
 };

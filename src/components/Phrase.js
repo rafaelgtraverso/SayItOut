@@ -34,7 +34,7 @@ const Phrase = props => {
     const phraseToVoice = () => {
         const { phrase } = props.phrases;
         let phrase2Voice = ''
-        phrase.map(item => phrase2Voice += ` ${t[item.name]}`)
+        phrase.map(item => phrase2Voice += `${t[item.name]}`)
         return phrase2Voice;
     };
     return (
@@ -43,7 +43,7 @@ const Phrase = props => {
                 style={s.phraseInput}
                 horizontal={true}
                 ref={ref => this.scrollView = ref}
-                onContentSizeChange={() => this.scrollView.scrollToEnd()}
+                onContentSizeChange={() => this.scrollView ? this.scrollView.scrollToEnd() : false}
             >
                 {
                     phrase.length != 0

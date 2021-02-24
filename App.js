@@ -17,6 +17,7 @@ import { setNavigator } from './src/navigationRef';
 import LoadingScreen from './src/screens/LoadingScreen';
 import configureStore from './src/store';
 import PasswordRecoveryScreen from './src/screens/PasswordRecoveryScreen';
+import CardsScreen from './src/screens/CardsScreen';
 
 const switchNavigator = createSwitchNavigator({
   resolveAuth: ResolveAuthScreen,
@@ -32,7 +33,10 @@ const switchNavigator = createSwitchNavigator({
   mainFlow: createBottomTabNavigator({
     Cards: createStackNavigator({
       Home: HomeScreen,
+      Cards: CardsScreen,
       CreateCard: CreateCardScreen,
+    },{
+      headerMode: 'none',
     }),
     Phrases: createStackNavigator({ Phrases:PhraseListScreen }),
     Account: createStackNavigator({ Account:AccountScreen }),

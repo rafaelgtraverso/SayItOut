@@ -66,12 +66,14 @@ const s = StyleSheet.create({
     alignItems: 'center',
   },
   phraseInputView: {
-    margin: 15,
+    marginTop:100,
+    marginHorizontal:20,
+    marginBottom:15
   },
   phraseInput: {
     paddingBottom:5,
     borderBottomWidth:3,
-    height:150,
+    height:200,
   },
   phraseView:{
     padding:10,
@@ -93,8 +95,8 @@ const s = StyleSheet.create({
     marginBottom:120,
   },
   image: {
-    width: 100,
-    height: 100,
+    width: 150,
+    height: 150,
     borderWidth: 2,
     borderColor: grey1,
     borderRadius: 10,
@@ -103,7 +105,7 @@ const s = StyleSheet.create({
   },
   textFlatList: {
     textAlign: 'center',
-    width: 100,
+    width: 110,
     textTransform: 'capitalize'
   },
   flatList: {
@@ -116,6 +118,14 @@ const s = StyleSheet.create({
     alignContent:'space-around',
     alignSelf:'center',
     padding:100,
+  },
+  header:{
+    height:60,
+    marginTop:10,
+  },
+  headerContent:{
+    fontSize:40,
+    textTransform: 'capitalize'
   }
 });
 
