@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Icon } from 'native-base';
 import { Header } from 'react-native-elements';
-import s, { white } from '../css/styles';
+import s, { colors } from '../css/styles';
 import { navigate } from '../navigationRef';
 import { SafeAreaView } from 'react-native';
 
@@ -15,7 +15,7 @@ const HeaderCards = params => {
                     <Icon style={s.headerContent} name='arrow-back' />
                 </Button>)
                 : null}
-            backgroundColor={white}
+            backgroundColor={colors.white}
             centerComponent={{
                 text: title,
                 style: s.headerContent
