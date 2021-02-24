@@ -39,7 +39,6 @@ CardsScreen.propTypes = {
   show_phrase: PropTypes.func,
   phrases: PropTypes.object,
   cat_name: PropTypes.string,
-  cat_cards: PropTypes.array,
   cards: PropTypes.object,
 };
 

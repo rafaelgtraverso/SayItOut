@@ -1,17 +1,19 @@
 import { StyleSheet } from 'react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
-const blue = 'rgba(0,0,255,1)';
-const red = 'rgba(255,0,0,1)';
-const green = 'rgba(69,160,0,1)';
-// const black = 'rgba(0,0,0,1)';
-const white = '#rgba(255,255,255,1)';
-const grey1 = '#ddd';
+export const colors ={
+ blue : 'rgba(0,0,255,1)',
+  red : 'rgba(255,0,0,1)',
+  green : 'rgba(69,160,0,1)',
+  black : 'rgba(0,0,0,1)',
+  white : '#rgba(255,255,255,1)',
+  grey1 : '#ddd',
+}
 
 
 const s = StyleSheet.create({
   link: {
-    color: blue
+    color: colors.blue
   },
   textForm:{
     alignSelf:'center',
@@ -50,7 +52,7 @@ const s = StyleSheet.create({
   },
   error:{
     fontSize: 18,
-    color: red,
+    color: colors.red,
     alignSelf:'center'
   },
   spacer: {
@@ -58,7 +60,7 @@ const s = StyleSheet.create({
   },
   text: {
     fontSize: 48,
-    color: green,
+    color: colors.green,
   },
   isLoadingView: {
     flex: 1,
@@ -66,9 +68,8 @@ const s = StyleSheet.create({
     alignItems: 'center',
   },
   phraseInputView: {
-    marginTop:100,
-    marginHorizontal:20,
-    marginBottom:15
+   marginVertical:15,
+   marginHorizontal:25
   },
   phraseInput: {
     paddingBottom:5,
@@ -92,15 +93,15 @@ const s = StyleSheet.create({
     alignItems: 'center',
   },
   phraseListView:{
-    marginBottom:120,
+    marginBottom:100,
   },
   image: {
     width: 150,
     height: 150,
     borderWidth: 2,
-    borderColor: grey1,
+    borderColor: colors.grey1,
     borderRadius: 10,
-    backgroundColor: white,
+    backgroundColor: colors.white,
     margin: 5,
   },
   textFlatList: {
@@ -110,6 +111,7 @@ const s = StyleSheet.create({
   },
   flatList: {
     alignItems: 'center',
+    paddingBottom:750
   },
   cardContainer: {
     alignItems: 'center',
@@ -125,7 +127,9 @@ const s = StyleSheet.create({
   },
   headerContent:{
     fontSize:40,
-    textTransform: 'capitalize'
+    textTransform: 'capitalize',
+    height:60,
+    color:colors.black
   }
 });
 
