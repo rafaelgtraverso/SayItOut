@@ -2,10 +2,7 @@ import React, { useState } from 'react';
 import { View, FlatList, Dimensions, TouchableOpacity } from 'react-native';
 import s from '../css/styles';
 import Card from '../components/Card';
-import { t } from '../helpers/i18n'
-import { showPhrase } from '../actions/phrases';
 import { connect } from 'react-redux';
-import { handleVoice } from '../helpers/tts/handleVoices';
 import PropTypes from 'prop-types';
 
 const columnWidth = width => {
@@ -29,7 +26,9 @@ const CardsGrid = props => {
         data={data}
         renderItem={({ item }) => (
           <TouchableOpacity onPress={() => on_Press(item)}>
-            <Card item={item}/>
+            <Card
+            item={item}
+            />
           </TouchableOpacity>
         )}
         keyExtractor={(item, index) => item.name + index.toString()}
@@ -53,13 +52,5 @@ const mapStateToProps = state => {
   }
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    show_phrase: item => {
-      dispatch(showPhrase(item));
-      handleVoice(t[item.name]);
-    },
-  }
-};
 
-export default connect(mapStateToProps,mapDispatchToProps)(CardsGrid);
+export default connect(mapStateToProps)(CardsGrid);

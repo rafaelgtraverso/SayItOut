@@ -54,7 +54,7 @@ const mapDispatchToProps = (dispatch) => {
     display_categories: item =>{
       if(item.is_parent==1) {
         dispatch(setCategory(item.cat_name.trim()));
-        navigate('Cards', { title: 'fff' });
+        navigate('Cards')
       }
     },
   }

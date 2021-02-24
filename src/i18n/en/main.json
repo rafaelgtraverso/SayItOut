@@ -574,5 +574,10 @@
   "no_climbing": "no climbing",
   "f": "f",
   "trampoline": "trampoline",
-  "tank": "tank"
+  "tank": "tank",
+  "activities":"activities",
+  "animals":"animals",
+  "foods":"foods",
+  "communicating":"communicating",
+  "self help":"self help"
 }
