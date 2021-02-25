@@ -129,7 +129,8 @@ const s = StyleSheet.create({
     fontSize:40,
     textTransform: 'capitalize',
     height:60,
-    color:colors.black
+    color:colors.black,
+    marginBottom:10,
   }
 });
 
