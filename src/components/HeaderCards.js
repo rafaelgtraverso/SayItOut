@@ -11,10 +11,11 @@ const HeaderCards = params => {
         <SafeAreaView>
             <Header
             leftComponent = { goBack
-                ?(<Button large transparent onPress={()=>navigate(prevScreen)}>
-                    <Icon style={s.headerContent} name='arrow-back' />
-                </Button>)
-                : null}
+                ? (
+                    <Button large transparent onPress={()=>navigate(prevScreen)}>
+                        <Icon style={s.headerContent} name='arrow-back' />
+                    </Button>
+                ) : null}
             backgroundColor={colors.white}
             centerComponent={{
                 text: title,

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { View, ActivityIndicator, SafeAreaView, Text } from 'react-native';
+import { View, ActivityIndicator, SafeAreaView } from 'react-native';
 import { navigate } from '../navigationRef';
 import s from '../css/styles';
 import { populateCardsTable } from '../api/local/sqlite';
