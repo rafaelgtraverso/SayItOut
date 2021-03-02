@@ -7,7 +7,6 @@ import logo from '../assets/logo.png';
 import logoTitle from '../assets/LogoTitle.png';
 import logoSubtitle from '../assets/LogoSubtitle.png';
 import NavLink from '../components/NavLink';
-import { set } from 'react-native-reanimated';
 
 const AuthForm = params => {
   const { headerText, errorMessage, onSubmit, submitButtonText } = params;
