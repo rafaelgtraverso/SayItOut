@@ -8,13 +8,6 @@
 	<string>SayItOut</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
-	<key>CFBundleIconFiles</key>
-	<array>
-		<string>Icon-152.png</string>
-		<string>Icon-167.png</string>
-		<string>Icon-76.png</string>
-		<string>Icon-120.png</string>
-	</array>
 	<key>CFBundleIconName</key>
 	<string>AppIcon</string>
 	<key>CFBundleIdentifier</key>
