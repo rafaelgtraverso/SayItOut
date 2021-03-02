@@ -56,6 +56,7 @@ const AuthForm = params => {
           title={submitButtonText}
           onPress={() => onSubmit({ email, password })}
           buttonStyle={s.button}
+          onPressOut={()=>setPassword('')}
         />
         <View>
           <NavLink
