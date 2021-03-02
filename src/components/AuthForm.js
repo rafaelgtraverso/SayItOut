@@ -7,6 +7,7 @@ import logo from '../assets/logo.png';
 import logoTitle from '../assets/LogoTitle.png';
 import logoSubtitle from '../assets/LogoSubtitle.png';
 import NavLink from '../components/NavLink';
+import { set } from 'react-native-reanimated';
 
 const AuthForm = params => {
   const { headerText, errorMessage, onSubmit, submitButtonText } = params;
@@ -56,6 +57,7 @@ const AuthForm = params => {
           title={submitButtonText}
           onPress={() => onSubmit({ email, password })}
           buttonStyle={s.button}
+          onPressOut={()=>setPassword('')}
         />
         <View>
           <NavLink

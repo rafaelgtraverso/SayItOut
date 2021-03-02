@@ -9,7 +9,7 @@ import { navigate } from '../navigationRef';
 import AsyncStorage from '@react-native-community/async-storage';
 import PropTypes from 'prop-types';
 import auth from '@react-native-firebase/auth';
-import { isValidPassword, isValidEmail } from '../helpers/validators/validators';
+import { isValidEmail } from '../helpers/validators/validators';
 
 
 const SignUpScreen = props => {
@@ -48,10 +48,6 @@ const mapDispatchToProps = (dispatch) => {
         dispatch(authError('Invalid email'));
         return
       }
-      if(isValidPassword(password)){
-        dispatch(authError('The password must be at least 8 characters long and must have at least 1 digit, 1 lower case and 1 upper case.'));
-        return
-      }
       try {
         const response = await auth().createUserWithEmailAndPassword(
           email,
@@ -65,8 +61,8 @@ const mapDispatchToProps = (dispatch) => {
           navigate('Home');
         }
       } catch (err) {
-        dispatch(authError('Something went wrong with the sign up'));
-        console.log(err);
+        if (err.code=='auth/weak-password') dispatch(authError('The password must be at least 6 characters'));
+        if (err.code=='auth/email-already-in-use') dispatch(authError('That email address is already in use! Please click in Forgot your password.'))
       }
     },
     clear_error_message: () => dispatch(clearErrorMessage()),
