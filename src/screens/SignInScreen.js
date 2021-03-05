@@ -1,5 +1,4 @@
 import React from 'react';
-import { KeyboardAvoidingView } from 'react-native';
 import { NavigationEvents } from 'react-navigation';
 
 import AuthForm from '../components/AuthForm';
@@ -7,20 +6,28 @@ import AuthForm from '../components/AuthForm';
 import s from '../css/styles';
 
 import { connect } from 'react-redux';
-import { signin, clearErrorMessage, authError } from '../actions/auth';
+import {
+  signin,
+  clearErrorMessage,
+  authError
+} from '../actions/auth';
 import AsyncStorage from '@react-native-community/async-storage';
 
 import { navigate } from '../navigationRef';
 import PropTypes from 'prop-types';
 import auth from '@react-native-firebase/auth'
 import { isValidEmail } from '../helpers/validators/validators';
+import {
+  Container,
+  Content
+} from 'native-base';
 
 const SignInScreen = props => {
   const { sign_in,clear_error_message, auths:{ errorMessage } } = props;
 
   return (
-    <>
-      <KeyboardAvoidingView style={s.container} behavior='height'>
+    <Container>
+      <Content contentContainerStyle={s.containerForm}>
         <NavigationEvents onWillFocus={clear_error_message} />
         <AuthForm
           headerText="signin"
@@ -28,8 +35,9 @@ const SignInScreen = props => {
           submitButtonText="Sign in"
           onSubmit={sign_in}
         />
-      </KeyboardAvoidingView>
-    </>
+      </Content>
+    </Container>
+
   );
 };
 

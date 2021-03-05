@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import { widthPercentageToDP as wp } from 'react-native-responsive-screen';
 
 export const colors ={
  blue : 'rgba(0,0,255,1)',
@@ -13,42 +13,48 @@ export const colors ={
 
 const s = StyleSheet.create({
   link: {
-    color: colors.blue
+    color: colors.blue,
+    textAlign:'right',
+    fontSize:15
+  },
+  signup:{
+    fontSize:18,
+    color:colors.green
+  },
+  authForm:{
+    minWidth: wp('50%'),
   },
   textForm:{
     alignSelf:'center',
-    fontSize:18
+    color:colors.green,
   },
   button:{
     paddingHorizontal:55,
     fontSize:24,
+    color:colors.white,
+    textTransform:'uppercase'
   },
-  logo:{
-    width:  wp('60%'),
-    height: hp('15%'),
-  },
-  logosTitle:{
-    width:  wp('80%'),
-  },
-  logosSubtitle:{
-    width:  wp('80%'),
+  formLogo:{
+    maxHeight:50,
   },
   container:{
-    flex:1 ,
+    justifyContent:'center',
+    padding:5
   },
-  logoContainer:{
-    flex:1,
-    alignItems:'center',
-    justifyContent:'space-around',
+  logo:{
+    height:wp('15%'),
   },
   containerForm: {
+    alignItems: 'center',
     flex:1,
+    justifyContent:'center',
+    marginHorizontal:30
   },
   containerInput:{
-    flex:1,
-    width: wp('80%'),
-    alignSelf:'center',
-    justifyContent: 'space-around',
+    flex:0.5,
+    padding:50,
+
+    justifyContent: 'space-between',
   },
   error:{
     fontSize: 18,
@@ -59,7 +65,7 @@ const s = StyleSheet.create({
     margin: 10,
   },
   text: {
-    fontSize: 48,
+    fontSize: 40,
     color: colors.green,
   },
   isLoadingView: {
@@ -72,8 +78,7 @@ const s = StyleSheet.create({
    marginHorizontal:25
   },
   phraseInput: {
-    paddingBottom:5,
-    borderBottomWidth:3,
+    padding:5,
     height:200,
   },
   phraseView:{
@@ -81,13 +86,18 @@ const s = StyleSheet.create({
     borderBottomWidth:1,
     flexDirection:'row',
     flex:1,
-    alignItems:'center'
+    justifyContent:'center'
   },
   phraseButtons: {
     flexWrap:"wrap",
     flexDirection:'row',
     alignSelf:'flex-end',
     margin:5,
+  },
+  buttons:{
+    fontSize:50,
+    color:colors.green,
+    height:60,
   },
   cardsGridview: {
     alignItems: 'center',
@@ -111,7 +121,7 @@ const s = StyleSheet.create({
   },
   flatList: {
     alignItems: 'center',
-    paddingBottom:750
+    paddingBottom:450
   },
   cardContainer: {
     alignItems: 'center',
@@ -126,11 +136,16 @@ const s = StyleSheet.create({
     marginTop:10,
   },
   headerContent:{
-    fontSize:40,
+    fontSize:30,
     textTransform: 'capitalize',
-    height:60,
     color:colors.black,
-    marginBottom:10,
+  },
+  inputIcon:{
+    paddingLeft:15,
+    color:colors.black,
+  },
+  phraseButtonsView:{
+    justifyContent:'center',
   }
 });
 

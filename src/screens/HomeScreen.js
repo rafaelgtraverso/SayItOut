@@ -1,15 +1,27 @@
-import React, { useEffect,useState } from 'react';
-import { SafeAreaView } from 'react-native';
+import React,
+  {
+  useEffect,
+  useState
+} from 'react';
 import Phrase from '../components/Phrase';
 import CardsGrid from '../components/CardsGrid';
-import HeaderCards from '../components/HeaderCards';
-import { connect } from 'react-redux';
-import { clearPhrase } from '../actions/phrases';
-import { setCategory } from '../actions/cards'
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { setCategory } from '../actions/cards';
+import { clearPhrase } from '../actions/phrases';
 import { getCategories } from '../api/local/sqlite';
+import {
+  Container,
+  Header,
+  Left,
+  Body,
+  Title,
+  Right,
+  Text
+} from 'native-base';
 import { navigate } from '../navigationRef';
-
+import s from '../css/styles';
+import Spacer from '../components/Spacer';
 
 const HomeScreen = props => {
   const { display_categories } = props;
@@ -21,17 +33,21 @@ const HomeScreen = props => {
   },[]);
 
   return (
-    <SafeAreaView >
-      <HeaderCards
-        title="Categories"
-        goBack={false}
+    <Container>
+      <Header >
+          <Left/>
+          <Body>
+            <Title><Text style={s.headerContent}>Categories</Text></Title>
+          </Body>
+          <Right/>
+        </Header>
+        <Spacer/>
+        <Phrase />
+        <CardsGrid
+          data={dataSql}
+          on_Press={display_categories}
         />
-      <Phrase />
-      <CardsGrid
-        data={dataSql}
-        on_Press={display_categories}
-      />
-    </SafeAreaView>
+    </Container>
   );
 };
 

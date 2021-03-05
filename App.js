@@ -14,15 +14,15 @@ import ResolveAuthScreen from './src/screens/ResolveAuthScreen';
 import { Provider } from 'react-redux';
 
 import { setNavigator } from './src/navigationRef';
-import LoadingScreen from './src/screens/LoadingScreen';
 import configureStore from './src/store';
 import PasswordRecoveryScreen from './src/screens/PasswordRecoveryScreen';
 import CardsScreen from './src/screens/CardsScreen';
+import SignInOptionScreen from './src/screens/SignInOptionScreen';
 
 const switchNavigator = createSwitchNavigator({
   resolveAuth: ResolveAuthScreen,
-  loading: LoadingScreen,
   loginFlow: createStackNavigator({
+    SigninOptions: SignInOptionScreen,
     Signin: SignInScreen,
     Signup: SignUpScreen,
     RecoveryPassword: PasswordRecoveryScreen,
@@ -38,8 +38,8 @@ const switchNavigator = createSwitchNavigator({
     },{
       headerMode: 'none',
     }),
-    Phrases: createStackNavigator({ Phrases:PhraseListScreen }),
-    Account: createStackNavigator({ Account:AccountScreen }),
+    Phrases: createStackNavigator({ Phrases:PhraseListScreen },{ headerMode:'none' }),
+    Account: createStackNavigator({ Account:AccountScreen }, { headerMode:'none' }),
   })
 });
 

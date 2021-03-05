@@ -1,10 +1,20 @@
 import React from 'react';
-import { KeyboardAvoidingView } from 'react-native';
+import {
+  Container,
+  Content,
+  Header,
+  Left,
+  Button,
+  Icon
+} from 'native-base'
 import AuthForm from '../components/AuthForm';
 import { NavigationEvents } from 'react-navigation';
 import s from '../css/styles';
 import { connect } from 'react-redux';
-import { clearErrorMessage, signin, authError } from '../actions/auth';
+import {
+  clearErrorMessage,
+  signin,
+  authError } from '../actions/auth';
 import { navigate } from '../navigationRef';
 import AsyncStorage from '@react-native-community/async-storage';
 import PropTypes from 'prop-types';
@@ -15,15 +25,24 @@ import { isValidEmail } from '../helpers/validators/validators';
 const SignUpScreen = props => {
   const { sign_up,clear_error_message,auths:{ errorMessage } } = props;
   return (
-    <KeyboardAvoidingView style={s.container} behavior='height'>
-      <NavigationEvents onWillFocus={clear_error_message} />
-      <AuthForm
-        headerText="signup"
-        errorMessage={errorMessage}
-        submitButtonText="Sign Up"
-        onSubmit={sign_up}
-      />
-    </KeyboardAvoidingView>
+    <Container>
+      <Header transparent>
+        <Left>
+          <Button transparent onPress={()=>navigate('Signin')}>
+            <Icon name='arrow-back' />
+          </Button>
+        </Left>
+      </Header>
+      <Content contentContainerStyle={s.containerForm} >
+        <NavigationEvents onWillFocus={clear_error_message} />
+        <AuthForm
+          headerText="signup"
+          errorMessage={errorMessage}
+          submitButtonText="Sign Up"
+          onSubmit={sign_up}
+        />
+      </Content>
+    </Container>
   );
 };
 

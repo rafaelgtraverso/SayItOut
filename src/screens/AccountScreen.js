@@ -1,7 +1,15 @@
 import React from 'react';
-import { Text, Button } from 'react-native';
-import { SafeAreaView } from 'react-navigation';
-import Spacer from '../components/Spacer';
+import {
+  Container,
+  Header,
+  Left,
+  Body,
+  Title,
+  Text,
+  Button,
+  Right,
+  Content
+} from 'native-base';
 import s from '../css/styles'
 import { connect } from 'react-redux';
 import { signout } from '../actions/auth';
@@ -12,11 +20,20 @@ import PropTypes from 'prop-types';
 const AccountScreen = props => {
   const { sign_out } = props;
   return (
-    <SafeAreaView forceInset={{ top: 'always' }}>
-      <Text style={s.text}> My Account</Text>
-      <Spacer />
-      <Button title="Log out" onPress={sign_out} />
-    </SafeAreaView>
+    <Container>
+      <Header>
+        <Left/>
+        <Body>
+          <Title><Text style={s.headerContent}>Settings</Text></Title>
+        </Body>
+        <Right/>
+      </Header>
+      <Content>
+        <Button transparent block large onPress={sign_out}>
+          <Text>Log Out</Text>
+        </Button>
+      </Content>
+    </Container>
   );
 };
 
