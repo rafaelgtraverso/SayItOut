@@ -18,7 +18,7 @@ import {
   Right
 } from 'native-base';
 import { navigate } from '../navigationRef';
-import s from '../css/styles';
+import s, { colors } from '../css/styles';
 import Spacer from '../components/Spacer';
 
 
@@ -33,16 +33,16 @@ const CardsScreen = props => {
 
   return (
     <Container >
-      <Header>
-          <Left>
+      <Header transparent>
+          <Left style={[s.headerAndroid,s.headerLeft]}>
             <Button transparent onPress={()=>navigate('Home')}>
-              <Icon name='arrow-back' />
+              <Icon name='arrow-back-outline' type='Ionicons' style={s.headerContent}/>
             </Button>
-          </Left>
-          <Body>
+          </Left >
+          <Body style={s.headerAndroid}>
             <Title style={s.headerContent}>{cat_name}</Title>
           </Body>
-          <Right/>
+          <Right style={s.headerAndroid}/>
         </Header>
         <Spacer/>
         <Phrase />

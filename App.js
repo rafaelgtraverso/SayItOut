@@ -3,7 +3,6 @@ import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 
-import AccountScreen from './src/screens/AccountScreen';
 import CreateCardScreen from './src/screens/CreateCardScreen';
 import PhraseListScreen from './src/screens/PhraseListScreen';
 import HomeScreen from './src/screens/HomeScreen';
@@ -18,6 +17,8 @@ import configureStore from './src/store';
 import PasswordRecoveryScreen from './src/screens/PasswordRecoveryScreen';
 import CardsScreen from './src/screens/CardsScreen';
 import SignInOptionScreen from './src/screens/SignInOptionScreen';
+import SettingsScreen from './src/screens/SettingsScreen';
+
 
 const switchNavigator = createSwitchNavigator({
   resolveAuth: ResolveAuthScreen,
@@ -39,7 +40,19 @@ const switchNavigator = createSwitchNavigator({
       headerMode: 'none',
     }),
     Phrases: createStackNavigator({ Phrases:PhraseListScreen },{ headerMode:'none' }),
-    Account: createStackNavigator({ Account:AccountScreen }, { headerMode:'none' }),
+    Settings: createStackNavigator({ Settings:SettingsScreen }, { headerMode:'none' }),
+  },
+  {
+    tabBarOptions: {
+      activeTintColor: 'rgba(69,160,0,1)',
+      labelStyle: {
+        fontSize: 24,
+      },
+      style: {
+        paddingVertical:10
+
+      },
+    }
   })
 });
 

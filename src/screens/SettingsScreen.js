@@ -17,16 +17,16 @@ import AsyncStorage from '@react-native-community/async-storage';
 import { navigate } from '../navigationRef';
 import PropTypes from 'prop-types';
 
-const AccountScreen = props => {
+const SettingsScreen = props => {
   const { sign_out } = props;
   return (
     <Container>
-      <Header>
-        <Left/>
-        <Body>
+      <Header transparent>
+        <Left style={s.headerAndroid}/>
+        <Body style={s.headerAndroid}>
           <Title><Text style={s.headerContent}>Settings</Text></Title>
         </Body>
-        <Right/>
+        <Right style={s.headerAndroid}/>
       </Header>
       <Content>
         <Button transparent block large onPress={sign_out}>
@@ -37,7 +37,7 @@ const AccountScreen = props => {
   );
 };
 
-AccountScreen.propTypes = {
+SettingsScreen.propTypes = {
   sign_out: PropTypes.func,
   auths: PropTypes.object
 };
@@ -53,11 +53,10 @@ const mapDispatchToProps = (dispatch) => {
   return{
     sign_out: async () => {
       await AsyncStorage.removeItem('token');
-      await AsyncStorage.removeItem('email');
       dispatch(signout);
-      navigate('Signin');
+      navigate('SigninOptions');
     }
   }
 };
 
-export default connect(mapStateToProps,mapDispatchToProps)(AccountScreen);
+export default connect(mapStateToProps,mapDispatchToProps)(SettingsScreen);

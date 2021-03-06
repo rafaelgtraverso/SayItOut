@@ -24,7 +24,7 @@ import {
 const Phrase = props => {
     const { auths, phrases, clear_phrase } = props;
     const { phraseId, phrase } = phrases;
-    const { email } = auths;
+    const { token } = auths;
 
     useEffect(() =>{
         const cb = phraseId => props.set_last_phrase_id(phraseId[0].Last_Id + 1);
@@ -34,7 +34,7 @@ const Phrase = props => {
     const savePhrase = () => {
         try{
             if (phraseId > 0){
-                insertPhrase(phraseId, phrase, email);
+                insertPhrase(phraseId, phrase, token);
                 clear_phrase();
             }
         }catch (err){

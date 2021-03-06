@@ -34,12 +34,12 @@ const HomeScreen = props => {
 
   return (
     <Container>
-      <Header >
-          <Left/>
-          <Body>
+      <Header transparent>
+          <Left style={s.headerAndroid}/>
+          <Body style={s.headerAndroid}>
             <Title><Text style={s.headerContent}>Categories</Text></Title>
           </Body>
-          <Right/>
+          <Right style={s.headerAndroid}/>
         </Header>
         <Spacer/>
         <Phrase />

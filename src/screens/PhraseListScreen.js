@@ -25,16 +25,16 @@ import PropTypes from 'prop-types';
 import { SafeAreaView } from 'react-native';
 
 const PhraseListScreen = props => {
-  const { phrases:{ savedPhrases, phraseId }, auths: { email },sql_phrases } = props
+  const { phrases:{ savedPhrases, phraseId }, auths: { token },sql_phrases } = props
   const locale = RNLocalize.getLocales()[0].languageCode;
   const cb = (phrases) => sql_phrases(phrases, locale);
   useEffect(()=>{
-    getAllPhrases({ cb, email });
+    getAllPhrases({ cb, token });
   },[phraseId]);
 
   const deletePhrase = (item) => {
     removePhrase(item.phrase_id);
-    getAllPhrases({ cb,email });
+    getAllPhrases({ cb,token });
   };
 
   const renderCard = ({ item }) => {
@@ -71,12 +71,12 @@ const PhraseListScreen = props => {
 
   return (
     <Container>
-      <Header>
-        <Left/>
-        <Body>
+      <Header transparent>
+        <Left style={s.headerAndroid}/>
+        <Body  style={s.headerAndroid}>
           <Title><Text style={s.headerContent}>Phrases</Text></Title>
         </Body>
-        <Right/>
+        <Right  style={s.headerAndroid}/>
       </Header>
       <SafeAreaView style={s.container}>
         <FlatList

@@ -19,7 +19,13 @@ import auth from '@react-native-firebase/auth'
 import { isValidEmail } from '../helpers/validators/validators';
 import {
   Container,
-  Content
+  Content,
+  Header,
+  Left,
+  Button,
+  Icon,
+  Body,
+  Right
 } from 'native-base';
 
 const SignInScreen = props => {
@@ -27,6 +33,15 @@ const SignInScreen = props => {
 
   return (
     <Container>
+      <Header transparent>
+        <Left style={s.headerLeft}>
+          <Button transparent onPress={()=>navigate('SigninOptions')}>
+            <Icon name='arrow-back-outline' type='Ionicons' style={s.headerContent}/>
+          </Button>
+        </Left>
+        <Body/>
+        <Right/>
+      </Header>
       <Content contentContainerStyle={s.containerForm}>
         <NavigationEvents onWillFocus={clear_error_message} />
         <AuthForm
@@ -70,13 +85,11 @@ const mapDispatchToProps = (dispatch) => {
         );
         if (response && response.user){
           await AsyncStorage.setItem('token', (await response.user.getIdTokenResult()).token);
-          await AsyncStorage.setItem('email', email);
-          dispatch(signin((await response.user.getIdTokenResult()).token, email));
+          dispatch(signin((await response.user.getIdTokenResult()).token));
           navigate('Home');
         }
       } catch (err) {
         dispatch(authError('Please check your credentials'));
-        console.log(err)
       }
     },
     clear_error_message: () => dispatch(clearErrorMessage()),

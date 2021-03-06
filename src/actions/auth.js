@@ -12,10 +12,10 @@ export const authError = (message) => (
   }
 );
 
-export const signin = (token,email) => (
+export const signin = (token) => (
   {
     type: SIGN_IN,
-    payload:{ token, email }
+    payload:{ token }
   }
 );
 

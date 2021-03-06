@@ -5,7 +5,9 @@ import {
   Header,
   Left,
   Button,
-  Icon
+  Icon,
+  Body,
+  Right
 } from 'native-base'
 import AuthForm from '../components/AuthForm';
 import { NavigationEvents } from 'react-navigation';
@@ -27,11 +29,13 @@ const SignUpScreen = props => {
   return (
     <Container>
       <Header transparent>
-        <Left>
+        <Left style={s.headerLeft}>
           <Button transparent onPress={()=>navigate('Signin')}>
-            <Icon name='arrow-back' />
+            <Icon name='arrow-back-outline' type='Ionicons' style={s.headerContent}/>
           </Button>
         </Left>
+        <Body/>
+        <Right/>
       </Header>
       <Content contentContainerStyle={s.containerForm} >
         <NavigationEvents onWillFocus={clear_error_message} />
@@ -75,8 +79,7 @@ const mapDispatchToProps = (dispatch) => {
         if (response && response.user){
           response.user.sendEmailVerification();
           await AsyncStorage.setItem('token', response.user.toJSON().refreshToken);
-          await AsyncStorage.setItem('email', email);
-          dispatch(signin(response.user.toJSON().refreshToken, email));
+          dispatch(signin(response.user.toJSON().refreshToken));
           navigate('Home');
         }
       } catch (err) {

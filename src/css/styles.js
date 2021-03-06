@@ -139,7 +139,16 @@ const s = StyleSheet.create({
     fontSize:30,
     textTransform: 'capitalize',
     color:colors.black,
+    alignItems:'center',
   },
+ headerAndroid:{
+  flex:1,
+  alignItems:'center',
+  backgroundColor:colors.white
+ },
+ headerLeft:{
+  alignItems:'flex-start'
+},
   inputIcon:{
     paddingLeft:15,
     color:colors.black,
