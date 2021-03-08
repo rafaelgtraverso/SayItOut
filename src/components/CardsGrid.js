@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
-import { SafeAreaView, FlatList, Dimensions, TouchableOpacity } from 'react-native';
+import {
+  SafeAreaView,
+  FlatList,
+  Dimensions,
+  TouchableOpacity
+} from 'react-native';
 import s from '../css/styles';
 import Card from '../components/Card';
 import { connect } from 'react-redux';
@@ -21,7 +26,7 @@ const CardsGrid = props => {
   };
 
   return (
-    <SafeAreaView onLayout={onLayout} style={s.cardsGridview}>
+    <SafeAreaView onLayout={onLayout} >
       <FlatList
         data={data}
         renderItem={({ item }) => (
