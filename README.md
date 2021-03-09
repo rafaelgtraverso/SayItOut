@@ -52,4 +52,3 @@ You need to install [Android Studio](https://developer.android.com/studio). we r
 
 #### Run from Android Studio
 If the installation was succesfull then when you connect your device via USB, Android Studio will recognise the device automatically and you will be able to run the app from the green button next to the selected device or through the menu Run.
-
