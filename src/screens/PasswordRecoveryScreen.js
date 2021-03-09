@@ -39,7 +39,7 @@ const RecoveryPasswordScreen = props => {
           </Left>
         </Header>
         <Content contentContainerStyle={s.containerForm}>
-          <Text style={s.text}> Please enter you email address to reset your password:</Text>
+          <Text style={s.signup}> Please enter you email address to reset your password:</Text>
           <Spacer/>
           <View style={s.authForm}>
             <Item rounded>

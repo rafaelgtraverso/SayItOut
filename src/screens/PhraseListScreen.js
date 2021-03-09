@@ -85,7 +85,7 @@ const PhraseListScreen = props => {
           keyExtractor={item =>item.phrase_id.toString()}
         />
       </SafeAreaView>
-          </Container>
+    </Container>
   );
 };
 

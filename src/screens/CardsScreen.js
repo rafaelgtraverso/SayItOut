@@ -44,8 +44,8 @@ const CardsScreen = props => {
           </Body>
           <Right style={s.headerAndroid}/>
         </Header>
-        <Spacer/>
         <Phrase />
+        <Spacer/>
         <CardsGrid
           data={dataSql}
           on_Press = {show_phrase}

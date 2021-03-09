@@ -19,6 +19,7 @@ import {
   Right,
   Text
 } from 'native-base';
+import { View } from 'react-native'
 import { navigate } from '../navigationRef';
 import s from '../css/styles';
 import Spacer from '../components/Spacer';
@@ -35,18 +36,18 @@ const HomeScreen = props => {
   return (
     <Container>
       <Header transparent>
-          <Left style={s.headerAndroid}/>
-          <Body style={s.headerAndroid}>
-            <Title><Text style={s.headerContent}>Categories</Text></Title>
-          </Body>
-          <Right style={s.headerAndroid}/>
-        </Header>
-        <Spacer/>
-        <Phrase />
-        <CardsGrid
-          data={dataSql}
-          on_Press={display_categories}
-        />
+        <Left style={s.headerAndroid}/>
+        <Body style={s.headerAndroid}>
+          <Title><Text style={s.headerContent}>Categories</Text></Title>
+        </Body>
+        <Right style={s.headerAndroid}/>
+      </Header>
+      <Phrase />
+      <Spacer/>
+      <CardsGrid
+        data={dataSql}
+        on_Press={display_categories}
+      />
     </Container>
   );
 };
