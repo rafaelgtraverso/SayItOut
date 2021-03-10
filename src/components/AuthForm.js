@@ -4,7 +4,7 @@ import { View } from 'react-native';
 import {
   Item,
   Input,
-  Button
+  Button,
 } from 'native-base';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import s from '../css/styles';
@@ -21,7 +21,7 @@ const AuthForm = params => {
     <>
       <LogoAndTitle />
       <View style={s.authForm}>
-        {headerText=='signup' ? <Text style={s.textForm} h2>Sign Up</Text> : null}
+        {headerText=='signup' ? <Text style={s.textForm} h3>Sign Up</Text> : null}
         <Spacer/>
         <Item rounded>
           <Icon

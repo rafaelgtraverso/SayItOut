@@ -11,6 +11,7 @@ import SignUpScreen from './src/screens/SignUpScreen';
 import ResolveAuthScreen from './src/screens/ResolveAuthScreen';
 
 import { Provider } from 'react-redux';
+import s from './src/css/styles';
 
 import { setNavigator } from './src/navigationRef';
 import configureStore from './src/store';

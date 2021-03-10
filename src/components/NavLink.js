@@ -1,8 +1,6 @@
 import React from 'react';
-import {
-  Text,
-  TouchableOpacity
-} from 'react-native';
+import { TouchableOpacity } from 'react-native';
+import { Text } from 'native-base';
 import { withNavigation } from 'react-navigation';
 import s from '../css/styles';
 

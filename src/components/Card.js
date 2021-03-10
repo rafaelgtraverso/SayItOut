@@ -7,6 +7,8 @@ import s from '../css/styles';
 import { Text } from 'react-native-elements';
 import { t } from '../helpers/i18n';
 import { imgData } from '../helpers/images/urls';
+import { Item } from 'native-base';
+
 
 const Card = params => {
     const { item } = params;
@@ -15,6 +17,7 @@ const Card = params => {
             <Image
                 style={s.image}
                 source={imgData[item.name]}
+                resizeMode='contain'
             />
             <Text style={s.textFlatList}>{t[item.name]}</Text>
         </View>
