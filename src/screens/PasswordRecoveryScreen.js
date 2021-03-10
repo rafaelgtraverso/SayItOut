@@ -10,7 +10,9 @@ import {
   Text,
   Button,
   Icon,
-  View
+  View,
+  Body,
+  Right
 } from 'native-base';
 import Spacer from '../components/Spacer';
 import { connect } from 'react-redux';
@@ -34,12 +36,14 @@ const RecoveryPasswordScreen = props => {
         <Header transparent>
           <Left>
             <Button transparent onPress={()=>navigate('Signin')}>
-              <Icon name='arrow-back' />
+              <Icon name='arrow-back-outline' type='Ionicons' style={s.headerContent}/>
             </Button>
           </Left>
+          <Body/>
+          <Right/>
         </Header>
         <Content contentContainerStyle={s.containerForm}>
-          <Text style={s.signup}> Please enter you email address to reset your password:</Text>
+          <Text style={s.recoveryTitle}> Please enter you email address to reset your password:</Text>
           <Spacer/>
           <View style={s.authForm}>
             <Item rounded>

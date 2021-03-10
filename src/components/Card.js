@@ -9,17 +9,16 @@ import { t } from '../helpers/i18n';
 import { imgData } from '../helpers/images/urls';
 import { Item } from 'native-base';
 
+
 const Card = params => {
     const { item } = params;
     return item
         ? <View style={s.cardContainer}>
-            <Item rounded>
-                <Image
-                    style={s.image}
-                    source={imgData[item.name]}
-                    resizeMode='contain'
-                />
-            </Item>
+            <Image
+                style={s.image}
+                source={imgData[item.name]}
+                resizeMode='contain'
+            />
             <Text style={s.textFlatList}>{t[item.name]}</Text>
         </View>
         : null

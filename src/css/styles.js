@@ -16,14 +16,20 @@ const s = StyleSheet.create({
   link: {
     color: colors.blue,
     textAlign:'right',
-    fontSize:wp('2%'),
+    fontSize:20,
   },
   signup:{
-    fontSize:wp('2%'),
+    fontSize:20,
     color:colors.green
+  },
+  recoveryTitle:{
+    fontSize:30,
+    color:colors.green
+
   },
   authForm:{
     minWidth: wp('60%'),
+    maxWidth:wp('80%')
   },
   textForm:{
     alignSelf:'center',
@@ -82,7 +88,7 @@ const s = StyleSheet.create({
   phraseInput: {
     margin:5,
     padding:5,
-    height:hp('19%'),
+    height:hp('21%'),
   },
   phraseView:{
     padding:10,
@@ -95,10 +101,9 @@ const s = StyleSheet.create({
     flexDirection:'row',
     justifyContent:'flex-end',
     alignItems:'center',
-    fontSize:wp('4%'),
   },
   buttons:{
-    fontSize:wp('4%'),
+    fontSize:45,
     color:colors.green,
   },
   cardsGridview: {
@@ -109,10 +114,13 @@ const s = StyleSheet.create({
   },
   image: {
     width: wp('15%'),
-    height: hp('20%'),
+    height: hp('15%'),
+    borderWidth: 1,
+    borderRadius:45,
     borderColor: colors.grey1,
     backgroundColor: colors.white,
     margin: 10,
+    overflow:'hidden'
   },
   textFlatList: {
     textAlign: 'center',
@@ -132,7 +140,7 @@ const s = StyleSheet.create({
     padding:100,
   },
   headerContent:{
-    fontSize:wp('4%'),
+    fontSize:hp('3%'),
     textTransform: 'capitalize',
     color:colors.black,
     alignItems:'center',
