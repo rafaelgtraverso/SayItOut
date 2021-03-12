@@ -114,7 +114,7 @@ const s = StyleSheet.create({
   },
   image: {
     width: wp('15%'),
-    height: hp('15%'),
+    height: wp('15%'),
     borderWidth: 1,
     borderRadius:45,
     borderColor: colors.grey1,
@@ -130,6 +130,7 @@ const s = StyleSheet.create({
   flatList: {
     alignItems: 'center',
     paddingBottom:450,
+    margin:5
   },
   cardContainer: {
     alignItems: 'center',

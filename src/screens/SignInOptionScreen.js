@@ -18,7 +18,7 @@ import PropTypes from 'prop-types';
 import auth from '@react-native-firebase/auth';
 
 GoogleSignin.configure({
-    webClientId: "637414120369-r0u9r7ni68v44hqtum63maprt4v802v4.apps.googleusercontent.com",
+    webClientId: "637414120369-rca5krpltrdutvs683rqfrdk79guop4m.apps.googleusercontent.com",
 });
 
 const SignInOptionScreen = props => {

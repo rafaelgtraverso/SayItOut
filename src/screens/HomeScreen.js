@@ -19,7 +19,6 @@ import {
   Right,
   Text
 } from 'native-base';
-import { View } from 'react-native'
 import { navigate } from '../navigationRef';
 import s from '../css/styles';
 import Spacer from '../components/Spacer';
