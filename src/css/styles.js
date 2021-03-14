@@ -1,5 +1,8 @@
 import { StyleSheet } from 'react-native';
-import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp
+} from 'react-native-responsive-screen';
 
 export const colors ={
  blue : 'rgba(0,0,255,1)',
@@ -38,7 +41,7 @@ const s = StyleSheet.create({
   button:{
     fontSize:20,
     color:colors.white,
-    textTransform:'uppercase'
+    textTransform:'capitalize'
   },
   formLogo:{
     maxHeight:hp('5%'),
@@ -82,13 +85,13 @@ const s = StyleSheet.create({
   },
   phraseInputView: {
     margin:5,
-    height:hp('28%'),
+    height:wp('35%'),
     padding:5,
   },
   phraseInput: {
     margin:5,
     padding:5,
-    height:hp('21%'),
+    height:wp('27%'),
   },
   phraseView:{
     padding:10,
@@ -103,7 +106,7 @@ const s = StyleSheet.create({
     alignItems:'center',
   },
   buttons:{
-    fontSize:45,
+    fontSize:40,
     color:colors.green,
   },
   cardsGridview: {
@@ -114,7 +117,7 @@ const s = StyleSheet.create({
   },
   image: {
     width: wp('15%'),
-    height: hp('15%'),
+    height: wp('15%'),
     borderWidth: 1,
     borderRadius:45,
     borderColor: colors.grey1,
@@ -130,6 +133,7 @@ const s = StyleSheet.create({
   flatList: {
     alignItems: 'center',
     paddingBottom:450,
+    margin:5,
   },
   cardContainer: {
     alignItems: 'center',

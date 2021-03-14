@@ -7,8 +7,6 @@ import s from '../css/styles';
 import { Text } from 'react-native-elements';
 import { t } from '../helpers/i18n';
 import { imgData } from '../helpers/images/urls';
-import { Item } from 'native-base';
-
 
 const Card = params => {
     const { item } = params;

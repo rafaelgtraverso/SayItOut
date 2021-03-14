@@ -30,7 +30,7 @@ const SignInOptionScreen = props => {
                 <Spacer/>
                 <View style={s.authForm}>
                     <Button rounded block light onPress={()=>navigate('Signin')}>
-                        <Text style={s.button}>sign in with credentials</Text>
+                        <Text style={s.button}>sign in</Text>
                     </Button>
                     <Spacer/>
                     <Button rounded block danger onPress={google_sign_in}>

@@ -18,7 +18,7 @@ import {
   Right
 } from 'native-base';
 import { navigate } from '../navigationRef';
-import s, { colors } from '../css/styles';
+import s from '../css/styles';
 import Spacer from '../components/Spacer';
 
 
