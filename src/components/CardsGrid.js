@@ -16,13 +16,13 @@ const columnWidth = width => {
 
 const CardsGrid = props => {
   const { on_Press, data } = props
-  const screenWidth = Dimensions.get('window').width;
+  const screenWidth = Dimensions.get('screen').width;
 
   const [column, setColumn] = useState(columnWidth(screenWidth));
 
   const onLayout = e => {
     const { width } = e.nativeEvent.layout;
-    setColumn(columnWidth(width));
+    setColumn(columnWidth(width)-1);
   };
 
   return (

@@ -18,7 +18,7 @@ import PropTypes from 'prop-types';
 import auth from '@react-native-firebase/auth';
 
 GoogleSignin.configure({
-    webClientId: "637414120369-rca5krpltrdutvs683rqfrdk79guop4m.apps.googleusercontent.com",
+    webClientId: "637414120369-r0u9r7ni68v44hqtum63maprt4v802v4.apps.googleusercontent.com",
 });
 
 const SignInOptionScreen = props => {
@@ -30,7 +30,7 @@ const SignInOptionScreen = props => {
                 <Spacer/>
                 <View style={s.authForm}>
                     <Button rounded block light onPress={()=>navigate('Signin')}>
-                        <Text style={s.button}>sign in with credentials</Text>
+                        <Text style={s.button}>sign in</Text>
                     </Button>
                     <Spacer/>
                     <Button rounded block danger onPress={google_sign_in}>
