@@ -47,11 +47,10 @@ const switchNavigator = createSwitchNavigator({
     tabBarOptions: {
       activeTintColor: 'rgba(69,160,0,1)',
       labelStyle: {
-        fontSize: 24,
+        fontSize: 20,
       },
       style: {
-        paddingVertical:10
-
+        paddingVertical:5,
       },
     }
   })

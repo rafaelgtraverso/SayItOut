@@ -16,7 +16,6 @@ import {
 } from 'native-base';
 
 const columnWidth = width => {
-  console.log(width,s.image.width)
   return parseInt(width / (s.image.width + 20), 10)
 }
 
