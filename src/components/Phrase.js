@@ -1,5 +1,5 @@
 import React,{ useEffect } from 'react';
-import { View, ScrollView } from 'react-native';
+import { ScrollView } from 'react-native';
 import s from '../css/styles';
 import Card from '../components/Card';
 import {
@@ -49,36 +49,36 @@ const Phrase = props => {
         return phrase2Voice;
     };
     return (
-        <View style={s.phraseInputView} >
-            <Item rounded >
-                <ScrollView
-                    style={s.phraseInput}
-                    horizontal={true}
-                    ref={ref => this.scrollView = ref}
-                    onContentSizeChange={() => this.scrollView ? this.scrollView.scrollToEnd() : false}
-                >
-                    {
-                        phrase.length != 0
-                            ? phrase.map((item, index) => {
-                                const key = index.toString();
-                                return <Card key={key} item={item} />
-                            })
-                        : null
-                    }
-                </ScrollView>
-            </Item>
-            <View style={s.phraseButtons}>
-                <Button  transparent large onPress={()=>props.delete_last_entry()} >
-                    <Icon style={s.buttons} name='backspace-outline' />
-                </Button>
-                <Button transparent large onPress={()=> handleVoice(phraseToVoice())}  >
-                    <Icon style={s.buttons} name='play-circle-outline'/>
-                </Button>
-                <Button transparent large onPress={savePhrase} >
-                    <Icon style={s.buttons} name='save-outline'/>
-                </Button>
-            </View>
-        </View>
+        <>
+        <Item rounded>
+            <ScrollView
+                style={s.phraseInput}
+                horizontal={true}
+                ref={ref => this.scrollView = ref}
+                onContentSizeChange={() => this.scrollView ? this.scrollView.scrollToEnd() : false}
+            >
+                {
+                    phrase.length != 0
+                        ? phrase.map((item, index) => {
+                            const key = index.toString();
+                            return <Card key={key} item={item} />
+                        })
+                    : null
+                }
+            </ScrollView>
+        </Item>
+        <Item style={s.phraseButtons}>
+            <Button  transparent large onPress={()=>props.delete_last_entry()} >
+                <Icon style={s.buttons} name='backspace-outline' />
+            </Button>
+            <Button transparent large onPress={()=> handleVoice(phraseToVoice())}  >
+                <Icon style={s.buttons} name='play-circle-outline'/>
+            </Button>
+            <Button transparent large onPress={savePhrase} >
+                <Icon style={s.buttons} name='save-outline'/>
+            </Button>
+        </Item>
+        </>
 
     )
 };

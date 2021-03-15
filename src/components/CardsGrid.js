@@ -1,47 +1,67 @@
 import React, { useState } from 'react';
 import {
-  SafeAreaView,
   FlatList,
   Dimensions,
-  TouchableOpacity
+  Image
 } from 'react-native';
 import s from '../css/styles';
-import Card from '../components/Card';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { t } from '../helpers/i18n';
+import { imgData } from '../helpers/images/urls';
+import {
+  Card,
+  CardItem,
+  Text
+} from 'native-base';
 
 const columnWidth = width => {
-  return parseInt(width / (s.image.width + 10), 10)
+  return parseInt(width / (s.image.width + 20), 10)
 }
 
 const CardsGrid = props => {
   const { on_Press, data } = props
-  const screenWidth = Dimensions.get('screen').width;
 
-  const [column, setColumn] = useState(columnWidth(screenWidth));
+  const [column, setColumn] = useState();
 
-  const onLayout = e => {
-    const { width } = e.nativeEvent.layout;
-    setColumn(columnWidth(width)-1);
+  const onLayout = () => {
+    const { width, height } = Dimensions.get('screen');
+    if (width < height) setColumn(columnWidth(width)-1);
+    if (width > height) setColumn(columnWidth(height)-1);
+  };
+
+  const renderCard = ({ item }) => {
+    return (
+      <Card style={s.cardContainer}>
+        <CardItem style={s.cardItem} button onPress={() => on_Press(item)}>
+          <Image
+            style={s.image}
+            source={imgData[item.name]}
+            resizeMode='contain'
+          />
+        </CardItem >
+        <CardItem style={s.cardItem} button onPress={() => on_Press(item)}>
+          <Text style={s.textFlatList}>{t[item.name]}</Text>
+        </CardItem>
+      </Card>
+    )
   };
 
   return (
-    <SafeAreaView onLayout={onLayout} >
+    <>
       <FlatList
+        onLayout={onLayout}
         data={data}
-        renderItem={({ item }) => (
-          <TouchableOpacity onPress={() => on_Press(item)}>
-            <Card item={item} />
-          </TouchableOpacity>
-        )}
+        renderItem={renderCard}
         keyExtractor={(item, index) => item.name + index.toString()}
         numColumns={column}
         key={column}
         contentContainerStyle={s.flatList}
       />
-    </SafeAreaView>
+    </>
   );
 };
+
 
 CardsGrid.propTypes = {
   show_phrase: PropTypes.func,

@@ -21,7 +21,6 @@ import {
 } from 'native-base';
 import { navigate } from '../navigationRef';
 import s from '../css/styles';
-import Spacer from '../components/Spacer';
 
 const HomeScreen = props => {
   const { display_categories } = props;
@@ -42,7 +41,6 @@ const HomeScreen = props => {
         <Right style={s.headerAndroid}/>
       </Header>
       <Phrase />
-      <Spacer/>
       <CardsGrid
         data={dataSql}
         on_Press={display_categories}
