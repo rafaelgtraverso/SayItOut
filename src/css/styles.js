@@ -4,6 +4,10 @@ import {
   heightPercentageToDP as hp
 } from 'react-native-responsive-screen';
 
+const imageSize = () =>{
+  if (wp('15%') > hp('15%')) return hp('15%');
+  return wp('15%');
+}
 export const colors ={
  blue : 'rgba(0,0,255,1)',
   red : 'rgba(255,0,0,1)',
@@ -84,14 +88,15 @@ const s = StyleSheet.create({
     alignItems: 'center',
   },
   phraseInputView: {
-    margin:5,
     height:wp('35%'),
     padding:5,
+    borderWidth:1,
+    marginHorizontal:10,
   },
   phraseInput: {
     margin:5,
     padding:5,
-    height:wp('27%'),
+    height:imageSize()*1.3,
   },
   phraseView:{
     padding:10,
@@ -103,7 +108,6 @@ const s = StyleSheet.create({
     flexWrap:'wrap',
     flexDirection:'row',
     justifyContent:'flex-end',
-    alignItems:'center',
   },
   buttons:{
     fontSize:40,
@@ -116,24 +120,22 @@ const s = StyleSheet.create({
     marginBottom:100,
   },
   image: {
-    width: wp('15%'),
-    height: wp('15%'),
-    borderWidth: 1,
-    borderRadius:45,
-    borderColor: colors.grey1,
-    backgroundColor: colors.white,
-    margin: 10,
-    overflow:'hidden'
+    width: imageSize(),
+    height: imageSize(),
+    marginHorizontal: 5,
+  },
+  cardItem:{
+    justifyContent:'center'
   },
   textFlatList: {
     textAlign: 'center',
-    fontSize: wp('2%'),
+    fontSize: imageSize()/5,
     textTransform: 'capitalize'
   },
   flatList: {
     alignItems: 'center',
-    paddingBottom:450,
     margin:5,
+    padding:5
   },
   cardContainer: {
     alignItems: 'center',
