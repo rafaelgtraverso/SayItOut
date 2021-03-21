@@ -20,6 +20,11 @@ export const colors ={
 
 
 const s = StyleSheet.create({
+  appleButton:{
+    minWidth: wp('60%'),
+    maxWidth:wp('80%'),
+    height:45,
+  },
   link: {
     color: colors.blue,
     textAlign:'right',
@@ -96,7 +101,7 @@ const s = StyleSheet.create({
   phraseInput: {
     margin:5,
     padding:5,
-    height:imageSize()*1.3,
+    height:imageSize()*1.5,
   },
   phraseView:{
     padding:10,
