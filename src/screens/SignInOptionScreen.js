@@ -16,13 +16,17 @@ import { signin } from '../actions/auth';
 import AsyncStorage from '@react-native-community/async-storage';
 import PropTypes from 'prop-types';
 import auth from '@react-native-firebase/auth';
+import { appleAuth, AppleButton } from '@invertase/react-native-apple-authentication';
+import DeviceInfo from 'react-native-device-info';
 
 GoogleSignin.configure({
     webClientId: "637414120369-r0u9r7ni68v44hqtum63maprt4v802v4.apps.googleusercontent.com",
 });
 
 const SignInOptionScreen = props => {
-    const { google_sign_in } = props;
+    const { google_sign_in, onAppleButtonPress } = props;
+    const brand = DeviceInfo.getBrand().toLowerCase();
+    console.log(brand,1)
     return (
         <Container>
             <Content contentContainerStyle={s.containerForm}>
@@ -36,6 +40,16 @@ const SignInOptionScreen = props => {
                     <Button rounded block danger onPress={google_sign_in}>
                         <Text style={s.button}>Google</Text>
                     </Button>
+                    <Spacer/>
+                    { brand==='apple'
+                    ? <AppleButton
+                      buttonStyle={AppleButton.Style.BLACK}
+                      buttonType={AppleButton.Type.SIGN_IN}
+                      cornerRadius={45}
+                      style={s.appleButton}
+                      onPress={() => onAppleButtonPress().then(() => console.log('Apple sign-in complete!'))}
+                    />
+                  :null}
                 </View>
             </Content>
         </Container>
@@ -44,6 +58,7 @@ const SignInOptionScreen = props => {
 
 SignInOptionScreen.propTypes = {
     google_sign_in: PropTypes.func,
+    onAppleButtonPress:PropTypes.func,
 };
 
 const mapStateToProps = (state) => {
@@ -63,12 +78,32 @@ const mapStateToProps = (state) => {
           if (response && response.user){
             await AsyncStorage.setItem('token', (await response.user.getIdTokenResult()).token);
             dispatch(signin((await response.user.getIdTokenResult()).token));
-            console.log(idToken);
             navigate('Home');
           }
         } catch (err) {
           console.log(err)
         }
+      },
+      onAppleButtonPress: async () => {
+      try {
+        const appleAuthRequestResponse = await appleAuth.performRequest({
+          requestedOperation: appleAuth.Operation.LOGIN,
+          requestedScopes: [appleAuth.Scope.EMAIL, appleAuth.Scope.FULL_NAME],
+        });
+        if (!appleAuthRequestResponse.identityToken) {
+          throw 'Apple Sign-In failed - no identify token returned';
+        }
+        const { identityToken, nonce } = appleAuthRequestResponse;
+        const appleCredential = auth.AppleAuthProvider.credential(identityToken, nonce);
+        const response = await auth().signInWithCredential(appleCredential);
+        if (response && response.user){
+          await AsyncStorage.setItem('token', (await response.user.getIdTokenResult()).token);
+          dispatch(signin((await response.user.getIdTokenResult()).token));
+          navigate('Home');
+        }
+      } catch (err) {
+        console.log(err)
+      }
       },
     }
   };
