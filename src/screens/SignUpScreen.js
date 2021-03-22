@@ -78,8 +78,8 @@ const mapDispatchToProps = (dispatch) => {
         )
         if (response && response.user){
           response.user.sendEmailVerification();
-          await AsyncStorage.setItem('token', response.user.toJSON().refreshToken);
-          dispatch(signin(response.user.toJSON().refreshToken));
+          await AsyncStorage.setItem('token', response.user.uid);
+          dispatch(signin(response.user.uid));
           navigate('Home');
         }
       } catch (err) {

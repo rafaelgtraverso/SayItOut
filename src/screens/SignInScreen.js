@@ -84,8 +84,8 @@ const mapDispatchToProps = (dispatch) => {
           password
         );
         if (response && response.user){
-          await AsyncStorage.setItem('token', (await response.user.getIdTokenResult()).token);
-          dispatch(signin((await response.user.getIdTokenResult()).token));
+          await AsyncStorage.setItem('token', response.user.uid);
+          dispatch(signin(response.user.uid));
           navigate('Home');
         }
       } catch (err) {
