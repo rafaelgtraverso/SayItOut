@@ -1,26 +1,40 @@
 import React, { useEffect } from 'react';
-import { SafeAreaView, FlatList, TouchableOpacity, View } from 'react-native';
-import s from '../css/styles';
-import { Text, Icon } from 'react-native-elements';
-import { getAllPhrases, removePhrase } from '../api/local/sqlite';
+import { FlatList, View } from 'react-native';
+import s, { colors } from '../css/styles';
+import {
+  Icon,
+  Button,
+  Container,
+  Left,
+  Body,
+  Header,
+  Title,
+  Right,
+  Text
+} from 'native-base'
+import {
+  getAllPhrases,
+  removePhrase
+} from '../api/local/sqlite';
 import Card from '../components/Card';
 import { handleVoice } from '../helpers/tts/handleVoices';
 import * as RNLocalize from 'react-native-localize';
 import { connect } from 'react-redux';
 import { sqlPhrases } from '../actions/phrases';
 import PropTypes from 'prop-types';
+import { SafeAreaView } from 'react-native';
 
 const PhraseListScreen = props => {
-  const email = props.auths.email;
+  const { phrases:{ savedPhrases, phraseId }, auths: { token },sql_phrases } = props
   const locale = RNLocalize.getLocales()[0].languageCode;
-  const cb = (phrases) => props.sql_phrases(phrases, locale);
+  const cb = (phrases) => sql_phrases(phrases, locale);
   useEffect(()=>{
-    getAllPhrases({ cb, email });
-  },[props.phrases.phraseId]);
+    getAllPhrases({ cb, token });
+  },[phraseId]);
 
   const deletePhrase = (item) => {
     removePhrase(item.phrase_id);
-    getAllPhrases({ cb,email });
+    getAllPhrases({ cb,token });
   };
 
   const renderCard = ({ item }) => {
@@ -41,38 +55,37 @@ const PhraseListScreen = props => {
           renderItem={renderCard}
           keyExtractor={(item) => item.name+Math.random(9999).toString()}
         />
-        <TouchableOpacity onPress={()=>handleVoice(item.phraseString)}>
-          <Icon
-            name='play-circle'
-            type='feather'
-            size={50}
-            color='black'
-          />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={()=>deletePhrase(item)}>
-          <Icon
-            name='trash-2'
-            type='feather'
-            size={50}
-            color='red'
-          />
-        </TouchableOpacity>
+        <View style={s.phraseButtonsView}>
+          <Button transparent large onPress={()=>handleVoice(item.phraseString)}>
+            <Icon style={s.buttons} name='play-circle-outline'/>
+          </Button>
+          <Button transparent large onPress={()=>deletePhrase(item)}>
+            <Icon style={[s.buttons,{ color: colors.red }]}
+              name='trash-outline'
+            />
+          </Button>
+        </View>
        </View>
     )
   };
 
   return (
-    <SafeAreaView forceInset={{ top: 'always' }} >
-      <Text style={s.text}> Saved Phrases </Text>
-      <View >
+    <Container>
+      <Header transparent>
+        <Left style={s.headerAndroid}/>
+        <Body  style={s.headerAndroid}>
+          <Title><Text style={s.headerContent}>Phrases</Text></Title>
+        </Body>
+        <Right  style={s.headerAndroid}/>
+      </Header>
+      <SafeAreaView style={s.container}>
         <FlatList
-          style={s.phraseListView}
-          data={props.phrases.savedPhrases}
+          data={savedPhrases}
           renderItem={renderPhrase}
           keyExtractor={item =>item.phrase_id.toString()}
         />
-      </View>
-    </SafeAreaView>
+      </SafeAreaView>
+    </Container>
   );
 };
 

@@ -1,19 +1,30 @@
 import React,{ useEffect } from 'react';
-import { Icon } from 'react-native-elements';
-import { View, ScrollView, TouchableOpacity } from 'react-native';
+import { ScrollView } from 'react-native';
 import s from '../css/styles';
 import Card from '../components/Card';
-import { getPhrasesCount, insertPhrase } from '../api/local/sqlite';
+import {
+    getPhrasesCount,
+    insertPhrase
+} from '../api/local/sqlite';
 import { handleVoice } from '../helpers/tts/handleVoices';
 import { t } from '../helpers/i18n'
 import { connect } from 'react-redux';
-import { deleteLastEntry, clearPhrase, setLastPhraseId } from '../actions/phrases';
+import {
+    deleteLastEntry,
+    clearPhrase,
+    setLastPhraseId
+} from '../actions/phrases';
 import PropTypes from 'prop-types';
+import {
+    Item,
+    Button,
+    Icon
+} from 'native-base';
 
 const Phrase = props => {
     const { auths, phrases, clear_phrase } = props;
     const { phraseId, phrase } = phrases;
-    const { email } = auths;
+    const { token } = auths;
 
     useEffect(() =>{
         const cb = phraseId => props.set_last_phrase_id(phraseId[0].Last_Id + 1);
@@ -23,7 +34,7 @@ const Phrase = props => {
     const savePhrase = () => {
         try{
             if (phraseId > 0){
-                insertPhrase(phraseId, phrase, email);
+                insertPhrase(phraseId, phrase, token);
                 clear_phrase();
             }
         }catch (err){
@@ -38,7 +49,8 @@ const Phrase = props => {
         return phrase2Voice;
     };
     return (
-        <View style={s.phraseInputView} >
+        <>
+        <Item rounded>
             <ScrollView
                 style={s.phraseInput}
                 horizontal={true}
@@ -54,18 +66,20 @@ const Phrase = props => {
                     : null
                 }
             </ScrollView>
-            <View style={s.phraseButtons}>
-                <TouchableOpacity onPress={()=>props.delete_last_entry()} >
-                    <Icon name='delete' type='feather' size={50} color='black' />
-                </TouchableOpacity>
-                <TouchableOpacity onPress={()=> handleVoice(phraseToVoice())}  >
-                    <Icon name='play-circle' type='feather' size={50} color='green' />
-                </TouchableOpacity>
-                <TouchableOpacity onPress={savePhrase} >
-                    <Icon name='save' type='feather' size={50} color='black' />
-                </TouchableOpacity>
-            </View>
-        </View>
+        </Item>
+        <Item style={s.phraseButtons}>
+            <Button  transparent large onPress={()=>props.delete_last_entry()} >
+                <Icon style={s.buttons} name='backspace-outline' />
+            </Button>
+            <Button transparent large onPress={()=> handleVoice(phraseToVoice())}  >
+                <Icon style={s.buttons} name='play-circle-outline'/>
+            </Button>
+            <Button transparent large onPress={savePhrase} >
+                <Icon style={s.buttons} name='save-outline'/>
+            </Button>
+        </Item>
+        </>
+
     )
 };
 

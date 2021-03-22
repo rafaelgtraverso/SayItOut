@@ -1,4 +1,9 @@
 PODS:
+  - AppAuth (1.4.0):
+    - AppAuth/Core (= 1.4.0)
+    - AppAuth/ExternalUserAgent (= 1.4.0)
+  - AppAuth/Core (1.4.0)
+  - AppAuth/ExternalUserAgent (1.4.0)
   - boost-for-react-native (1.63.0)
   - CocoaAsyncSocket (7.6.5)
   - DoubleConversion (1.1.6)
@@ -112,6 +117,10 @@ PODS:
     - nanopb (~> 2.30907.0)
   - GoogleDataTransport (8.2.0):
     - nanopb (~> 2.30907.0)
+  - GoogleSignIn (5.0.2):
+    - AppAuth (~> 1.2)
+    - GTMAppAuth (~> 1.0)
+    - GTMSessionFetcher/Core (~> 1.1)
   - GoogleUtilities/AppDelegateSwizzler (7.2.2):
     - GoogleUtilities/Environment
     - GoogleUtilities/Logger
@@ -131,7 +140,14 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (7.2.2):
     - GoogleUtilities/Logger
+  - GTMAppAuth (1.1.0):
+    - AppAuth/Core (~> 1.4)
+    - GTMSessionFetcher (~> 1.4)
+  - GTMSessionFetcher (1.5.0):
+    - GTMSessionFetcher/Full (= 1.5.0)
   - GTMSessionFetcher/Core (1.5.0)
+  - GTMSessionFetcher/Full (1.5.0):
+    - GTMSessionFetcher/Core (= 1.5.0)
   - libevent (2.1.12)
   - nanopb (2.30907.0):
     - nanopb/decode (= 2.30907.0)
@@ -370,6 +386,8 @@ PODS:
     - React-Core (= 0.63.4)
     - React-cxxreact (= 0.63.4)
     - React-jsi (= 0.63.4)
+  - RNAppleAuthentication (2.1.1):
+    - React-Core
   - RNCAsyncStorage (1.12.0):
     - React
   - RNCMaskedView (0.1.10):
@@ -387,6 +405,9 @@ PODS:
     - React
   - RNGestureHandler (1.7.0):
     - React
+  - RNGoogleSignin (5.0.0):
+    - GoogleSignIn (~> 5.0.0)
+    - React-Core
   - RNLocalize (1.4.1):
     - React
   - RNReanimated (1.13.0):
@@ -455,6 +476,7 @@ DEPENDENCIES:
   - React-RCTText (from `../node_modules/react-native/Libraries/Text`)
   - React-RCTVibration (from `../node_modules/react-native/Libraries/Vibration`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
+  - "RNAppleAuthentication (from `../node_modules/@invertase/react-native-apple-authentication`)"
   - "RNCAsyncStorage (from `../node_modules/@react-native-community/async-storage`)"
   - "RNCMaskedView (from `../node_modules/@react-native-community/masked-view`)"
   - RNDeviceInfo (from `../node_modules/react-native-device-info`)
@@ -462,6 +484,7 @@ DEPENDENCIES:
   - "RNFBAuth (from `../node_modules/@react-native-firebase/auth`)"
   - RNFS (from `../node_modules/react-native-fs`)
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
+  - "RNGoogleSignin (from `../node_modules/@react-native-community/google-signin`)"
   - RNLocalize (from `../node_modules/react-native-localize`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
@@ -473,6 +496,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
+    - AppAuth
     - boost-for-react-native
     - CocoaAsyncSocket
     - Firebase
@@ -490,7 +514,9 @@ SPEC REPOS:
     - FlipperKit
     - GoogleAppMeasurement
     - GoogleDataTransport
+    - GoogleSignIn
     - GoogleUtilities
+    - GTMAppAuth
     - GTMSessionFetcher
     - libevent
     - nanopb
@@ -553,6 +579,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/Libraries/Vibration"
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
+  RNAppleAuthentication:
+    :path: "../node_modules/@invertase/react-native-apple-authentication"
   RNCAsyncStorage:
     :path: "../node_modules/@react-native-community/async-storage"
   RNCMaskedView:
@@ -567,6 +595,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-fs"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
+  RNGoogleSignin:
+    :path: "../node_modules/@react-native-community/google-signin"
   RNLocalize:
     :path: "../node_modules/react-native-localize"
   RNReanimated:
@@ -585,6 +615,7 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
+  AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
   CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
   DoubleConversion: cde416483dac037923206447da6e1454df403714
@@ -607,7 +638,9 @@ SPEC CHECKSUMS:
   glog: 40a13f7840415b9a77023fbcae0f1e6f43192af3
   GoogleAppMeasurement: 688d7f00e2894d9e13823ed9a028b13b993bc277
   GoogleDataTransport: 1024b1a4dfbd7a0e92cb20d7e0a6f1fb66b449a4
+  GoogleSignIn: 7137d297ddc022a7e0aa4619c86d72c909fa7213
   GoogleUtilities: 31c5b01f978a70c6cff2afc6272b3f1921614b43
+  GTMAppAuth: 197a8dabfea5d665224aa00d17f164fc2248dab9
   GTMSessionFetcher: b3503b20a988c4e20cc189aa798fd18220133f52
   libevent: 4049cae6c81cdb3654a443be001fb9bdceff7913
   nanopb: 59221d7f958fb711001e6a449489542d92ae113e
@@ -635,6 +668,7 @@ SPEC CHECKSUMS:
   React-RCTText: 5c51df3f08cb9dedc6e790161195d12bac06101c
   React-RCTVibration: ae4f914cfe8de7d4de95ae1ea6cc8f6315d73d9d
   ReactCommon: 73d79c7039f473b76db6ff7c6b159c478acbbb3b
+  RNAppleAuthentication: f4cc93d710f1337f66550d04d84bf47553bc0eae
   RNCAsyncStorage: 2a692bcb9b69b76a2f1a95f33db057129700af64
   RNCMaskedView: 5a8ec07677aa885546a0d98da336457e2bea557f
   RNDeviceInfo: 5eb11f4aef9395cca403c0c92dff458252fc0b2c
@@ -642,6 +676,7 @@ SPEC CHECKSUMS:
   RNFBAuth: b5b1ba3df98f23b1f41829b762477ccb60b0e747
   RNFS: 2bd9eb49dc82fa9676382f0585b992c424cd59df
   RNGestureHandler: b6b359bb800ae399a9c8b27032bdbf7c18f08a08
+  RNGoogleSignin: ad866d4c4af2651e36801dd3b7771d7715353499
   RNLocalize: 49634a6a605dcdeb319e9c42a5c2f1aec508694b
   RNReanimated: 89f5e0a04d1dd52fbf27e7e7030d8f80a646a3fc
   RNScreens: b748efec66e095134c7166ca333b628cd7e6f3e2

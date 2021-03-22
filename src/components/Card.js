@@ -1,5 +1,8 @@
 import React from 'react';
-import { View, Image } from 'react-native';
+import {
+    View,
+    Image
+} from 'react-native';
 import s from '../css/styles';
 import { Text } from 'react-native-elements';
 import { t } from '../helpers/i18n';
@@ -12,6 +15,7 @@ const Card = params => {
             <Image
                 style={s.image}
                 source={imgData[item.name]}
+                resizeMode='contain'
             />
             <Text style={s.textFlatList}>{t[item.name]}</Text>
         </View>

@@ -7,14 +7,14 @@ const db = SQLite.openDatabase({
   name: 'SayItOut2.db', createFromLocation: 1
 }, okCallback, errorCallback);
 
-export const insertPhrase = (phrase_id, phrase, email) => {
+export const insertPhrase = (phrase_id, phrase, token) => {
   phrase.forEach((element, index) => {
     db.transaction( txn => {
       txn.executeSql(`
           INSERT INTO Phrases (
             phrase_id, card_id, card_position, user_token
           ) values (?, ?, ?, ?)`,
-        [phrase_id, element.card_id, index, email],
+        [phrase_id, element.card_id, index, token],
         (tx,res)=>console.log(res),
         (tx, err)=>console.log(err)
       );
@@ -23,13 +23,13 @@ export const insertPhrase = (phrase_id, phrase, email) => {
 };
 
 export const getAllPhrases = payload => {
-  const { cb, email } = payload;
+  const { cb, token } = payload;
   db.transaction( txn => {
     txn.executeSql(`
         SELECT phrase_id, card_position, name
         FROM Phrases, Cards
         WHERE user_token = (?) AND Phrases.card_id = Cards.card_id `,
-      [email],
+      [token],
       (tx, res) => cb(res.rows.raw()),
       (tx, err) => console.log(err));
   });

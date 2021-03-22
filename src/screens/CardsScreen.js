@@ -1,14 +1,24 @@
 import React, { useEffect, useState } from 'react';
-import { SafeAreaView } from 'react-native';
 import Phrase from '../components/Phrase';
 import CardsGrid from '../components/CardsGrid';
-import HeaderCards from '../components/HeaderCards';
 import { getCards } from '../api/local/sqlite'
 import { connect } from 'react-redux';
 import { showPhrase } from '../actions/phrases';
 import PropTypes from 'prop-types';
 import { handleVoice } from '../helpers/tts/handleVoices';
 import { t } from '../helpers/i18n'
+import {
+  Container,
+  Header,
+  Left,
+  Button,
+  Icon,
+  Body,
+  Title,
+  Right
+} from 'native-base';
+import { navigate } from '../navigationRef';
+import s from '../css/styles';
 
 const CardsScreen = props => {
   const { cards: { cat_name }, show_phrase } = props;
@@ -20,18 +30,24 @@ const CardsScreen = props => {
   },[]);
 
   return (
-    <SafeAreaView >
-      <HeaderCards
-        title={cat_name}
-        goBack={true}
-        prevScreen='Home'
-        />
+    <Container >
+      <Header transparent>
+          <Left style={[s.headerAndroid,s.headerLeft]}>
+            <Button transparent onPress={()=>navigate('Home')}>
+              <Icon name='arrow-back-outline' type='Ionicons' style={s.headerContent}/>
+            </Button>
+          </Left >
+          <Body style={s.headerAndroid}>
+            <Title style={s.headerContent}>{cat_name}</Title>
+          </Body>
+          <Right style={s.headerAndroid}/>
+        </Header>
         <Phrase />
         <CardsGrid
           data={dataSql}
           on_Press = {show_phrase}
         />
-    </SafeAreaView>
+    </Container>
   );
 };
 

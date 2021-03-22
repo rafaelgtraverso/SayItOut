@@ -1,12 +1,25 @@
 import React, { useState } from 'react';
 import s from '../css/styles';
-import { SafeAreaView ,View } from 'react-native';
-import { Text, Input, Button } from 'react-native-elements';
-import Icon from 'react-native-vector-icons/FontAwesome';
-
+import {
+  Container,
+  Header,
+  Left,
+  Content,
+  Input,
+  Item,
+  Text,
+  Button,
+  Icon,
+  View,
+  Body,
+  Right
+} from 'native-base';
+import Spacer from '../components/Spacer';
 import { connect } from 'react-redux';
-import { clearErrorMessage, authError } from '../actions/auth';
-
+import {
+  clearErrorMessage,
+  authError
+} from '../actions/auth';
 import { navigate } from '../navigationRef';
 import PropTypes from 'prop-types';
 import auth from '@react-native-firebase/auth'
@@ -19,35 +32,49 @@ const RecoveryPasswordScreen = props => {
 
   return (
     <>
-      <SafeAreaView style={s.container}>
-        <View style={s.containerInput}>
-            <Text style={s.text}> Please enter you email address to reset your password:</Text>
-            <Input
+      <Container>
+        <Header transparent>
+          <Left>
+            <Button transparent onPress={()=>navigate('Signin')}>
+              <Icon name='arrow-back-outline' type='Ionicons' style={s.headerContent}/>
+            </Button>
+          </Left>
+          <Body/>
+          <Right/>
+        </Header>
+        <Content contentContainerStyle={s.containerForm}>
+          <Text style={s.recoveryTitle}> Please enter you email address to reset your password:</Text>
+          <Spacer/>
+          <View style={s.authForm}>
+            <Item rounded>
+              <Icon
+                name='user'
+                type='FontAwesome'
+                fontSize={24}
+                style={s.inputIcon}
+              />
+              <Input
                 value={email}
                 onChangeText={setEmail}
                 autoCapitalize="none"
                 autoCorrect={false}
                 placeholder='Email'
-                leftIcon={
-                    <Icon
-                    name='user'
-                    size={24}
-                    color='black'
-                    />
-                }
-                />
-                {errorMessage ? <Text style={s.error}>{errorMessage}</Text> : null}
-                <Button
-                title='Reset'
-                onPress={()=>reset_password(email)}
-                buttonStyle={s.button}
-                />
-                <NavLink
-                    routeName="Signin"
-                    text="I remember my password take me back to Sign In"
-                />
-        </View>
-      </SafeAreaView>
+              />
+            </Item>
+            <Spacer/>
+            {errorMessage ? <Text style={s.error}>{errorMessage}</Text> : null}
+            <Spacer/>
+            <Button rounded block light onPress={()=>reset_password(email)}>
+              <Text style={s.button}>Reset Password</Text>
+            </Button>
+            <Spacer/>
+            <NavLink
+                routeName="Signin"
+                text="I remember my password take me back to Sign In"
+            />
+          </View>
+        </Content>
+      </Container>
     </>
   );
 };

@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
-import { Image, View, SafeAreaView } from 'react-native';
-import { Text, Input, Button } from 'react-native-elements';
+import { Text } from 'react-native-elements';
+import { View } from 'react-native';
+import {
+  Item,
+  Input,
+  Button,
+} from 'native-base';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import s from '../css/styles';
-import logo from '../assets/logo.png';
-import logoTitle from '../assets/LogoTitle.png';
-import logoSubtitle from '../assets/LogoSubtitle.png';
+import LogoAndTitle from '../components/LogoAndTitle';
 import NavLink from '../components/NavLink';
+import Spacer from '../components/Spacer';
 
 const AuthForm = params => {
   const { headerText, errorMessage, onSubmit, submitButtonText } = params;
@@ -14,68 +18,73 @@ const AuthForm = params => {
   const [password, setPassword] = useState('');
 
   return (
-    <SafeAreaView style={s.containerForm}>
-      <View style={s.logoContainer} >
-        <Image source={logoTitle} style={s.logosTitle} resizeMode='contain' />
-        <Image source={logo} style={s.logo} resizeMode='contain' />
-        <Image source={logoSubtitle} style={s.logosSubtitle} resizeMode='contain' />
-      </View>
-      <View style={s.containerInput}>
-      {headerText=='signup' ? <Text style={s.textForm}>Sign Up</Text> : null}
-        <Input
-          value={email}
-          onChangeText={setEmail}
-          autoCapitalize="none"
-          autoCorrect={false}
-          placeholder='Email'
-          leftIcon={
-            <Icon
-              name='user'
-              size={24}
-              color='black'
-            />
-          }
-        />
-        <Input
-          secureTextEntry
-          placeholder="Password"
-          value={password}
-          onChangeText={setPassword}
-          autoCapitalize="none"
-          autoCorrect={false}
-          leftIcon={
-            <Icon
-              name='lock'
-              size={24}
-              color='black'
-            />
-          }
-        />
-        {errorMessage ? <Text style={s.error}>{errorMessage}</Text> : null}
+    <>
+      <LogoAndTitle />
+      <View style={s.authForm}>
+        {headerText=='signup' ? <Text style={s.textForm} h3>Sign Up</Text> : null}
+        <Spacer/>
+        <Item rounded>
+          <Icon
+            name='user'
+            size={24}
+            color='black'
+            style={s.inputIcon}
+          />
+          <Input
+            value={email}
+            onChangeText={setEmail}
+            autoCapitalize="none"
+            autoCorrect={false}
+            placeholder='Email'
+          />
+        </Item>
+        <Spacer/>
+        <Item rounded>
+          <Icon
+            name='lock'
+            size={24}
+            color='black'
+            style={s.inputIcon}
+          />
+          <Input
+            secureTextEntry
+            placeholder="Password"
+            value={password}
+            onChangeText={setPassword}
+            autoCapitalize="none"
+            autoCorrect={false}
+          />
+        </Item>
+        <Spacer/>
+          {errorMessage ? <Text style={s.error}>{errorMessage}</Text> : null}
+        <Spacer/>
         <Button
-          title={submitButtonText}
+          primary
+          rounded
+          block
           onPress={() => onSubmit({ email, password })}
-          buttonStyle={s.button}
           onPressOut={()=>setPassword('')}
+        >
+          <Text style={s.button}> {submitButtonText} </Text>
+        </Button>
+        <Spacer/>
+        <NavLink
+          routeName="RecoveryPassword"
+          text="Forgot your password?"
         />
-        <View>
-          <NavLink
-              routeName="RecoveryPassword"
-              text="Forgot your password?"
-            />
-          {headerText == 'signin'
-          ? <NavLink
-              routeName="Signup"
-              text="Don't have an account? Sign up instead"
-            />
-          : <NavLink
-              routeName="Signin"
-              text="Already have an account? Sign in instead"
-            />
-          }
-        </View>
+        <Spacer/>
+        {headerText == 'signin'
+        ? <NavLink
+            routeName="Signup"
+            text="Don't have an account? Sign up instead"
+          />
+        : <NavLink
+            routeName="Signin"
+            text="Already have an account? Sign in instead"
+          />
+        }
       </View>
-    </SafeAreaView>
+    </>
   );
 };
 

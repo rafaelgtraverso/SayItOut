@@ -1,10 +1,18 @@
 import { StyleSheet } from 'react-native';
-import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp
+} from 'react-native-responsive-screen';
 
+const imageSize = () =>{
+  if (wp('15%') > hp('15%')) return hp('15%');
+  return wp('15%');
+}
 export const colors ={
  blue : 'rgba(0,0,255,1)',
   red : 'rgba(255,0,0,1)',
   green : 'rgba(69,160,0,1)',
+  lightGreen : 'rgba(69,160,0,1)',
   black : 'rgba(0,0,0,1)',
   white : '#rgba(255,255,255,1)',
   grey1 : '#ddd',
@@ -12,43 +20,60 @@ export const colors ={
 
 
 const s = StyleSheet.create({
+  appleButton:{
+    minWidth: wp('60%'),
+    maxWidth:wp('80%'),
+    height:45,
+  },
   link: {
-    color: colors.blue
+    color: colors.blue,
+    textAlign:'right',
+    fontSize:20,
+  },
+  signup:{
+    fontSize:20,
+    color:colors.green
+  },
+  recoveryTitle:{
+    fontSize:30,
+    color:colors.green
+
+  },
+  authForm:{
+    minWidth: wp('60%'),
+    maxWidth:wp('80%')
   },
   textForm:{
     alignSelf:'center',
-    fontSize:18
+    color:colors.green,
   },
   button:{
-    paddingHorizontal:55,
-    fontSize:24,
+    fontSize:20,
+    color:colors.white,
+    textTransform:'capitalize'
   },
-  logo:{
-    width:  wp('60%'),
-    height: hp('15%'),
-  },
-  logosTitle:{
-    width:  wp('80%'),
-  },
-  logosSubtitle:{
-    width:  wp('80%'),
+  formLogo:{
+    maxHeight:hp('5%'),
+    maxWidth:wp('80%'),
   },
   container:{
-    flex:1 ,
+    justifyContent:'center',
+    padding:5
   },
-  logoContainer:{
-    flex:1,
-    alignItems:'center',
-    justifyContent:'space-around',
+  logo:{
+    maxHeight:hp('15%'),
+    maxWidth:wp('15%'),
   },
   containerForm: {
+    alignItems: 'center',
     flex:1,
+    justifyContent:'center',
+    margin:10,
   },
   containerInput:{
-    flex:1,
-    width: wp('80%'),
-    alignSelf:'center',
-    justifyContent: 'space-around',
+    flex:0.5,
+    padding:50,
+    justifyContent: 'space-between',
   },
   error:{
     fontSize: 18,
@@ -59,7 +84,7 @@ const s = StyleSheet.create({
     margin: 10,
   },
   text: {
-    fontSize: 48,
+    fontSize: 40,
     color: colors.green,
   },
   isLoadingView: {
@@ -68,26 +93,30 @@ const s = StyleSheet.create({
     alignItems: 'center',
   },
   phraseInputView: {
-   marginVertical:15,
-   marginHorizontal:25
+    height:wp('35%'),
+    padding:5,
+    borderWidth:1,
+    marginHorizontal:10,
   },
   phraseInput: {
-    paddingBottom:5,
-    borderBottomWidth:3,
-    height:200,
+    margin:5,
+    padding:5,
+    height:imageSize()*1.5,
   },
   phraseView:{
     padding:10,
     borderBottomWidth:1,
     flexDirection:'row',
     flex:1,
-    alignItems:'center'
   },
   phraseButtons: {
-    flexWrap:"wrap",
+    flexWrap:'wrap',
     flexDirection:'row',
-    alignSelf:'flex-end',
-    margin:5,
+    justifyContent:'flex-end',
+  },
+  buttons:{
+    fontSize:40,
+    color:colors.green,
   },
   cardsGridview: {
     alignItems: 'center',
@@ -96,22 +125,22 @@ const s = StyleSheet.create({
     marginBottom:100,
   },
   image: {
-    width: 150,
-    height: 150,
-    borderWidth: 2,
-    borderColor: colors.grey1,
-    borderRadius: 10,
-    backgroundColor: colors.white,
-    margin: 5,
+    width: imageSize(),
+    height: imageSize(),
+    marginHorizontal: 5,
+  },
+  cardItem:{
+    justifyContent:'center'
   },
   textFlatList: {
     textAlign: 'center',
-    width: 110,
+    fontSize: imageSize()/5,
     textTransform: 'capitalize'
   },
   flatList: {
     alignItems: 'center',
-    paddingBottom:750
+    margin:5,
+    padding:5
   },
   cardContainer: {
     alignItems: 'center',
@@ -121,16 +150,26 @@ const s = StyleSheet.create({
     alignSelf:'center',
     padding:100,
   },
-  header:{
-    height:60,
-    marginTop:10,
-  },
   headerContent:{
-    fontSize:40,
+    fontSize:hp('3%'),
     textTransform: 'capitalize',
-    height:60,
     color:colors.black,
-    marginBottom:10,
+    alignItems:'center',
+  },
+ headerAndroid:{
+  flex:1,
+  alignItems:'center',
+  backgroundColor:colors.white
+ },
+ headerLeft:{
+  alignItems:'flex-start'
+},
+  inputIcon:{
+    paddingLeft:15,
+    color:colors.black,
+  },
+  phraseButtonsView:{
+    justifyContent:'center',
   }
 });
 

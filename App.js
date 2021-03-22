@@ -3,7 +3,6 @@ import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 
-import AccountScreen from './src/screens/AccountScreen';
 import CreateCardScreen from './src/screens/CreateCardScreen';
 import PhraseListScreen from './src/screens/PhraseListScreen';
 import HomeScreen from './src/screens/HomeScreen';
@@ -12,17 +11,20 @@ import SignUpScreen from './src/screens/SignUpScreen';
 import ResolveAuthScreen from './src/screens/ResolveAuthScreen';
 
 import { Provider } from 'react-redux';
+import s from './src/css/styles';
 
 import { setNavigator } from './src/navigationRef';
-import LoadingScreen from './src/screens/LoadingScreen';
 import configureStore from './src/store';
 import PasswordRecoveryScreen from './src/screens/PasswordRecoveryScreen';
 import CardsScreen from './src/screens/CardsScreen';
+import SignInOptionScreen from './src/screens/SignInOptionScreen';
+import SettingsScreen from './src/screens/SettingsScreen';
+
 
 const switchNavigator = createSwitchNavigator({
   resolveAuth: ResolveAuthScreen,
-  loading: LoadingScreen,
   loginFlow: createStackNavigator({
+    SigninOptions: SignInOptionScreen,
     Signin: SignInScreen,
     Signup: SignUpScreen,
     RecoveryPassword: PasswordRecoveryScreen,
@@ -38,8 +40,19 @@ const switchNavigator = createSwitchNavigator({
     },{
       headerMode: 'none',
     }),
-    Phrases: createStackNavigator({ Phrases:PhraseListScreen }),
-    Account: createStackNavigator({ Account:AccountScreen }),
+    Phrases: createStackNavigator({ Phrases:PhraseListScreen },{ headerMode:'none' }),
+    Settings: createStackNavigator({ Settings:SettingsScreen }, { headerMode:'none' }),
+  },
+  {
+    tabBarOptions: {
+      activeTintColor: 'rgba(69,160,0,1)',
+      labelStyle: {
+        fontSize: 20,
+      },
+      style: {
+        paddingVertical:5,
+      },
+    }
   })
 });
 
